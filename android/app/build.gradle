@@ -35,22 +35,29 @@ if (flutterVersionName == null) {
 
 
 def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
+def keystorePropertiesFile = rootProject.file('keystore.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
 android {
-    compileSdk flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    namespace 'com.mobileraker'
+    compileSdk 34
+    ndkVersion '25.1.8937393'
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17) // or 1.8
+        }
     }
 
     sourceSets {
@@ -61,26 +68,57 @@ android {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.creatbot.klipper"
 //        minSdkVersion flutter.minSdkVersion
-        minSdkVersion 25
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        minSdk 26
+        targetSdk 34
+        versionCode 100
+        versionName "100"
     }
 
     signingConfigs {
         release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            storePassword keystoreProperties['storePassword']
+            v1SigningEnabled true
+            v2SigningEnabled true
+            storeFile file(keystoreProperties.RELEASE_STOREFILE)
+            storePassword keystoreProperties.RELEASE_STORE_PASSWORD
+            keyAlias keystoreProperties.RELEASE_KEY_ALIAS
+            keyPassword keystoreProperties.RELEASE_KEY_PASSWORD
         }
     }
 
     buildTypes {
-        release {
+        debug {
+            debuggable true
+            minifyEnabled false
             signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            debuggable false
+            minifyEnabled true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                def fileName = 'app_unknow.apk'
+                def date = new Date()
+                def formattedDate = date.format('yyyyMMdd')
+                if (variant.buildType.name.equals('release')) {
+                    fileName = "app_V${variant.mergedFlavor.versionName}_release_${formattedDate}.apk"
+                    outputFileName = fileName
+                } else if (variant.buildType.name.equals('debug')) {
+                    fileName = "app_V${variant.mergedFlavor.versionName}_debug_${formattedDate}.apk"
+                    outputFileName = fileName
+                }
+                outputFileName = fileName
+            }
+    }
+
+    buildToolsVersion '34.0.0'
 }
 
 flutter {
