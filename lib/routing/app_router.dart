@@ -43,10 +43,10 @@ import 'package:mobileraker/ui/screens/spoolman/spool_detail_page.dart';
 import 'package:mobileraker/ui/screens/spoolman/spoolman_page.dart';
 import 'package:mobileraker/ui/screens/spoolman/vendor_detail_page.dart';
 import 'package:mobileraker/ui/screens/tools/components/belt_tuner.dart';
-import 'package:mobileraker_pro/service/ui/pro_routes.dart';
-import 'package:mobileraker_pro/spoolman/dto/get_filament.dart';
-import 'package:mobileraker_pro/spoolman/dto/get_spool.dart';
-import 'package:mobileraker_pro/spoolman/dto/get_vendor.dart';
+// import 'package:mobileraker_pro/service/ui/pro_routes.dart';
+// import 'package:mobileraker_pro/spoolman/dto/get_filament.dart';
+// import 'package:mobileraker_pro/spoolman/dto/get_spool.dart';
+// import 'package:mobileraker_pro/spoolman/dto/get_vendor.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:smooth_sheets/smooth_sheets.dart';
 
@@ -191,21 +191,21 @@ GoRouter goRouterImpl(GoRouterRef ref) {
               return GoTransitions.fullscreenDialog(context, state);
             },
           ),
-          GoRoute(
-            path: 'gcode-preview',
-            name: ProRoutes.fileManager_exlorer_gcodePreview.name,
-            builder: (context, state) => GCodePreviewPage(
-              machineUUID: state.uri.queryParameters['machineUUID']!,
-              file: state.extra as GCodeFile,
-              live: state.uri.queryParameters['live'] == 'true',
-            ),
-            pageBuilder: GoTransitions.fullscreenDialog,
-          ),
-          GoRoute(
-            path: 'gcode-details',
-            name: AppRoute.fileManager_exlorer_gcodeDetail.name,
-            builder: (context, state) => GCodeFileDetailPage(gcodeFile: state.extra! as GCodeFile),
-          ),
+          // GoRoute(
+          //   path: 'gcode-preview',
+          //   name: ProRoutes.fileManager_exlorer_gcodePreview.name,
+          //   builder: (context, state) => GCodePreviewPage(
+          //     machineUUID: state.uri.queryParameters['machineUUID']!,
+          //     file: state.extra as GCodeFile,
+          //     live: state.uri.queryParameters['live'] == 'true',
+          //   ),
+          //   pageBuilder: GoTransitions.fullscreenDialog,
+          // ),
+          // GoRoute(
+          //   path: 'gcode-details',
+          //   name: AppRoute.fileManager_exlorer_gcodeDetail.name,
+          //   builder: (context, state) => GCodeFileDetailPage(gcodeFile: state.extra! as GCodeFile),
+          // ),
           GoRoute(
             path: 'editor',
             name: AppRoute.fileManager_exlorer_editor.name,
@@ -291,88 +291,88 @@ GoRouter goRouterImpl(GoRouterRef ref) {
           ),
         ],
       ),
-      GoRoute(
-        path: '/spoolman',
-        name: ProRoutes.spoolman.name,
-        builder: (context, state) => const SpoolmanPage(),
-        routes: [
-          GoRoute(
-            path: 'details/spool',
-            name: ProRoutes.spoolman_details_spool.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID, GetSpool spool] => SpoolDetailPage(spool: spool, machineUUID: machineUUID),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-          ),
-          GoRoute(
-            path: 'details/filament',
-            name: ProRoutes.spoolman_details_filament.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID, GetFilament filament] =>
-                FilamentDetailPage(filament: filament, machineUUID: machineUUID),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-          ),
-          GoRoute(
-            path: 'details/vendor',
-            name: ProRoutes.spoolman_details_vendor.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID, GetVendor vendor] => VendorDetailPage(vendor: vendor, machineUUID: machineUUID),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-          ),
-          GoRoute(
-            path: 'create/spool',
-            name: ProRoutes.spoolman_form_spool.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID] => SpoolFormPage(machineUUID: machineUUID),
-              [String machineUUID, GetSpool spool] => SpoolFormPage(
-                  machineUUID: machineUUID,
-                  initialSpool: spool,
-                  isCopy: state.uri.queryParameters['isCopy'] == 'true',
-                ),
-              [String machineUUID, GetFilament filament] => SpoolFormPage(
-                  machineUUID: machineUUID,
-                  initialFilament: filament,
-                ),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-            pageBuilder: GoTransitions.fullscreenDialog,
-          ),
-          GoRoute(
-            path: 'create/filament',
-            name: ProRoutes.spoolman_form_filament.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID] => FilamentFormPage(machineUUID: machineUUID),
-              [String machineUUID, GetFilament filament] => FilamentFormPage(
-                  machineUUID: machineUUID,
-                  initialFilament: filament,
-                  isCopy: state.uri.queryParameters['isCopy'] == 'true',
-                ),
-              [String machineUUID, GetVendor vendor] => FilamentFormPage(
-                  machineUUID: machineUUID,
-                  initialVendor: vendor,
-                ),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-            pageBuilder: GoTransitions.fullscreenDialog,
-          ),
-          GoRoute(
-            path: 'create/vendor',
-            name: ProRoutes.spoolman_form_vendor.name,
-            builder: (context, state) => switch (state.extra) {
-              [String machineUUID] => VendorFormPage(machineUUID: machineUUID),
-              [String machineUUID, GetVendor vendor] => VendorFormPage(
-                  machineUUID: machineUUID,
-                  vendor: vendor,
-                  isCopy: state.uri.queryParameters['isCopy'] == 'true',
-                ),
-              _ => throw ArgumentError('Invalid state.extra for spool-details route'),
-            },
-            pageBuilder: GoTransitions.fullscreenDialog,
-          ),
-        ],
-      ),
+      // GoRoute(
+      //   path: '/spoolman',
+      //   name: ProRoutes.spoolman.name,
+      //   builder: (context, state) => const SpoolmanPage(),
+      //   routes: [
+      //     GoRoute(
+      //       path: 'details/spool',
+      //       name: ProRoutes.spoolman_details_spool.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID, GetSpool spool] => SpoolDetailPage(spool: spool, machineUUID: machineUUID),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: 'details/filament',
+      //       name: ProRoutes.spoolman_details_filament.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID, GetFilament filament] =>
+      //           FilamentDetailPage(filament: filament, machineUUID: machineUUID),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: 'details/vendor',
+      //       name: ProRoutes.spoolman_details_vendor.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID, GetVendor vendor] => VendorDetailPage(vendor: vendor, machineUUID: machineUUID),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //     ),
+      //     GoRoute(
+      //       path: 'create/spool',
+      //       name: ProRoutes.spoolman_form_spool.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID] => SpoolFormPage(machineUUID: machineUUID),
+      //         [String machineUUID, GetSpool spool] => SpoolFormPage(
+      //             machineUUID: machineUUID,
+      //             initialSpool: spool,
+      //             isCopy: state.uri.queryParameters['isCopy'] == 'true',
+      //           ),
+      //         [String machineUUID, GetFilament filament] => SpoolFormPage(
+      //             machineUUID: machineUUID,
+      //             initialFilament: filament,
+      //           ),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //       pageBuilder: GoTransitions.fullscreenDialog,
+      //     ),
+      //     GoRoute(
+      //       path: 'create/filament',
+      //       name: ProRoutes.spoolman_form_filament.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID] => FilamentFormPage(machineUUID: machineUUID),
+      //         [String machineUUID, GetFilament filament] => FilamentFormPage(
+      //             machineUUID: machineUUID,
+      //             initialFilament: filament,
+      //             isCopy: state.uri.queryParameters['isCopy'] == 'true',
+      //           ),
+      //         [String machineUUID, GetVendor vendor] => FilamentFormPage(
+      //             machineUUID: machineUUID,
+      //             initialVendor: vendor,
+      //           ),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //       pageBuilder: GoTransitions.fullscreenDialog,
+      //     ),
+      //     GoRoute(
+      //       path: 'create/vendor',
+      //       name: ProRoutes.spoolman_form_vendor.name,
+      //       builder: (context, state) => switch (state.extra) {
+      //         [String machineUUID] => VendorFormPage(machineUUID: machineUUID),
+      //         [String machineUUID, GetVendor vendor] => VendorFormPage(
+      //             machineUUID: machineUUID,
+      //             vendor: vendor,
+      //             isCopy: state.uri.queryParameters['isCopy'] == 'true',
+      //           ),
+      //         _ => throw ArgumentError('Invalid state.extra for spool-details route'),
+      //       },
+      //       pageBuilder: GoTransitions.fullscreenDialog,
+      //     ),
+      //   ],
+      // ),
       ShellRoute(
         observers: [
           sheetTransitionObserver,

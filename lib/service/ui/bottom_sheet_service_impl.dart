@@ -14,10 +14,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobileraker/ui/components/bottomsheet/action_bottom_sheet.dart';
 import 'package:mobileraker/ui/components/bottomsheet/manage_services_bottom_sheet.dart';
 import 'package:mobileraker/ui/components/bottomsheet/sort_mode_bottom_sheet.dart';
-import 'package:mobileraker_pro/gcode_preview/ui/gcode_visualizer_settings_sheet.dart';
-import 'package:mobileraker_pro/job_queue/ui/job_queue_sheet.dart';
+// import 'package:mobileraker_pro/gcode_preview/ui/gcode_visualizer_settings_sheet.dart';
+// import 'package:mobileraker_pro/job_queue/ui/job_queue_sheet.dart';
 import 'package:mobileraker_pro/service/ui/pro_sheet_type.dart';
-import 'package:mobileraker_pro/spoolman/ui/select_spoolman_sheet.dart';
+// import 'package:mobileraker_pro/spoolman/ui/select_spoolman_sheet.dart';
 import 'package:smooth_sheets/smooth_sheets.dart';
 
 import '../../ui/components/bottomsheet/color_picker_sheet.dart';
@@ -90,17 +90,17 @@ class BottomSheetServiceImpl implements BottomSheetService {
             );
           },
         ),
-        GoRoute(
-          name: ProSheetType.jobQueueMenu.name,
-          path: '/sheet/job-queue',
-          pageBuilder: (context, state) {
-            // SheetContentScaffold
-            return ScrollableNavigationSheetPage(
-              name: state.name,
-              child: const JobQueueBottomSheet(),
-            );
-          },
-        ),
+        // GoRoute(
+        //   name: ProSheetType.jobQueueMenu.name,
+        //   path: '/sheet/job-queue',
+        //   pageBuilder: (context, state) {
+        //     // SheetContentScaffold
+        //     return ScrollableNavigationSheetPage(
+        //       name: state.name,
+        //       child: const JobQueueBottomSheet(),
+        //     );
+        //   },
+        // ),
         GoRoute(
           name: SheetType.addRemoteCon.name,
           path: '/sheet/add-remote-connection',
@@ -138,19 +138,19 @@ class BottomSheetServiceImpl implements BottomSheetService {
             );
           },
         ),
-        GoRoute(
-          name: ProSheetType.selectSpoolman.name,
-          path: '/sheet/select-spoolman',
-          pageBuilder: (context, state) {
-            assert(state.extra is String, 'Invalid extra data for String');
-
-            // SheetContentScaffold
-            return ScrollableNavigationSheetPage(
-              name: state.name,
-              child: SelectSpoolmanSheet(machineUUID: state.extra as String),
-            );
-          },
-        ),
+        // GoRoute(
+        //   name: ProSheetType.selectSpoolman.name,
+        //   path: '/sheet/select-spoolman',
+        //   pageBuilder: (context, state) {
+        //     assert(state.extra is String, 'Invalid extra data for String');
+        //
+        //     // SheetContentScaffold
+        //     return ScrollableNavigationSheetPage(
+        //       name: state.name,
+        //       child: SelectSpoolmanSheet(machineUUID: state.extra as String),
+        //     );
+        //   },
+        // ),
         GoRoute(
           name: SheetType.dashboardCards.name,
           path: '/sheet/dashboard-cards',
@@ -220,16 +220,16 @@ class BottomSheetServiceImpl implements BottomSheetService {
             );
           },
         ),
-        GoRoute(
-          name: ProSheetType.gcodeVisualizerSettings.name,
-          path: '/sheet/gcode-visualizer-settings',
-          pageBuilder: (context, state) {
-            return ScrollableNavigationSheetPage(
-              name: state.name,
-              child: const GCodeVisualizerSettingsSheet(),
-            );
-          },
-        ),
+        // GoRoute(
+        //   name: ProSheetType.gcodeVisualizerSettings.name,
+        //   path: '/sheet/gcode-visualizer-settings',
+        //   pageBuilder: (context, state) {
+        //     return ScrollableNavigationSheetPage(
+        //       name: state.name,
+        //       child: const GCodeVisualizerSettingsSheet(),
+        //     );
+        //   },
+        // ),
         GoRoute(
           name: SheetType.colorPicker.name,
           path: '/sheet/color-picker',

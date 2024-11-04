@@ -31,7 +31,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:live_activities/live_activities.dart';
 import 'package:mobileraker/service/ui/bottom_sheet_service_impl.dart';
-import 'package:mobileraker_pro/gcode_preview/ui/gcode_preview_card.dart';
+// import 'package:mobileraker_pro/gcode_preview/ui/gcode_preview_card.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -61,7 +61,7 @@ class DevPage extends HookConsumerWidget {
         ),
 
         // GCodePreviewCard.preview(),
-        GCodePreviewCard(machineUUID: selMachine.uuid),
+        // GCodePreviewCard(machineUUID: selMachine.uuid),
         // const _StlPreview(),
         // const _Consent(),
 

@@ -55,3 +55,8 @@ GoogleService-Info.plist
 *.patch
 /lib/license.dart
 firebase.json
+
+android/.gradle/
+android/app/build/
+android/captures/
+android/local.properties
