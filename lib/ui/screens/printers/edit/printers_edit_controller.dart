@@ -555,10 +555,24 @@ class WebcamListController extends _$WebcamListController {
 
   addNewWebCam() {
     if (!state.hasValue) return;
+    WebcamInfo webcamInfo = WebcamInfo.mjpegDefault();
+    if(!isWebcamExist(webcamInfo,state.value!)) {
+      state = AsyncValue.data(
+        List.unmodifiable([...state.value!, webcamInfo]),
+      );
+    }
+    // state = AsyncValue.data(
+    //   List.unmodifiable([...state.value!, WebcamInfo.mjpegDefault()]),
+    // );
+  }
 
-    state = AsyncValue.data(
-      List.unmodifiable([...state.value!, WebcamInfo.mjpegDefault()]),
-    );
+  bool isWebcamExist(WebcamInfo webcamInfo,List<WebcamInfo> webcamInfoList) {
+    for (var value in webcamInfoList) {
+      if(value.name == webcamInfo.name) {
+        return true;
+      }
+    }
+    return false;
   }
 
   removeWebcam(WebcamInfo webcamInfo) {

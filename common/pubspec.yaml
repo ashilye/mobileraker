@@ -97,6 +97,10 @@ dependencies:
   hashlib: ^1.21.0
 
 
+  # 添加依赖库
+  # 状态管理
+  get: ^4.6.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

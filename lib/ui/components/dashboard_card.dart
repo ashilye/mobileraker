@@ -106,10 +106,11 @@ class DasboardCard extends StatelessWidget {
       DashboardComponentType.firmwareRetraction => FirmwareRetractionCard(machineUUID: machineUUID),
       DashboardComponentType.bedMesh => BedMeshCard(machineUUID: machineUUID),
       // DashboardComponentType.gcodePreview => GCodePreviewCard(machineUUID: machineUUID),
-      _ => ErrorCard(
-          title: const Text('Unknown card type'),
-          body: Text('The card type $type is not supported'),
-        ),
+      // _ => ErrorCard(
+      //     title: const Text('Unknown card type'),
+      //     body: Text('The card type $type is not supported'),
+      //   ),
+      _ => const SizedBox.shrink()
     };
   }
 
@@ -133,12 +134,13 @@ class DasboardCard extends StatelessWidget {
       DashboardComponentType.bedMesh => BedMeshCard.preview(),
       DashboardComponentType.webcam => WebcamCard.preview(),
       // DashboardComponentType.gcodePreview => GCodePreviewCard.preview(),
-      _ => Card(
-          child: ListTile(
-            title: Text(beautifyName(type.name)),
-            subtitle: Text('No preview available yet for ${type.name}'),
-          ),
-        ),
+      // _ => Card(
+      //     child: ListTile(
+      //       title: Text(beautifyName(type.name)),
+      //       subtitle: Text('No preview available yet for ${type.name}'),
+      //     ),
+      //   ),
+      _ => const SizedBox.shrink()
       // _ => ErrorCard(
       //     title: const Text('Unknown card type'),
       //     body: Text('No preview available for $type'),

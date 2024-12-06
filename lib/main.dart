@@ -5,6 +5,7 @@
 
 import 'dart:io';
 
+import 'package:common/common/app/app.dart';
 import 'package:common/exceptions/mobileraker_exception.dart';
 import 'package:common/service/app_router.dart';
 import 'package:common/service/misc_providers.dart';
@@ -39,6 +40,8 @@ import 'service/ui/bottom_sheet_service_impl.dart';
 import 'service/ui/dialog_service_impl.dart';
 import 'ui/theme/theme_setup.dart';
 
+final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
 Future<void> main() async {
   var widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -49,7 +52,22 @@ Future<void> main() async {
   logger.i('Starting Mobileraker...');
   logger.i('-----------------------');
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(ProviderScope(
+
+
+  // runApp(ProviderScope(
+  //   // Injecting local implementation of interfaces defined in the common module
+  //   overrides: [
+  //     bottomSheetServiceProvider.overrideWith(bottomSheetServiceImpl),
+  //     dialogServiceProvider.overrideWith(dialogServiceImpl),
+  //     snackBarServiceProvider.overrideWith(snackBarServiceImpl),
+  //     themePackProvider.overrideWith(themePacks),
+  //     goRouterProvider.overrideWith(goRouterImpl),
+  //   ],
+  //   observers: const [if (kDebugMode) RiverPodLogger()],
+  //   child: const _WarmUp(),
+  // ));
+
+  Global.init().then((_) => runApp(ProviderScope(
     // Injecting local implementation of interfaces defined in the common module
     overrides: [
       bottomSheetServiceProvider.overrideWith(bottomSheetServiceImpl),
@@ -60,7 +78,7 @@ Future<void> main() async {
     ],
     observers: const [if (kDebugMode) RiverPodLogger()],
     child: const _WarmUp(),
-  ));
+  )));
 }
 
 class MyApp extends ConsumerWidget {
