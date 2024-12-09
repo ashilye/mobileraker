@@ -25,15 +25,7 @@ environment:
 dependency_overrides:
   web: ^0.5.1 # required because network info is using 0.3, but this package is only used by web which we dont build
   collection: 1.19.0 # Required because dio_smart_retry is in conflict with the flutter sdk otherwise
-  # used by appinio_video_player, this fixes an issue with gradle
-#  cached_video_player:
-#    git:
-#      url: https://github.com/vikram25897/flutter_cached_video_player
-#      ref: feature/gradle_version_bump
-  cached_video_player:
-    git:
-      url: https://github.com/gaoguanqi/flutter_cached_video_player
-      ref: feature/gradle_version_bump
+
 
 dependencies:
   flutter:

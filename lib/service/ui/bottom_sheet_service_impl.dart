@@ -17,6 +17,7 @@ import 'package:mobileraker/ui/components/bottomsheet/sort_mode_bottom_sheet.dar
 // import 'package:mobileraker_pro/gcode_preview/ui/gcode_visualizer_settings_sheet.dart';
 // import 'package:mobileraker_pro/job_queue/ui/job_queue_sheet.dart';
 import 'package:mobileraker_pro/service/ui/pro_sheet_type.dart';
+import 'package:mobileraker_pro/ui/components/bottomsheet/select_spoolman_sheet.dart';
 // import 'package:mobileraker_pro/spoolman/ui/select_spoolman_sheet.dart';
 import 'package:smooth_sheets/smooth_sheets.dart';
 
@@ -97,7 +98,8 @@ class BottomSheetServiceImpl implements BottomSheetService {
             return ScrollableNavigationSheetPage(
               key: state.pageKey,
               name: state.name,
-              child: const JobQueueBottomSheet(),
+              // child: const JobQueueBottomSheet(),
+              child: SizedBox.shrink()
             );
           },
         ),
@@ -228,17 +230,17 @@ class BottomSheetServiceImpl implements BottomSheetService {
             );
           },
         ),
-        GoRoute(
-          name: ProSheetType.gcodeVisualizerSettings.name,
-          path: '/sheet/gcode-visualizer-settings',
-          pageBuilder: (context, state) {
-            return ScrollableNavigationSheetPage(
-              key: state.pageKey,
-              name: state.name,
-              child: const GCodeVisualizerSettingsSheet(),
-            );
-          },
-        ),
+        // GoRoute(
+        //   name: ProSheetType.gcodeVisualizerSettings.name,
+        //   path: '/sheet/gcode-visualizer-settings',
+        //   pageBuilder: (context, state) {
+        //     return ScrollableNavigationSheetPage(
+        //       key: state.pageKey,
+        //       name: state.name,
+        //       child: const GCodeVisualizerSettingsSheet(),
+        //     );
+        //   },
+        // ),
         GoRoute(
           name: SheetType.colorPicker.name,
           path: '/sheet/color-picker',

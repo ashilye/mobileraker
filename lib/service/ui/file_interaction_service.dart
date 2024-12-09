@@ -35,8 +35,9 @@ import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mobileraker_pro/job_queue/service/job_queue_service.dart';
-import 'package:mobileraker_pro/service/ui/pro_routes.dart';
+import 'package:mobileraker_pro/service/moonraker/job_queue_service.dart';
+// import 'package:mobileraker_pro/job_queue/service/job_queue_service.dart';
+// import 'package:mobileraker_pro/service/ui/pro_routes.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -373,14 +374,14 @@ class FileInteractionService {
     }
   }
 
-  Stream<FileInteractionMenuEvent> previewGCodeAction(GCodeFile file) async* {
-    _goRouter.pushNamed(
-      ProRoutes.fileManager_exlorer_gcodePreview.name,
-      pathParameters: {'path': file.parentPath},
-      queryParameters: {'machineUUID': _machineUUID},
-      extra: file,
-    );
-  }
+  // Stream<FileInteractionMenuEvent> previewGCodeAction(GCodeFile file) async* {
+  //   _goRouter.pushNamed(
+  //     ProRoutes.fileManager_exlorer_gcodePreview.name,
+  //     pathParameters: {'path': file.parentPath},
+  //     queryParameters: {'machineUUID': _machineUUID},
+  //     extra: file,
+  //   );
+  // }
 
   Stream<FileInteractionMenuEvent> addFilesToQueueAction(List<GCodeFile> files) async* {
     if (!_isSupporter) {
@@ -750,7 +751,7 @@ class FileInteractionService {
           yield* renameFileAction(file, usedNames);
           break;
         case GcodeFileSheetAction.preview when file is GCodeFile:
-          yield* previewGCodeAction(file);
+          // yield* previewGCodeAction(file);
           break;
         case GcodeFileSheetAction.addToQueue when file is GCodeFile:
           yield* addFilesToQueueAction([file]);

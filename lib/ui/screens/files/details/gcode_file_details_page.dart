@@ -36,9 +36,10 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobileraker_pro/service/moonraker/spoolman_service.dart';
 import 'package:mobileraker_pro/service/ui/pro_sheet_type.dart';
-import 'package:mobileraker_pro/spoolman/dto/get_spool.dart';
-import 'package:mobileraker_pro/spoolman/service/spoolman_service.dart';
+// import 'package:mobileraker_pro/spoolman/dto/get_spool.dart';
+// import 'package:mobileraker_pro/spoolman/service/spoolman_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../../routing/app_router.dart';
@@ -574,51 +575,53 @@ class _GCodeFileDetailsController extends _$GCodeFileDetailsController {
       }
     });
 
-    (double?, String?) spoolCalc(GetSpool spool) {
-      double? insufficientFilament;
-      String? materialMissmatch;
-      if (spool.filament.material != null &&
-          gCodeFile.filamentType != null &&
-          !equalsIgnoreAsciiCase(gCodeFile.filamentType!.trim(), spool.filament.material!.trim())) {
-        materialMissmatch = spool.filament.material?.trim();
-      }
-
-      if (gCodeFile.filamentWeightTotal != null &&
-          spool.remainingWeight != null &&
-          spool.remainingWeight! < gCodeFile.filamentWeightTotal!) {
-        insufficientFilament = spool.remainingWeight!;
-      }
-      return (insufficientFilament, materialMissmatch);
-    }
-
-    double? insufficientFilament;
-    String? materialMissmatch;
-    if (klippy?.hasSpoolmanComponent == true) {
-      final spool = ref.read(activeSpoolProvider(machineUUID)).valueOrNull;
-
-      ref.listen(activeSpoolProvider(machineUUID), (previous, next) {
-        if (previous?.valueOrNull != next.valueOrNull) {
-          final res = spoolCalc(next.valueOrNull!);
-          state = state.copyWith(
-            insufficientFilament: res.$1,
-            materialMissmatch: res.$2,
-          );
-        }
-      });
-
-      if (spool != null) {
-        final res = spoolCalc(spool);
-        insufficientFilament = res.$1;
-        materialMissmatch = res.$2;
-      }
-    }
+    // (double?, String?) spoolCalc(GetSpool spool) {
+    //   double? insufficientFilament;
+    //   String? materialMissmatch;
+    //   if (spool.filament.material != null &&
+    //       gCodeFile.filamentType != null &&
+    //       !equalsIgnoreAsciiCase(gCodeFile.filamentType!.trim(), spool.filament.material!.trim())) {
+    //     materialMissmatch = spool.filament.material?.trim();
+    //   }
+    //
+    //   if (gCodeFile.filamentWeightTotal != null &&
+    //       spool.remainingWeight != null &&
+    //       spool.remainingWeight! < gCodeFile.filamentWeightTotal!) {
+    //     insufficientFilament = spool.remainingWeight!;
+    //   }
+    //   return (insufficientFilament, materialMissmatch);
+    // }
+    //
+    // double? insufficientFilament;
+    // String? materialMissmatch;
+    // if (klippy?.hasSpoolmanComponent == true) {
+    //   final spool = ref.read(activeSpoolProvider(machineUUID)).valueOrNull;
+    //
+    //   ref.listen(activeSpoolProvider(machineUUID), (previous, next) {
+    //     if (previous?.valueOrNull != next.valueOrNull) {
+    //       final res = spoolCalc(next.valueOrNull!);
+    //       state = state.copyWith(
+    //         insufficientFilament: res.$1,
+    //         materialMissmatch: res.$2,
+    //       );
+    //     }
+    //   });
+    //
+    //   if (spool != null) {
+    //     final res = spoolCalc(spool);
+    //     insufficientFilament = res.$1;
+    //     materialMissmatch = res.$2;
+    //   }
+    // }
 
     return _Model(
       file: gCodeFile,
       canStartPrint: klippy?.klippyCanReceiveCommands == true && canPrintCalc(printer?.print.state),
       machineUUID: machineUUID,
-      insufficientFilament: insufficientFilament,
-      materialMissmatch: materialMissmatch,
+      // insufficientFilament: insufficientFilament,
+      // materialMissmatch: materialMissmatch,
+      insufficientFilament: null,
+      materialMissmatch: null,
     );
   }
 
