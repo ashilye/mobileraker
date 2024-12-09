@@ -30,7 +30,7 @@ class NavWidgetController extends _$NavWidgetController {
 
     final showOverview = ref.watch(allMachinesProvider.selectAs((d) => d.length > 1)).valueOrNull ?? false;
     final showSpoolman = ref.watch(remoteConfigBoolProvider('spoolman_page'));
-
+    final bool isShow = false;
     final navTargets = <NavEntry>[
       if (showOverview) ...[
         NavEntry(
@@ -62,7 +62,8 @@ class NavWidgetController extends _$NavWidgetController {
           icon: FlutterIcons.database_ent,
           route: '/spoolman',
         ),
-      if (kDebugMode)
+      // if (kDebugMode)
+      if (isShow)
         const NavEntry(
           label: 'Debug',
           icon: Icons.engineering_outlined,
@@ -74,7 +75,9 @@ class NavWidgetController extends _$NavWidgetController {
         icon: FlutterIcons.build_mdi,
         route: '/setting',
       ),
-      NavEntry(
+      // if (kDebugMode)
+      if (isShow)
+        NavEntry(
         label: tr('pages.paywall.title'),
         icon: FlutterIcons.hand_holding_heart_faw5s,
         route: '/paywall',
@@ -85,7 +88,9 @@ class NavWidgetController extends _$NavWidgetController {
         icon: Icons.help,
         route: '/faq',
       ),
-      NavEntry(
+      // if (kDebugMode)
+      if (isShow)
+        NavEntry(
         label: tr('pages.changelog.title'),
         icon: Icons.history,
         route: '/changelog',

@@ -160,7 +160,8 @@ class _ErrorWidget extends StatelessWidget {
                 TextSpan(text: 'Mjpeg snapshotURI:\n${config.snapshotUri!.obfuscate()}\n'),
               TextSpan(text: '\nError Details:\n', style: themeData.textTheme.bodySmall),
               TextSpan(
-                text: error.toString(),
+                // text: error.toString(),
+                text: error.runtimeType.toString(),
                 style: themeData.textTheme.bodySmall?.copyWith(color: themeData.colorScheme.error),
               ),
             ],

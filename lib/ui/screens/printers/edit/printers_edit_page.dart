@@ -1066,7 +1066,8 @@ class _ThemeSelector extends ConsumerWidget {
     var machine = ref.watch(currentlyEditingProvider);
     List<ThemePack> themeList = themeService.themePacks;
     var themeData = Theme.of(context);
-    var isSupporter = ref.watch(isSupporterProvider);
+    // var isSupporter = ref.watch(isSupporterProvider);
+    var isSupporter = true;
     return FormBuilderDropdown<int>(
       initialValue: machine.printerThemePack,
       name: 'printerThemePack',

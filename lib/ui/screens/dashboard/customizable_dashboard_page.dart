@@ -67,7 +67,8 @@ part 'customizable_dashboard_page.g.dart';
 const _staticWidgets = [
   RemoteAnnouncements(key: Key('RemoteAnnouncements')),
   MachineDeletionWarning(key: Key('MachineDeletionWarning')),
-  SupporterAd(key: Key('SupporterAd')),
+  // SupporterAd(key: Key('SupporterAd')),
+  SizedBox.shrink()
 ];
 
 class CustomizableDashboardPage extends StatelessWidget {

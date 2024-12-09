@@ -69,9 +69,10 @@ class NavigationDrawerWidget extends HookConsumerWidget {
               padding: const EdgeInsets.only(bottom: 20, top: 10),
               child: RichText(
                 text: TextSpan(
-                  style: themeData.textTheme.bodySmall!.copyWith(color: themeData.colorScheme.onSurface),
-                  text: 'components.nav_drawer.footer'.tr(),
+                  // style: themeData.textTheme.bodySmall!.copyWith(color: themeData.colorScheme.onSurface),
+                  // text: 'components.nav_drawer.footer'.tr(),
                   children: [
+                    if(false)
                     TextSpan(
                       text: ' GitHub ',
                       style: TextStyle(color: themeData.colorScheme.secondary),
@@ -93,6 +94,7 @@ class NavigationDrawerWidget extends HookConsumerWidget {
                           }
                         },
                     ),
+                    if(false)
                     const TextSpan(text: '\n\n'),
                     TextSpan(
                       text: tr('pages.setting.imprint'),

@@ -159,8 +159,8 @@ extension MobilerakerFF on FirebaseRemoteConfig {
         'non_suporters_max_printers': -1,
         'oe_webrtc_warning': true,
         'obico_remote_connection': true,
-        'spoolman_page': true,
-        'spoolman_page_pay': true,
+        'spoolman_page': false,
+        'spoolman_page_pay': false,
         'developer_announcements': json.encode({'enabled': false, 'messages': []}),
         'clear_live_activity_on_done': false,
       });
