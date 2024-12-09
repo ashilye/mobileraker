@@ -3,6 +3,8 @@
  * All rights reserved.
  */
 
+import 'dart:io';
+
 import 'package:common/common.dart';
 import 'package:common/data/dto/files/folder.dart';
 import 'package:common/data/dto/files/gcode_file.dart';
@@ -32,9 +34,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mobileraker_pro/service/moonraker/job_queue_service.dart';
-// import 'package:mobileraker_pro/job_queue/service/job_queue_service.dart';
-// import 'package:mobileraker_pro/service/ui/pro_routes.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobileraker_pro/job_queue/service/job_queue_service.dart';
+import 'package:mobileraker_pro/service/ui/pro_routes.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -50,7 +52,7 @@ part 'file_interaction_service.g.dart';
 final _zipDateFormat = DateFormat('yyyy-MM-dd_HH-mm-ss');
 
 @riverpod
-FileInteractionService fileInteractionService(FileInteractionServiceRef ref, String machineUUID) {
+FileInteractionService fileInteractionService(Ref ref, String machineUUID) {
   return FileInteractionService(
     machineUUID,
     ref.watch(bottomSheetServiceProvider),
@@ -371,14 +373,14 @@ class FileInteractionService {
     }
   }
 
-  // Stream<FileInteractionMenuEvent> previewGCodeAction(GCodeFile file) async* {
-  //   _goRouter.pushNamed(
-  //     ProRoutes.fileManager_exlorer_gcodePreview.name,
-  //     pathParameters: {'path': file.parentPath},
-  //     queryParameters: {'machineUUID': _machineUUID},
-  //     extra: file,
-  //   );
-  // }
+  Stream<FileInteractionMenuEvent> previewGCodeAction(GCodeFile file) async* {
+    _goRouter.pushNamed(
+      ProRoutes.fileManager_exlorer_gcodePreview.name,
+      pathParameters: {'path': file.parentPath},
+      queryParameters: {'machineUUID': _machineUUID},
+      extra: file,
+    );
+  }
 
   Stream<FileInteractionMenuEvent> addFilesToQueueAction(List<GCodeFile> files) async* {
     if (!_isSupporter) {
@@ -620,9 +622,11 @@ class FileInteractionService {
 
     logger.i('[FileInteractionService($_machineUUID)] uploading file. Allowed: $allowedFileTypes');
 
+    bool useAny = kDebugMode || Platform.isAndroid;
+
     FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: kDebugMode ? FileType.any : FileType.custom,
-      allowedExtensions: allowedFileTypes.unless(kDebugMode),
+      type: useAny ? FileType.any : FileType.custom,
+      allowedExtensions: allowedFileTypes.unless(useAny),
       withReadStream: true,
       allowMultiple: multiple,
       withData: false,
@@ -630,6 +634,23 @@ class FileInteractionService {
 
     logger.i('[FileInteractionService($_machineUUID)] FilePicker result: $result');
     if (result == null || result.count == 0) return;
+
+    // If we did not filter by OS, we need to check the file extension manually here
+
+    if (useAny) {
+      final invalidFiles = result.files.where((e) => !allowedFileTypes.contains(e.extension));
+      if (invalidFiles.isNotEmpty) {
+        _snackBarService.show(SnackBarConfig(
+          type: SnackbarType.error,
+          title: tr('pages.files.file_operation.upload_failed.reasons.type_mismatch.title'),
+          message: tr('pages.files.file_operation.upload_failed.reasons.type_mismatch.body',
+              args: [allowedFileTypes.map((e) => '.$e').join(', ')]),
+        ));
+        yield const FileActionFailed(action: FileSheetAction.uploadFile, files: [], error: 'Invalid file type');
+        return;
+      }
+    }
+
     for (var toUpload in result.files) {
       logger.i('[FileInteractionService($_machineUUID)] Selected file: ${toUpload.name}');
 
@@ -729,7 +750,7 @@ class FileInteractionService {
           yield* renameFileAction(file, usedNames);
           break;
         case GcodeFileSheetAction.preview when file is GCodeFile:
-          // yield* previewGCodeAction(file);
+          yield* previewGCodeAction(file);
           break;
         case GcodeFileSheetAction.addToQueue when file is GCodeFile:
           yield* addFilesToQueueAction([file]);
@@ -868,6 +889,7 @@ class FileInteractionService {
     } catch (e, s) {
       logger.e('[FileInteractionService($_machineUUID)] Could not upload file.', e, s);
       _onOperationError(e, s, 'upload');
+      yield const FileActionFailed(action: FileSheetAction.uploadFile, files: [], error: 'Upload failed');
     }
   }
 
