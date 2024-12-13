@@ -43,6 +43,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     namespace 'com.mobileraker'
     compileSdk 34
+    buildToolsVersion '34.0.0'
     ndkVersion '25.1.8937393'
 
     compileOptions {
@@ -72,8 +73,8 @@ android {
         targetSdk 34
 //        versionCode 100
 //        versionName "100"
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
     }
 
     signingConfigs {
@@ -110,17 +111,16 @@ android {
                 def date = new Date()
                 def formattedDate = date.format('yyyyMMdd')
                 if (variant.buildType.name.equals('release')) {
-                    fileName = "app_V${variant.mergedFlavor.versionName}_release_${formattedDate}.apk"
+                    fileName = "app_V${flutter.versionName}_release_${formattedDate}.apk"
                     outputFileName = fileName
                 } else if (variant.buildType.name.equals('debug')) {
-                    fileName = "app_V${variant.mergedFlavor.versionName}_debug_${formattedDate}.apk"
+                    fileName = "app_V${flutter.versionName}_debug_${formattedDate}.apk"
                     outputFileName = fileName
                 }
                 outputFileName = fileName
             }
     }
 
-    buildToolsVersion '34.0.0'
 }
 
 flutter {
