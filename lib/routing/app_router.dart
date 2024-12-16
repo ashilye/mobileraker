@@ -33,7 +33,6 @@ import 'package:mobileraker/ui/screens/fullcam/full_cam_page.dart';
 import 'package:mobileraker/ui/screens/gcode_preview/gcode_preview_page.dart';
 import 'package:mobileraker/ui/screens/markdown/mark_down_page.dart';
 import 'package:mobileraker/ui/screens/overview/overview_page.dart';
-import 'package:mobileraker/ui/screens/paywall/paywall_page.dart';
 import 'package:mobileraker/ui/screens/printers/add/printers_add_page.dart';
 import 'package:mobileraker/ui/screens/printers/edit/printers_edit_page.dart';
 import 'package:mobileraker/ui/screens/qr_scanner/qr_scanner_page.dart';
@@ -269,11 +268,6 @@ GoRouter goRouterImpl(GoRouterRef ref) {
             body: const AppVersionText(prefix: 'Mobileraker'),
           ),
         ),
-      ),
-      GoRoute(
-        path: '/paywall',
-        name: AppRoute.supportDev.name,
-        builder: (context, state) => const PaywallPage(),
       ),
       GoRoute(
         path: '/dev',

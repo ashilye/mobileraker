@@ -316,7 +316,7 @@ class Warmup extends _$Warmup {
     await EasyLocalization.ensureInitialized();
 
     yield StartUpStep.paymentService;
-    await ref.read(paymentServiceProvider).initialize();
+    // await ref.read(paymentServiceProvider).initialize();
 
     // await for the initial rout provider to be ready and setup!
     yield StartUpStep.goRouter;

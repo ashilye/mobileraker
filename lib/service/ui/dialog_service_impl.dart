@@ -30,7 +30,6 @@ import 'package:mobileraker/ui/components/dialog/perks_dialog.dart';
 import 'package:mobileraker/ui/components/dialog/screws_tilt_adjust/screws_tilt_adjust_dialog.dart';
 import 'package:mobileraker/ui/components/dialog/select_printer/select_printer_dialog.dart';
 import 'package:mobileraker/ui/components/dialog/stacktrace_dialog.dart';
-import 'package:mobileraker/ui/components/dialog/tipping_dialog.dart';
 import 'package:mobileraker/ui/components/dialog/webcam_preview_dialog.dart';
 // import 'package:mobileraker_pro/service/ui/pro_dialog_type.dart';
 // import 'package:mobileraker_pro/spoolman/ui/adjust_spool_filament_dialog.dart';
@@ -100,7 +99,6 @@ class DialogServiceImpl implements DialogService {
     DialogType.perks: (r, c) => PerksDialog(request: r, completer: c),
     DialogType.manualOffset: (r, c) => ManualOffsetDialog(request: r, completer: c),
     DialogType.bedScrewAdjust: (r, c) => BedScrewAdjustDialog(request: r, completer: c),
-    DialogType.tipping: (r, c) => TippingDialog(request: r, completer: c),
     DialogType.httpHeader: (r, c) => HttpHeaderDialog(request: r, completer: c),
     DialogType.textInput: (r, c) => TextInputDialog(request: r, completer: c),
     DialogType.supporterOnlyFeature: (r, c) => SupporterOnlyDialog(request: r, completer: c),

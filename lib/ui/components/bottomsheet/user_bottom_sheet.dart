@@ -25,7 +25,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:purchases_flutter/errors.dart';
+// import 'package:purchases_flutter/errors.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_bottom_sheet.freezed.dart';
@@ -625,13 +625,13 @@ class _UserBottomSheetController extends _$UserBottomSheetController {
   }
 
   Future<void> restorePurchases() async {
-    await _paymentService.restorePurchases(passErrors: true, showSnacks: false).catchError((e) {
-      var errorCode = PurchasesErrorHelper.getErrorCode(e);
-      logger.e('Error restoring purchases. Error code: $errorCode');
-      state = state.whenData(
-        (value) => value.copyWith(errorText: 'An unexpected error occured while restoring purchases.\n$errorCode'),
-      );
-    });
+    // await _paymentService.restorePurchases(passErrors: true, showSnacks: false).catchError((e) {
+    //   var errorCode = PurchasesErrorHelper.getErrorCode(e);
+    //   logger.e('Error restoring purchases. Error code: $errorCode');
+    //   state = state.whenData(
+    //     (value) => value.copyWith(errorText: 'An unexpected error occured while restoring purchases.\n$errorCode'),
+    //   );
+    // });
     _showInfoText(tr('bottom_sheets.profile.restore_success'));
   }
 
