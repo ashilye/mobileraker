@@ -116,7 +116,7 @@ class MyApp extends ConsumerWidget {
           home: ErrorCard(
             title: const Text('Can not load languange files!'),
             body: Text(
-              'I am sorry. An unexpected error occured while loading the languange files.\nPlease submit this error to the developer via github: www.github.com/Clon1998/mobileraker\n\n\Error:\n$e',
+              'I am sorry. An unexpected error occured while loading the languange files.',
             ),
           ),
         );
@@ -134,7 +134,7 @@ class MyApp extends ConsumerWidget {
               routerDelegate: goRouter.routerDelegate,
               routeInformationProvider: goRouter.routeInformationProvider,
               routeInformationParser: goRouter.routeInformationParser,
-              title: 'Mobileraker',
+              title: 'CreatBot',
               theme: regularTheme,
               darkTheme: darkTheme,
               themeMode: themeMode,
@@ -205,11 +205,9 @@ class _WarmUpError extends StatelessWidget {
             child: SingleChildScrollView(
               child: ErrorCard(
                 title: const Text('Error while starting Mobileraker!'),
-                body: isStartupErr
-                    ? Text('${e.message}\n\nStackTrace:\n$stackTrace')
-                    : Text(
-                        'I am sorry...\nSomething unexpected happened.\nPlease report this bug to the developer!\n\n$e\n$stackTrace',
-                      ),
+                body: Text(
+                  'I am sorry...\nSomething unexpected happened.',
+                ),
               ),
             ),
           ),
@@ -296,7 +294,7 @@ class _LoadingSplashScreen extends HookWidget {
                 children: [
                   _EmojiIndicator(),
                   Text(
-                    'Created by Patrick Schmidt',
+                    'Created by CreatBot',
                     style: TextStyle(color: Color(0xff777777)),
                   ),
                 ],

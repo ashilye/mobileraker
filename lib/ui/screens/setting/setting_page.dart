@@ -75,8 +75,8 @@ class _Body extends ConsumerWidget {
                 _GeneralSection(),
                 _UiSection(),
                 _NotificationSection(),
-                _DeveloperSection(),
-                Divider(),
+                // _DeveloperSection(),
+                // Divider(),
                 _Footer(),
               ],
             ),
@@ -356,30 +356,30 @@ class _NotificationSection extends ConsumerWidget {
             activeColor: themeData.colorScheme.primary,
           ),
         const _ProgressNotificationSettingField(),
-        const _StateNotificationSettingField(),
-        const _OptOutOfAdPush(),
-        const Divider(),
-        RichText(
-          text: TextSpan(
-            style: themeData.textTheme.bodySmall,
-            text: tr('pages.setting.general.companion'),
-            children: [
-              TextSpan(
-                text: '\nOfficial GitHub ',
-                style: TextStyle(color: themeData.colorScheme.secondary),
-                children: const [
-                  WidgetSpan(
-                    child: Icon(FlutterIcons.github_alt_faw, size: 18),
-                  ),
-                ],
-                recognizer: TapGestureRecognizer()
-                  ..onTap = ref.read(settingPageControllerProvider.notifier).openCompanion,
-              ),
-            ],
-          ),
-          textAlign: TextAlign.center,
-        ),
-        const Divider(),
+        // const _StateNotificationSettingField(),
+        // const _OptOutOfAdPush(),
+        // const Divider(),
+        // RichText(
+        //   text: TextSpan(
+        //     style: themeData.textTheme.bodySmall,
+        //     text: tr('pages.setting.general.companion'),
+        //     children: [
+        //       TextSpan(
+        //         text: '\nOfficial GitHub ',
+        //         style: TextStyle(color: themeData.colorScheme.secondary),
+        //         children: const [
+        //           WidgetSpan(
+        //             child: Icon(FlutterIcons.github_alt_faw, size: 18),
+        //           ),
+        //         ],
+        //         recognizer: TapGestureRecognizer()
+        //           ..onTap = ref.read(settingPageControllerProvider.notifier).openCompanion,
+        //       ),
+        //     ],
+        //   ),
+        //   textAlign: TextAlign.center,
+        // ),
+        // const Divider(),
       ],
     );
   }
@@ -429,7 +429,6 @@ class _Footer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeData = Theme.of(context);
-
     return Column(
       children: [
         if (Platform.isIOS)
@@ -979,7 +978,8 @@ class _OptOutOfAdPush extends ConsumerWidget {
       title: const Text('pages.setting.notification.opt_out_marketing').tr(),
       subtitle: const Text('pages.setting.notification.opt_out_marketing_helper').tr(),
       onChanged: (b) {
-        var val = b ?? true;
+        // var val = b ?? false;
+        var val = false;
         logger.i('User opted out of marketing notifications: ${!val}');
         // ref.read(analyticsProvider).updatedAdOptOut(!val);
         ref.read(settingServiceProvider).writeBool(
