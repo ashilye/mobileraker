@@ -209,11 +209,108 @@
     },
     "files": {
       "title": "文件",
+      "empty_folder":{
+        "title": "此文件夹为空",
+        "subtitle": "未找到任何文件"
+      },
+      "sort_by": {
+        "sort_by": "排序",
+        "name": "名称",
+        "last_modified": "修改时间",
+        "last_printed": "最近打印",
+        "file_size": "文件大小",
+        "estimated_time": "预计打印时间",
+      },
+      "file_actions": {
+        "download": "下载",
+        "delete": "删除",
+        "copy": "复制",
+        "move": "移动",
+        "rename": "重命名",
+        "create_file": "创建文件",
+        "create_folder": "创建文件夹",
+        "upload": "上传文件",
+        "upload_bulk": "上传文件",
+        "zip_file": "创建存档"
+      },
+      "gcode_file_actions": {
+        "submit": "提交打印作业",
+        "preheat": "预热",
+         "enqueue": "添加到打印队列",
+        "preview": "预览"
+      },
+      "file_operation":{
+        "download_canceled":{
+          "title": "下载已取消",
+           "body": "下载已取消。"
+        },
+        "download_failed": {
+          "title": "下载失败",
+          "body": "尝试下载文件时发生错误，请稍后重试"
+        },
+        "upload_canceled": {
+          "title": "上传已取消",
+          "body": "上传已取消。"
+        },
+        "upload_success": {
+          "title": "上传成功",
+          "body": "文件已成功上传。"
+        },
+        "upload_failed": {
+          "title": "上传失败",
+          "body": "尝试上传文件时出错，请稍后重试。",
+          "reasons":{
+             "type_mismatch":{
+                 "title":"文件类型不匹配",
+                 "body":"仅允许“{}”个文件。",
+             }
+          },
+        },
+        "zipping_success": {
+          "title": "压缩成功",
+          "body": "存档已成功创建。"
+        },
+        "zipping_failed": {
+          "title": "压缩失败",
+          "body": "尝试创建存档时发生错误，请稍后重试"
+        },
+        "copy_created": {
+          "title": "已创建副本",
+          "body": "已成功在“{ }”创建副本。"
+        },
+        "move_success": {
+          "title": "移动成功",
+          "body": "文件已成功移动到“{ }”。"
+        },
+        "move_failed": {
+          "title": "移动失败",
+          "body": "尝试移动文件时发生错误，请稍后重试。"
+        },
+      },
       "search_files": "搜索文件",
+      "search": {
+        "clear_search": "清除搜索",
+        "waiting": "等待搜索！",
+        "no_results": {
+            "title": "未找到文件",
+            "subtitle": "尝试不同的搜索词"
+          },
+      },
+      "cancel_fab": {
+        "upload": "取消上传",
+        "download": "取消下载"
+      },
+      "move_here": "移至此处",
+      "copy_here": "复制到此处",
+      "no_matches_file_pattern": "仅允许使用字母、数字、下划线、破折号和点！",
+      "gcode_tab": "GCodes",
+      "config_tab": "配置",
+      "timelapse_tab": "延时摄影",
+      "element": {
+        "one": "元素",
+        "other": "元素"
+      },
       "clear_search": "清除搜索",
-      "name": "名称",
-      "last_mod": "修改时间",
-      "last_printed": "上次打印",
       "not_printed": "未打印",
       "fetching_files": "@:general.fetching文件…",
       "no_files_found": "找不到文件！",
