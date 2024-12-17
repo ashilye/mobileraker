@@ -82,7 +82,9 @@ class NavWidgetController extends _$NavWidgetController {
         icon: FlutterIcons.hand_holding_heart_faw5s,
         route: '/paywall',
       ),
+      if (isShow)
       NavEntry.divider(),
+      if (isShow)
       NavEntry(
         label: tr('pages.faq.title'),
         icon: Icons.help,
@@ -95,6 +97,7 @@ class NavWidgetController extends _$NavWidgetController {
         icon: Icons.history,
         route: '/changelog',
       ),
+      if (isShow)
       NavEntry(
         label: tr('pages.tool.title'),
         icon: FlutterIcons.toolbox_faw5s,
