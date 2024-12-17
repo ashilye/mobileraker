@@ -4,7 +4,7 @@
  */
 
 import 'package:common/service/app_router.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/machine_service.dart';
 import 'package:common/service/payment_service.dart';
 import 'package:common/service/setting_service.dart';
@@ -26,7 +26,8 @@ class _MachineDeletionWarningController extends _$MachineDeletionWarningControll
   @override
   int build() {
     var isSupporter = ref.watch(isSupporterProvider);
-    var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
+    // var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
+    var maxNonSupporterMachines = 0;
     var machineCount = ref.watch(allMachinesProvider.selectAs((d) => d.length)).valueOrNull ?? 0;
     logger.i(
       'Max allowed machines for non Supporters is $maxNonSupporterMachines',
@@ -86,7 +87,8 @@ class MachineDeletionWarning extends ConsumerWidget {
                     subtitle: const Text(
                       'components.machine_deletion_warning.subtitle',
                     ).tr(args: [
-                      ref.read(remoteConfigIntProvider('non_suporters_max_printers')).toString(),
+                      // ref.read(remoteConfigIntProvider('non_suporters_max_printers')).toString(),
+                      '',
                       daysUntilDeletion.toString(),
                     ]),
                     trailing: IconButton(

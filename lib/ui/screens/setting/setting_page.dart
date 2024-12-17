@@ -6,7 +6,7 @@ import 'dart:io';
 
 import 'package:common/data/dto/machine/print_state_enum.dart';
 import 'package:common/data/model/hive/progress_notification_mode.dart';
-import 'package:common/service/firebase/analytics.dart';
+// import 'package:common/service/firebase/analytics.dart';
 import 'package:common/service/misc_providers.dart';
 import 'package:common/service/setting_service.dart';
 import 'package:common/service/ui/dialog_service_interface.dart';
@@ -981,7 +981,7 @@ class _OptOutOfAdPush extends ConsumerWidget {
       onChanged: (b) {
         var val = b ?? true;
         logger.i('User opted out of marketing notifications: ${!val}');
-        ref.read(analyticsProvider).updatedAdOptOut(!val);
+        // ref.read(analyticsProvider).updatedAdOptOut(!val);
         ref.read(settingServiceProvider).writeBool(
               AppSettingKeys.receiveMarketingNotifications,
               val,

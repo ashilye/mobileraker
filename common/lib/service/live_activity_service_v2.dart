@@ -9,7 +9,7 @@ import 'dart:math';
 
 import 'package:collection/collection.dart';
 import 'package:common/data/model/hive/notification.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/machine_service.dart';
 import 'package:common/service/setting_service.dart';
 import 'package:common/util/extensions/date_time_extension.dart';
@@ -344,9 +344,9 @@ class LiveActivityServiceV2 {
         }
         final activity = _machineActivityMapping.remove(machineUUID);
         // Remove the activity if the printer is not printing or paused
-        if (activity != null && ref.read(remoteConfigBoolProvider('clear_live_activity_on_done'))) {
-          _liveActivityAPI.endActivity(activity.activityId).ignore();
-        }
+        // if (activity != null && ref.read(remoteConfigBoolProvider('clear_live_activity_on_done'))) {
+        //   _liveActivityAPI.endActivity(activity.activityId).ignore();
+        // }
 
         // Also remove the push token from the machine
         _machineService.updateApplePushNotificationToken(machineUUID, null);

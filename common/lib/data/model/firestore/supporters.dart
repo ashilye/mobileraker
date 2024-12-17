@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'supporters.freezed.dart';
@@ -22,7 +22,7 @@ class Supporter with _$Supporter {
   Map<String, dynamic> toFirebase() {
     return {
       'fcmToken': fcmToken,
-      'expirationDate': expirationDate != null ? Timestamp.fromDate(expirationDate!) : null
+      // 'expirationDate': expirationDate != null ? Timestamp.fromDate(expirationDate!) : null
     };
   }
 }

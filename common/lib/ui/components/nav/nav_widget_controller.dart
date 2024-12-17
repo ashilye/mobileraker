@@ -15,7 +15,7 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../service/app_router.dart';
-import '../../../service/firebase/remote_config.dart';
+// import '../../../service/firebase/remote_config.dart';
 
 part 'nav_widget_controller.freezed.dart';
 part 'nav_widget_controller.g.dart';
@@ -29,7 +29,7 @@ class NavWidgetController extends _$NavWidgetController {
     // final current = ref.watch(goRouterProvider).location;
 
     final showOverview = ref.watch(allMachinesProvider.selectAs((d) => d.length > 1)).valueOrNull ?? false;
-    final showSpoolman = ref.watch(remoteConfigBoolProvider('spoolman_page'));
+    // final showSpoolman = ref.watch(remoteConfigBoolProvider('spoolman_page'));
     final bool isShow = false;
     final navTargets = <NavEntry>[
       if (showOverview) ...[
@@ -56,12 +56,12 @@ class NavWidgetController extends _$NavWidgetController {
         route: '/files/gcodes',
         routeMatcher: r'^\/files(\/)?.*$',
       ),
-      if (showSpoolman)
-        NavEntry(
-          label: tr('pages.spoolman.title'),
-          icon: FlutterIcons.database_ent,
-          route: '/spoolman',
-        ),
+      // if (showSpoolman)
+      //   NavEntry(
+      //     label: tr('pages.spoolman.title'),
+      //     icon: FlutterIcons.database_ent,
+      //     route: '/spoolman',
+      //   ),
       // if (kDebugMode)
       if (isShow)
         const NavEntry(

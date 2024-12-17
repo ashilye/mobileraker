@@ -9,7 +9,7 @@ import 'package:common/data/model/moonraker_db/webcam_info.dart';
 import 'package:common/network/dio_provider.dart';
 import 'package:common/network/jrpc_client_provider.dart';
 import 'package:common/network/json_rpc_client.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/util/misc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +67,8 @@ class WebcamWebRtc extends ConsumerWidget {
         break;
     }
 
-    final showWarning = ref.watch(remoteConfigBoolProvider('oe_webrtc_warning'));
+    // final showWarning = ref.watch(remoteConfigBoolProvider('oe_webrtc_warning'));
+    final showWarning = true;
     if (clientType == ClientType.octo && showWarning && webcamInfo.service == WebcamServiceType.webRtcCamStreamer) {
       return Text(
         'components.web_rtc.oe_warning',

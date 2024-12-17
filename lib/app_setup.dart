@@ -22,9 +22,9 @@ import 'package:common/data/model/hive/progress_notification_mode.dart';
 import 'package:common/data/model/hive/remote_interface.dart';
 import 'package:common/data/model/hive/temperature_preset.dart';
 import 'package:common/exceptions/mobileraker_exception.dart';
-import 'package:common/service/firebase/analytics.dart';
-import 'package:common/service/firebase/auth.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/analytics.dart';
+// import 'package:common/service/firebase/auth.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/machine_service.dart';
 import 'package:common/service/misc_providers.dart';
 import 'package:common/service/notification_service.dart';
@@ -33,7 +33,7 @@ import 'package:common/util/extensions/logging_extension.dart';
 import 'package:common/util/extensions/object_extension.dart';
 import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_app_check/firebase_app_check.dart';
+// import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -281,10 +281,10 @@ class Warmup extends _$Warmup {
     });
 
     yield StartUpStep.firebaseAppCheck;
-    await FirebaseAppCheck.instance.activate();
+    // await FirebaseAppCheck.instance.activate();
 
     yield StartUpStep.firebaseRemoteConfig;
-    await ref.read(remoteConfigInstanceProvider).initialize();
+    // await ref.read(remoteConfigInstanceProvider).initialize();
     if (kDebugMode) {
       FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
     }
@@ -299,11 +299,11 @@ class Warmup extends _$Warmup {
       return true;
     };
     yield StartUpStep.firebaseAnalytics;
-    ref.read(analyticsProvider).logAppOpen().ignore();
+    // ref.read(analyticsProvider).logAppOpen().ignore();
 
     yield StartUpStep.firebaseAuthUi;
     // Just make sure it is created!
-    ref.read(firebaseUserProvider);
+    // ref.read(firebaseUserProvider);
 
     setupLicenseRegistry();
 

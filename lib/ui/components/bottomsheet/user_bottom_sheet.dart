@@ -3,20 +3,14 @@
  * All rights reserved.
  */
 
-import 'package:common/service/firebase/auth.dart';
 import 'package:common/service/payment_service.dart';
 import 'package:common/service/ui/dialog_service_interface.dart';
-import 'package:common/ui/animation/animated_size_and_fade.dart';
 import 'package:common/ui/components/async_button_.dart';
-import 'package:common/ui/components/error_card.dart';
 import 'package:common/ui/components/warning_card.dart';
 import 'package:common/util/extensions/async_ext.dart';
 import 'package:common/util/extensions/object_extension.dart';
-import 'package:common/util/extensions/ref_extension.dart';
 import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_auth/firebase_auth.dart' as fba;
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -25,7 +19,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-// import 'package:purchases_flutter/errors.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'user_bottom_sheet.freezed.dart';
@@ -56,23 +49,24 @@ class _CardBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AsyncValue<fba.User?> user = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => d.user));
-
-    final Widget widget = switch (user) {
-      AsyncError() => const ErrorCard(
-          title: Text('Error loading User management'),
-          body: Text(
-            'An unexpected error occured while loading the User management. Please try again later.',
-          ),
-        ),
-      AsyncValue(hasValue: true, value: fba.User()) => const _Profile(key: Key('profile')),
-      _ => const _Login(key: Key('Login')),
-    };
-
-    return AnimatedSizeAndFade(
-      alignment: Alignment.topCenter,
-      child: widget,
-    );
+    // final AsyncValue<fba.User?> user = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => d.user));
+    //
+    // final Widget widget = switch (user) {
+    //   AsyncError() => const ErrorCard(
+    //       title: Text('Error loading User management'),
+    //       body: Text(
+    //         'An unexpected error occured while loading the User management. Please try again later.',
+    //       ),
+    //     ),
+    //   AsyncValue(hasValue: true, value: fba.User()) => const _Profile(key: Key('profile')),
+    //   _ => const _Login(key: Key('Login')),
+    // };
+    //
+    // return AnimatedSizeAndFade(
+    //   alignment: Alignment.topCenter,
+    //   child: widget,
+    // );
+    return SizedBox.shrink();
   }
 }
 
@@ -84,7 +78,7 @@ class _Login extends HookConsumerWidget {
     final mode = useState(_LoginAction.signIn);
     final stillLoading = ref.watch(_userBottomSheetControllerProvider.select((d) => d.isLoading));
     final controller = ref.watch(_userBottomSheetControllerProvider.notifier);
-    final errorText = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => d.errorText)).valueOrNull;
+    // final errorText = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => d.errorText)).valueOrNull;
 
     final String title;
     final String hint;
@@ -107,7 +101,7 @@ class _Login extends HookConsumerWidget {
 
     switchMode(_LoginAction newMode) {
       mode.value = newMode;
-      controller.clearErrorText();
+      // controller.clearErrorText();
     }
 
     var themeData = Theme.of(context);
@@ -168,12 +162,12 @@ class _Login extends HookConsumerWidget {
               switchMode(_LoginAction.forgotPassword);
             },
           ),
-          if (errorText != null)
-            Text(
-              errorText,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: themeData.colorScheme.error),
-            ),
+          // if (errorText != null)
+          //   Text(
+          //     errorText,
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(color: themeData.colorScheme.error),
+          //   ),
           if (mode.value == _LoginAction.forgotPassword)
             TextButton(
               onPressed: () {
@@ -211,7 +205,7 @@ class _Profile extends ConsumerWidget {
             height: 100,
           ),
           // const Align(child: EditableUserDisplayName()), !!TODO
-          Align(child: Text(model.user?.email ?? '', style: themeData.textTheme.bodySmall)),
+          // Align(child: Text(model.user?.email ?? '', style: themeData.textTheme.bodySmall)),
           const _EmailVerification(),
           const SizedBox(height: 8),
           Text(
@@ -232,12 +226,12 @@ class _Profile extends ConsumerWidget {
           // ),
           const SizedBox(height: 16),
 
-          if (model.errorText != null)
-            Text(
-              model.errorText!,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: themeData.colorScheme.error),
-            ),
+          // if (model.errorText != null)
+          //   Text(
+          //     model.errorText!,
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(color: themeData.colorScheme.error),
+          //   ),
           const _RestoreButton(),
           AsyncOutlinedButton.icon(
             onPressed: controller.signOut,
@@ -283,12 +277,12 @@ class _EmailVerification extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     var controller = ref.watch(_userBottomSheetControllerProvider.notifier);
 
-    final isVerified = ref.watch(firebaseUserProvider.selectAs((data) => data?.emailVerified == true));
-
+    // final isVerified = ref.watch(firebaseUserProvider.selectAs((data) => data?.emailVerified == true));
     final pending = useState(false);
 
     return WarningCard(
-      show: isVerified.hasValue && isVerified.value != true,
+      // show: isVerified.hasValue && isVerified.value != true,
+      show: false,
       leadingIcon: Icon(pending.value ? Icons.mark_email_unread_outlined : Icons.email_outlined),
       title: Text(
         'bottom_sheets.profile.email_verification.title',
@@ -326,7 +320,7 @@ class _InfoText extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var model = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => d.infoText)).valueOrNull;
+    var model = ref.watch(_userBottomSheetControllerProvider.selectAs((d) => '')).valueOrNull;
 
     var themeData = Theme.of(context);
 
@@ -519,7 +513,7 @@ class _EmailFormState extends State<_EmailForm> {
 
 @riverpod
 class _UserBottomSheetController extends _$UserBottomSheetController {
-  fba.FirebaseAuth get _auth => ref.read(authProvider);
+  // fba.FirebaseAuth get _auth => ref.read(authProvider);
 
   DialogService get _dialogService => ref.read(dialogServiceProvider);
 
@@ -528,8 +522,7 @@ class _UserBottomSheetController extends _$UserBottomSheetController {
   @override
   Stream<_Model> build() async* {
     logger.i('Rebuilding UserBottomSheetController');
-
-    yield* ref.watchAsSubject(firebaseUserProvider).map((user) => _Model(user: user));
+    // yield* ref.watchAsSubject(firebaseUserProvider).map((user) => _Model(user: user));
   }
 
   void onLinkedProviderChanged() {
@@ -538,74 +531,77 @@ class _UserBottomSheetController extends _$UserBottomSheetController {
   }
 
   Future<void> signIn(String email, String password) async {
-    clearErrorText();
-    try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      logger.e('Error signing in', e);
-      state = state.whenData((value) => value.copyWith(errorText: e.message));
-    } catch (e) {
-      logger.e('Error signing in', e);
-      state = state.whenData((value) =>
-          value.copyWith(errorText: 'An unexpected error occured while signing in. Please try again later.'));
-    }
+    // clearErrorText();
+    // try {
+    //   await _auth.signInWithEmailAndPassword(email: email, password: password);
+    // } on FirebaseAuthException catch (e) {
+    //   logger.e('Error signing in', e);
+    //   state = state.whenData((value) => value.copyWith(errorText: e.message));
+    // } catch (e) {
+    //   logger.e('Error signing in', e);
+    //   state = state.whenData((value) =>
+    //       value.copyWith(errorText: 'An unexpected error occured while signing in. Please try again later.'));
+    // }
   }
 
   Future<void> signUp(String email, String password) async {
-    clearErrorText();
-    try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      logger.e('Error regisgering', e);
-      state = state.whenData((value) => value.copyWith(errorText: e.message));
-    } catch (e) {
-      logger.e('Error regisgering', e);
-      state = state.whenData((value) =>
-          value.copyWith(errorText: 'An unexpected error occured while registering. Please try again later.'));
-    }
+    // clearErrorText();
+    // try {
+    //   await _auth.createUserWithEmailAndPassword(email: email, password: password);
+    // } on FirebaseAuthException catch (e) {
+    //   logger.e('Error regisgering', e);
+    //   state = state.whenData((value) => value.copyWith(errorText: e.message));
+    // } catch (e) {
+    //   logger.e('Error regisgering', e);
+    //   state = state.whenData((value) =>
+    //       value.copyWith(errorText: 'An unexpected error occured while registering. Please try again later.'));
+    // }
   }
 
   Future<void> signOut() {
-    clearErrorText();
-    return _auth.signOut().catchError((e) {
-      logger.e('Error signing out', e);
-      state = state.whenData((value) =>
-          value.copyWith(errorText: 'An unexpected error occured while signing out. Please try again later.'));
-    });
+    // clearErrorText();
+    // return _auth.signOut().catchError((e) {
+    //   logger.e('Error signing out', e);
+    //   state = state.whenData((value) =>
+    //       value.copyWith(errorText: 'An unexpected error occured while signing out. Please try again later.'));
+    // });
+    return Future.value();
   }
 
   Future<void> verifyMail() async {
-    try {
-      await _auth.currentUser?.sendEmailVerification();
-    } on FirebaseAuthException catch (e) {
-      logger.e('Error sending email verification', e);
-      state = state.whenData((value) => value.copyWith(errorText: e.message));
-    } catch (e) {
-      logger.e('Error sending email verification', e);
-      state = state.whenData((value) => value.copyWith(
-          errorText: 'An unexpected error occured while sending the email verification. Please try again later.'));
-    }
+    // try {
+    //   await _auth.currentUser?.sendEmailVerification();
+    // } on FirebaseAuthException catch (e) {
+    //   logger.e('Error sending email verification', e);
+    //   state = state.whenData((value) => value.copyWith(errorText: e.message));
+    // } catch (e) {
+    //   logger.e('Error sending email verification', e);
+    //   state = state.whenData((value) => value.copyWith(
+    //       errorText: 'An unexpected error occured while sending the email verification. Please try again later.'));
+    // }
+    return Future.value();
   }
 
   Future<void> forgotPassword(String email) async {
-    try {
-      logger.i('Sending password reset email to $email');
-      await _auth.sendPasswordResetEmail(email: email);
-      _showInfoText(tr('bottom_sheets.signIn.forgot_password_success'));
-    } on FirebaseAuthException catch (e) {
-      logger.e('Error sending password reset email', e);
-      state = state.whenData((value) => value.copyWith(errorText: e.message));
-    } catch (e) {
-      logger.e('Error sending password reset email', e);
-      state = state.whenData((value) => value.copyWith(
-          errorText: 'An unexpected error occured while sending the password reset email. Please try again later.'));
-    }
+    // try {
+    //   logger.i('Sending password reset email to $email');
+    //   await _auth.sendPasswordResetEmail(email: email);
+    //   _showInfoText(tr('bottom_sheets.signIn.forgot_password_success'));
+    // } on FirebaseAuthException catch (e) {
+    //   logger.e('Error sending password reset email', e);
+    //   state = state.whenData((value) => value.copyWith(errorText: e.message));
+    // } catch (e) {
+    //   logger.e('Error sending password reset email', e);
+    //   state = state.whenData((value) => value.copyWith(
+    //       errorText: 'An unexpected error occured while sending the password reset email. Please try again later.'));
+    // }
+    return Future.value();
   }
 
   Future<void> deleteAccount() async {
-    var usr = state.valueOrNull?.user;
-    if (usr == null) return;
-
+    // var usr = state.valueOrNull?.user;
+    // if (usr == null) return;
+      return;
     var result = await _dialogService.showDangerConfirm(
       title: tr('bottom_sheets.profile.delete_account_dialog.title'),
       body: tr('bottom_sheets.profile.delete_account_dialog.body'),
@@ -614,14 +610,14 @@ class _UserBottomSheetController extends _$UserBottomSheetController {
 
     if (result?.confirmed != true) return;
 
-    try {
-      usr.delete();
-    } catch (e) {
-      logger.e('Error deleting user account', e);
-      state = state.whenData((value) => value.copyWith(
-            errorText: 'An unexpected error occured while deleting your account. Please try again later.',
-          ));
-    }
+    // try {
+    //   usr.delete();
+    // } catch (e) {
+    //   logger.e('Error deleting user account', e);
+    //   state = state.whenData((value) => value.copyWith(
+    //         errorText: 'An unexpected error occured while deleting your account. Please try again later.',
+    //       ));
+    // }
   }
 
   Future<void> restorePurchases() async {
@@ -632,20 +628,20 @@ class _UserBottomSheetController extends _$UserBottomSheetController {
     //     (value) => value.copyWith(errorText: 'An unexpected error occured while restoring purchases.\n$errorCode'),
     //   );
     // });
-    _showInfoText(tr('bottom_sheets.profile.restore_success'));
+    // _showInfoText(tr('bottom_sheets.profile.restore_success'));
   }
 
-  _showInfoText(String text, [int seconds = 5]) async {
-    state = state.whenData((value) => value.copyWith(infoText: text));
-    await Future.delayed(Duration(seconds: seconds));
-    state = state.whenData((value) => value.copyWith(infoText: null));
-  }
-
-  clearErrorText() {
-    if (state.valueOrNull?.errorText != null) {
-      state = state.whenData((value) => value.copyWith(errorText: null));
-    }
-  }
+  // _showInfoText(String text, [int seconds = 5]) async {
+  //   state = state.whenData((value) => value.copyWith(infoText: text));
+  //   await Future.delayed(Duration(seconds: seconds));
+  //   state = state.whenData((value) => value.copyWith(infoText: null));
+  // }
+  //
+  // clearErrorText() {
+  //   if (state.valueOrNull?.errorText != null) {
+  //     state = state.whenData((value) => value.copyWith(errorText: null));
+  //   }
+  // }
 }
 
 @freezed
@@ -653,7 +649,7 @@ class _Model with _$Model {
   const _Model._();
 
   const factory _Model({
-    required fba.User? user,
+    required String user,
     String? errorText,
     String? infoText,
   }) = __Model;

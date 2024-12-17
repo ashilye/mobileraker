@@ -14,7 +14,7 @@ import 'package:common/service/setting_service.dart';
 import 'package:common/ui/components/info_card.dart';
 import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:go_router/go_router.dart';
@@ -108,7 +108,7 @@ GoRouter goRouterImpl(GoRouterRef ref) {
     initialLocation: ref.watch(initialRouteProvider).requireValue,
     debugLogDiagnostics: false,
     observers: [
-      FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
+      // FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
       GoTransition.observer,
       MobilerakerRouteObserver('Main'),
     ],

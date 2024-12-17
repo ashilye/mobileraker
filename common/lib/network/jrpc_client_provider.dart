@@ -9,7 +9,7 @@ import 'package:common/data/model/hive/machine.dart';
 import 'package:common/exceptions/mobileraker_exception.dart';
 import 'package:common/network/dio_provider.dart';
 import 'package:common/network/json_rpc_client.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/misc_providers.dart';
 import 'package:common/util/extensions/ref_extension.dart';
 import 'package:common/util/logger.dart';
@@ -94,11 +94,11 @@ class JrpcClientManager extends _$JrpcClientManager {
     logger.i(
         '[JrpcClientManager@${machine.name}] A ${remoteClientType.name}-RemoteClient is available. Can do handover in case local client fails! ref:${identityHashCode(ref)}');
 
-    if (!ref.read(remoteConfigBoolProvider('obico_remote_connection')) && remoteClientType == ClientType.obico) {
-      logger.i(
-          '[JrpcClientManager@${machine.name}] Obico detected as remoteClientType, but obico is disabled in remoteConfig. Will not setup handover');
-      return;
-    }
+    // if (!ref.read(remoteConfigBoolProvider('obico_remote_connection')) && remoteClientType == ClientType.obico) {
+    //   logger.i(
+    //       '[JrpcClientManager@${machine.name}] Obico detected as remoteClientType, but obico is disabled in remoteConfig. Will not setup handover');
+    //   return;
+    // }
 
     if (machine.localSsids.isNotEmpty) {
       var usedRemoteClient = await _evaluateSmartSwitching(machine, remoteClientType);

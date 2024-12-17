@@ -3,7 +3,7 @@
  * All rights reserved.
  */
 
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/ui/dialog_service_interface.dart';
 import 'package:common/ui/dialog/mobileraker_dialog.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -18,7 +18,8 @@ class PerksDialog extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
+    // var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
+    var maxNonSupporterMachines = 0;
 
     return MobilerakerDialog(
       dismissText: MaterialLocalizations.of(context).closeButtonLabel,

@@ -6,7 +6,7 @@
 import 'package:common/data/dto/remote_config/developer_announcement_entry.dart';
 import 'package:common/data/dto/remote_config/developer_announcement_entry_type.dart';
 import 'package:common/service/app_router.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/payment_service.dart';
 import 'package:common/service/setting_service.dart';
 import 'package:common/ui/components/mobileraker_icon_button.dart';
@@ -34,21 +34,22 @@ class _RemoteAnnouncementsController extends _$RemoteAnnouncementsController {
   @override
   List<DeveloperAnnouncementEntry> build() {
     ref.keepAlive(); // Only show messages once per app start
-    var isSupporter = ref.watch(isSupporterProvider);
-    var announcement = ref.watch(developerAnnouncementProvider);
-    logger.i('Developer announcements are enabled: ${announcement.enabled}');
-    logger.i('Received ${announcement.messages.length} developer announcements.');
-    logger.wtf('Announcements: ${announcement.messages.map((e) => e.toJson()).toList()}');
-    if (!announcement.enabled) return [];
-
-    // logger.i('Dismissed hashes: $_dismissedHashes');
-
-    return announcement.messages
-        .where((element) =>
-            element.show &&
-            (_dismissedHashes[element.hash] ?? 0) < element.showCount &&
-            (!isSupporter || element.type != DeveloperAnnouncementEntryType.advertisement))
-        .toList();
+    // var isSupporter = ref.watch(isSupporterProvider);
+    // var announcement = ref.watch(developerAnnouncementProvider);
+    // logger.i('Developer announcements are enabled: ${announcement.enabled}');
+    // logger.i('Received ${announcement.messages.length} developer announcements.');
+    // logger.wtf('Announcements: ${announcement.messages.map((e) => e.toJson()).toList()}');
+    // if (!announcement.enabled) return [];
+    //
+    // // logger.i('Dismissed hashes: $_dismissedHashes');
+    //
+    // return announcement.messages
+    //     .where((element) =>
+    //         element.show &&
+    //         (_dismissedHashes[element.hash] ?? 0) < element.showCount &&
+    //         (!isSupporter || element.type != DeveloperAnnouncementEntryType.advertisement))
+    //     .toList();
+    return [];
   }
 
   dismiss(DeveloperAnnouncementEntry entry) {

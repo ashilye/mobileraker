@@ -6,7 +6,7 @@
 import 'dart:math';
 
 import 'package:common/network/json_rpc_client.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/ui/components/info_card.dart';
 import 'package:common/util/extensions/object_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -48,7 +48,8 @@ class _AddRemoteConnectionBottomSheet extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final obicoEnabled = ref.watch(remoteConfigBoolProvider('obico_remote_connection'));
+    // final obicoEnabled = ref.watch(remoteConfigBoolProvider('obico_remote_connection'));
+    final obicoEnabled = false;
     final obicoIndex = 1 - thirdPartyFairness;
     final octoIndex = obicoEnabled ? 0 + thirdPartyFairness : 0;
 

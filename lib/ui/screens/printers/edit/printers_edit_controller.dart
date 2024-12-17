@@ -16,7 +16,7 @@ import 'package:common/data/model/moonraker_db/webcam_info.dart';
 import 'package:common/network/jrpc_client_provider.dart';
 import 'package:common/network/json_rpc_client.dart';
 import 'package:common/service/app_router.dart';
-import 'package:common/service/firebase/remote_config.dart';
+// import 'package:common/service/firebase/remote_config.dart';
 import 'package:common/service/machine_service.dart';
 import 'package:common/service/misc_providers.dart';
 import 'package:common/service/moonraker/webcam_service.dart';
@@ -82,7 +82,8 @@ class PrinterEditController extends _$PrinterEditController {
 
   Machine get _machine => ref.read(currentlyEditingProvider);
 
-  bool get _obicoEnabled => ref.read(remoteConfigBoolProvider('obico_remote_connection'));
+  // bool get _obicoEnabled => ref.read(remoteConfigBoolProvider('obico_remote_connection'));
+  bool get _obicoEnabled => false;
 
   ThemeModel? activeTheme;
 

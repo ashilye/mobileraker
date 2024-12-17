@@ -26,7 +26,7 @@ import 'package:common/util/extensions/object_extension.dart';
 import 'package:common/util/extensions/ref_extension.dart';
 import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -46,8 +46,8 @@ import '../data/repository/machine_settings_moonraker_repository.dart';
 import '../data/repository/machine_settings_repository.dart';
 import '../network/jrpc_client_provider.dart';
 import '../network/moonraker_database_client.dart';
-import 'firebase/analytics.dart';
-import 'firebase/remote_config.dart';
+// import 'firebase/analytics.dart';
+// import 'firebase/remote_config.dart';
 import 'misc_providers.dart';
 import 'moonraker/klippy_service.dart';
 import 'moonraker/printer_service.dart';
@@ -100,15 +100,15 @@ class AllMachines extends _$AllMachines {
 
     var isSupporter = await ref.watch(isSupporterAsyncProvider.future);
     logger.i('Received isSupporter $isSupporter');
-    var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
-    logger.i('Max allowed machines for non Supporters is $maxNonSupporterMachines');
+    // var maxNonSupporterMachines = ref.watch(remoteConfigIntProvider('non_suporters_max_printers'));
+    // logger.i('Max allowed machines for non Supporters is $maxNonSupporterMachines');
     if (isSupporter) {
       await settingService.delete(UtilityKeys.nonSupporterMachineCleanup);
     }
 
-    if (isSupporter || maxNonSupporterMachines <= 0 || machines.length <= maxNonSupporterMachines) {
-      return machines;
-    }
+    // if (isSupporter || maxNonSupporterMachines <= 0 || machines.length <= maxNonSupporterMachines) {
+    //   return machines;
+    // }
 
     DateTime? cleanupDate = settingService.read<DateTime?>(UtilityKeys.nonSupporterMachineCleanup, null);
 
@@ -120,14 +120,13 @@ class AllMachines extends _$AllMachines {
       return machines;
     }
 
-    if (cleanupDate.isBefore(DateTime.now())) {
-      // if (cleanupDate.difference(DateTime.now()).inDays >= 0) {
-      var oLen = machines.length;
-      machines = machines.sublist(0, maxNonSupporterMachines);
-      logger.i(
-          'Hiding machines from user since he is not a supporter! Original len was $oLen, new length is ${machines.length}');
-      return machines;
-    }
+    // if (cleanupDate.isBefore(DateTime.now())) {
+    //   // if (cleanupDate.difference(DateTime.now()).inDays >= 0) {
+    //   var oLen = machines.length;
+    //   machines = machines.sublist(0, maxNonSupporterMachines);
+    //   logger.i('Hiding machines from user since he is not a supporter! Original len was $oLen, new length is ${machines.length}');
+    //   return machines;
+    // }
 
     return machines;
   }
@@ -215,7 +214,7 @@ class MachineService {
   Future<void> updateMachine(Machine machine) async {
     await _machineRepo.update(machine);
     logger.i('Updated machine: ${machine.logName}');
-    ref.read(analyticsProvider).logEvent(name: 'updated_machine');
+    // ref.read(analyticsProvider).logEvent(name: 'updated_machine');
     _machineEventStreamCtler.add(ModelEvent.update(machine, machine.uuid));
     await ref.refresh(machineProvider(machine.uuid).future);
     var selectedMachineService = ref.read(selectedMachineServiceProvider);
@@ -263,9 +262,9 @@ class MachineService {
     logger.i('Inserted machine ${machine.logName}');
     await _selectedMachineService.selectMachine(machine);
     ref.invalidate(allMachinesProvider);
-    FirebaseAnalytics firebaseAnalytics = ref.read(analyticsProvider);
-    firebaseAnalytics.logEvent(name: 'add_machine');
-    _machineRepo.count().then((value) => firebaseAnalytics.updateMachineCount(value));
+    // FirebaseAnalytics firebaseAnalytics = ref.read(analyticsProvider);
+    // firebaseAnalytics.logEvent(name: 'add_machine');
+    // _machineRepo.count().then((value) => firebaseAnalytics.updateMachineCount(value));
 
     await ref.read(machineProvider(machine.uuid).future);
     _machineEventStreamCtler.add(ModelEvent.insert(machine, machine.uuid));
@@ -283,9 +282,9 @@ class MachineService {
 
     await _machineRepo.remove(machine.uuid);
     _machineEventStreamCtler.add(ModelEvent.delete(machine, machine.uuid));
-    var firebaseAnalytics = ref.read(analyticsProvider);
-    firebaseAnalytics.logEvent(name: 'remove_machine');
-    _machineRepo.count().then((value) => firebaseAnalytics.updateMachineCount(value));
+    // var firebaseAnalytics = ref.read(analyticsProvider);
+    // firebaseAnalytics.logEvent(name: 'remove_machine');
+    // _machineRepo.count().then((value) => firebaseAnalytics.updateMachineCount(value));
 
     if (_selectedMachineService.isSelectedMachine(machine)) {
       logger.i('Removed Machine ${machine.uuid} is active machine... move to next one...');

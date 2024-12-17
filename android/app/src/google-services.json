@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978561079721",
+    "project_id": "mobileraker-35d99",
+    "storage_bucket": "mobileraker-35d99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978561079721:android:bfcc42e09e7b995fd24cb8",
+        "android_client_info": {
+          "package_name": "com.creatbot.klipper"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCacQrgN25ktAakXqBY08hkBZKDRYO1j2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978561079721:android:60ace9b0029b162cd24cb8",
+        "android_client_info": {
+          "package_name": "com.mobileraker.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCacQrgN25ktAakXqBY08hkBZKDRYO1j2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
