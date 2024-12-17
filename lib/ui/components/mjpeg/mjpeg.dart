@@ -133,8 +133,7 @@ class _ErrorWidget extends StatelessWidget {
       children: [
         const Icon(Icons.error_outline),
         const SizedBox(height: 30),
-        const Text('pages.dashboard.general.cam_card.error_connecting', textAlign: TextAlign.center)
-            .tr(args: [config.streamUri.obfuscate().toString()]),
+        const Text('pages.dashboard.general.cam_card.error_connecting', textAlign: TextAlign.center).tr(args: [config.streamUri.obfuscate().toString()]),
         Wrap(
           spacing: 4,
           alignment: WrapAlignment.spaceEvenly,

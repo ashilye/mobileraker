@@ -88,13 +88,13 @@
           "flow": "流量",
           "filament": "耗材",
           "filament_tooltip": "使用的{}％的丝，即{} m的{} m预测。",
-          "eta_tooltip": "剩余时间:\nAVG: {avg}\n切片器: {slicer}\n文件: {file}\n耗材: {filament}",
+          "eta_tooltip": "剩余时间:\nAVG: {avg}\n切片: {slicer}\n文件: {file}\n耗材: {filament}",
           "remaining": "Remaining"
         },
         "cam_card": {
           "webcam": "摄像头",
           "fullscreen": "全屏",
-          "error_connecting": "Error connecting to {}.\nPlease check the connection settings and ensure the webcam is online."
+          "error_connecting": "连接到 {} 时出错。\n请检查连接设置并确保网络摄像头在线。"
         },
         "temp_card": {
           "title": "温度控制",
@@ -215,7 +215,7 @@
       "last_mod": "修改时间",
       "last_printed": "上次打印",
       "not_printed": "未打印",
-      "fetching_files": "@:general.fetching文件...",
+      "fetching_files": "@:general.fetching文件…",
       "no_files_found": "找不到文件！",
       "details": {
         "preheat": "预热",
@@ -237,7 +237,7 @@
           "layer_higher": "层高度",
           "first_layer": "首层",
           "others": "其他",
-          "first_layer_temps": "@:pages.files.details.meta_card.first_layer-温度",
+          "first_layer_temps": "@:pages.files.details.meta_card.first_layer - 温度",
           "first_layer_temps_value": "@:pages.dashboard.general.temp_card.hotend：{}°C \n @:pages.dashboard.general.temp_card.bed：{}°C"
         },
         "stat_card": {
@@ -263,7 +263,7 @@
         "always_baby_hint": "始终在仪表板上显示 Z 偏移卡",
         "num_edit": "使用键盘进行数字输入",
         "num_edit_hint": "使用数字键盘而不是滑块输入数字",
-        "start_with_overview": "show @:pages.overview.title默认",
+        "start_with_overview": "设置@:pages.overview.title作为启动页",
         "start_with_overview_hint": "使用概览页面而不是活动打印机的仪表板启动应用程序",
         "use_offset_pos": "显示使用偏移量的坐标。",
         "use_offset_pos_hint": "将偏移量添加到显示的坐标",
@@ -280,7 +280,11 @@
         "filament_sensor_dialog": "显示传感器警报",
         "filament_sensor_dialog_hint": "当传感器被触发时显示对话框",
         "confirm_gcode": "确认宏执行",
-        "confirm_gcode_hint": "在仪表板上执行 GCode 宏之前始终显示确认对话框"
+        "confirm_gcode_hint": "在仪表板上执行 GCode 宏之前始终显示确认对话框",
+        "eta_sources": "预计完成时间计算",
+        "eta_sources_hint": "选择应用于预计完成时间计算的来源",
+        "medium_ui": "平板电脑 UI",
+        "medium_ui_hint": "切换平板电脑 UI 是否应在较大屏幕上使用或横向模式",
       },
       "notification": {
         "title": "消息通知",
@@ -314,7 +318,7 @@
       "import_settings": "导入设置",
       "remove_printer": "删除打印机",
       "no_values_found": "找不到值！",
-      "fetching_additional_settings": "@:general.fetching从网络...",
+      "fetching_additional_settings": "@:general.fetching来自网络的附加设置...",
       "could_not_fetch_additional": "无法获取其他设置！",
       "fetch_error_hint": "确保机器可以触及，并连接到它。",
       "reset_notification_registry": "清除通知设备注册表",
@@ -360,7 +364,7 @@
         "speed_z": "默认 Z 轴移动速度",
         "speed_z_short": "速度z",
         "steps_move": "挤出头移动距离预设值",
-        "steps_move_short": "@：pages.printer_edit.motion_system.steps_move",
+        "steps_move_short": "@:pages.printer_edit.motion_system.steps_move",
         "steps_baby": "Z轴偏移量",
         "steps_baby_short": "Z Offset"
       },
@@ -369,7 +373,17 @@
         "feedrate": "默认挤出速度",
         "feedrate_short": "挤出速度",
         "steps_extrude": "默认挤出距离",
-        "steps_extrude_short": "@:pages.printer_edit.extruders.steps_extrude"
+        "steps_extrude_short": "@:pages.printer_edit.extruders.steps_extrude",
+          "filament":{
+            "loading_distance": "挤出机喷嘴距离",
+            "loading_distance_helper": "从喷嘴到挤出机的距离。用于（卸载）长丝",
+            "loading_speed": "（卸载）速度",
+            "loading_speed_helper": "从喷嘴到挤出机装载和卸载长丝的速度",
+            "purge_amount": "清洗长度",
+            "purge_amount_helper": "要清洗的长丝长度",
+            "purge_speed": "清洗速度",
+            "purge_speed_helper": "清洗长丝的速度"
+          }
       },
       "cams": {
         "target_fps": "当前FPS",
@@ -492,7 +506,9 @@
         "title": "选择输入模式:",
         "body": "如果您对此不熟悉，最好坚持使用简单模式。但是，如果您经验丰富并且需要使用自定义标头、证书等，那么专家模式适合您。请记住，您选择的模式不会影响应用程序本身，但它将确定如何验证和显示输入，以及添加打印机时可用的选项。",
         "simple": "简单",
-        "advanced": "进阶"
+        "advanced": "进阶",
+        "add_via_oe": "OctoEverywhere一键式设置",
+        "add_via_obico": "Obico一键式设置"
       },
       "simple_form": {
         "hint_title": "提示 - 简单模式",
@@ -521,6 +537,10 @@
         "proceed_warning": "该应用程序似乎无法连接到机器。这可能是因为您与打印机不在同一网络上，或者您没有访问该打印机所需的权限。虽然出现问题时您可以选择添加打印机，但请注意，不能保证它能够正确连接。请谨慎行事。",
         "button": "测试连接"
       },
+      "confirmed": {
+        "title": "打印机 {} 已添加！",
+        "to_dashboard": "跳转至仪表板"
+      },
       "printer_add_helper": "主机，IP或完整URL",
       "resulting_ws_url": "结果Websocket-url：{}",
       "misc": "杂项",
@@ -531,22 +551,22 @@
     "console": {
       "title": "控制台",
       "no_entries": "找不到缓存命令",
-      "fetching_console": "@:general.fetching Console条目...",
+      "fetching_console": "@:general.fetching控制台条目……",
       "command_input": {
         "hint": "输入控制台命令"
       }
     },
     "overview": {
       "title": "概述",
-      "fetching_machines": "@:general.fetching机器...",
-      "no_entries": "找不到机器",
-      "add_machine": "添加机器"
+      "fetching_machines": "@:general.fetching打印机",
+      "no_entries": "找不到打印机",
+      "add_machine": "添加打印机"
     },
     "faq": {
       "title": "常问问题",
       "loading": "@:general.loading FAQ...",
       "error": "尝试获取常见问题时出错",
-      "open_in_browser": "Open @:pages.faq.title in Browser"
+      "open_in_browser": "在浏览器中打开@:pages.faq.title"
     },
     "paywall": {
       "title": "支持开发人员！",
@@ -578,7 +598,7 @@
     "nav_drawer": {
       "printer_settings": "打印机设置",
       "manage_printers": "管理打印机",
-      "fetching_printers": "@:general.fetching打印机...",
+      "fetching_printers": "@:general.fetching打印机…",
       "footer": "由帕特里克·施密特（Patrick Schmidt）精心打造❤️ \n 项目地址"
     },
     "connection_watcher": {
@@ -587,7 +607,7 @@
       "trying_connect_remote": "正在尝试使用远程客户端进行连接。。。",
       "server_starting": "服务器正在启动...",
       "more_details": "更多详细信息",
-      "add_printer":"嗨，\n很高兴在这里见到你！\n为了开始你的体验，请向 Mobileraker 添加一台打印机。完成此步骤后，你将能够直接从 Mobileraker 中直接控制你的打印机。"
+      "add_printer":"嗨，\n很高兴在这里见到你！\n为了开始你的体验，请向 Mobileraker 添加一台打印机。完成此步骤后，你将能够从 Mobileraker 中直接控制你的打印机。"
     },
     "octo_indicator": {
       "tooltip": "使用OctoEveryWhere!"
@@ -693,7 +713,7 @@
       "adjusted_btn": "调整过的"
     },
     "manual_offset": {
-      "title": "@:general.offset Calibration",
+      "title": "@:general.offset校准",
       "hint_tooltip": "Klipper的纸质测试文档",
       "snackbar_title": "校准完成",
       "snackbar_message": "确保通过“保存配置”操作保存偏移."
@@ -707,7 +727,7 @@
     "http_header": {
       "title": "Http-Header",
       "header": "Header",
-      "header_hint": "HTTP-Header 名称",
+      "header_hint": "HTTP-Header名称",
       "value": "Header-Value",
       "value_hint": "标头的值"
     },

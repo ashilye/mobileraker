@@ -32,7 +32,7 @@ struct LiveActivitiesAppAttributes: ActivityAttributes, Identifiable {
     var id = UUID()
 }
 
-let sharedDefault = UserDefaults(suiteName: "group.mobileraker.liveactivity")!
+let sharedDefault = UserDefaults(suiteName: "group.creatbot.liveactivity")!
 
 struct PrintingLiveActivity: Widget {
     var body: some WidgetConfiguration {

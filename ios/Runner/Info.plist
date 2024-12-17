@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AwnAppGroupName</key>
-	<string>group.mobileraker.awn</string>
+	<string>group.creatbot.awn</string>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -17,13 +17,24 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Mobileraker</string>
+	<string>CreatCloud</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.mobileraker.ios</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mobileraker</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -31,6 +42,8 @@
 		<string>https</string>
 		<string>http</string>
 	</array>
+	<key>LSMinimumSystemVersion</key>
+	<string>12.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
@@ -41,6 +54,12 @@
 	<string>Required to access WiFi SSID to enable faster switching to remote connection.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To enable the functionality of the belt tuner, kindly grant permission for microphone access.</string>
+	<key>NSSupportsLiveActivities</key>
+	<true/>
+	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
+	<true/>
+	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -67,93 +86,69 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
-	<key>NSSupportsLiveActivitiesFrequentUpdates</key>
-	<true/>
-	<key>NSSupportsLiveActivities</key>
-	<true/>
 	<key>UTExportedTypeDeclarations</key>
-    <array>
-        <!-- G-code File Types -->
-        <dict>
-            <key>UTTypeIdentifier</key>
-            <string>com.mobileraker.ios.gcode</string>
-            <key>UTTypeConformsTo</key>
-            <array>
-                <string>public.data</string>
-            </array>
-            <key>UTTypeDescription</key>
-            <string>G-code File</string>
-            <key>UTTypeTagSpecification</key>
-            <dict>
-                <key>public.filename-extension</key>
-                <array>
-                    <string>gcode</string>
-                    <string>g</string>
-                    <string>gc</string>
-                    <string>gco</string>
-                </array>
-            </dict>
-        </dict>
-
-        <!-- Configuration File Types -->
-        <dict>
-            <key>UTTypeIdentifier</key>
-            <string>com.mobileraker.ios.config</string>
-            <key>UTTypeConformsTo</key>
-            <array>
-                <string>public.data</string>
-            </array>
-            <key>UTTypeDescription</key>
-            <string>Configuration File</string>
-            <key>UTTypeTagSpecification</key>
-            <dict>
-                <key>public.filename-extension</key>
-                <array>
-                    <string>conf</string>
-                    <string>cfg</string>
-                </array>
-            </dict>
-        </dict>
-
-        <!-- Text File Types -->
-        <dict>
-            <key>UTTypeIdentifier</key>
-            <string>com.mobileraker.ios.textfiles</string>
-            <key>UTTypeConformsTo</key>
-            <array>
-                <string>public.plain-text</string>
-            </array>
-            <key>UTTypeDescription</key>
-            <string>Text File</string>
-            <key>UTTypeTagSpecification</key>
-            <dict>
-                <key>public.filename-extension</key>
-                <array>
-                    <string>md</string>
-                    <string>txt</string>
-                    <string>log</string>
-                    <string>json</string>
-                    <string>xml</string>
-                    <string>yaml</string>
-                    <string>yml</string>
-                </array>
-            </dict>
-        </dict>
-    </array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLName</key>
-            <string>com.mobileraker.ios</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>mobileraker</string>
-            </array>
-        </dict>
-    </array>
-    <key>LSMinimumSystemVersion</key>
-    <string>12.0</string>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>G-code File</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.mobileraker.ios.gcode</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gcode</string>
+					<string>g</string>
+					<string>gc</string>
+					<string>gco</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Configuration File</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.mobileraker.ios.config</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>conf</string>
+					<string>cfg</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.plain-text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Text File</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.mobileraker.ios.textfiles</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>md</string>
+					<string>txt</string>
+					<string>log</string>
+					<string>json</string>
+					<string>xml</string>
+					<string>yaml</string>
+					<string>yml</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

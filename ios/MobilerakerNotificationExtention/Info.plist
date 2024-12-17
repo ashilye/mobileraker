@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AwnAppGroupName</key>
-	<string>group.mobileraker.awn</string>
+	<string>group.creatbot.awn</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
