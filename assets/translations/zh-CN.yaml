@@ -57,9 +57,12 @@
     "export": "导出",
     "import": "导入",
     "current": "当前",
-    "load": "加载",
+    "load": "载入",
+    "unload": "退料",
     "discard": "放弃",
-    "hide": "隐藏"
+    "hide": "隐藏",
+    "finish": "完成",
+    "select": "选择"
   },
   "pages": {
     "dashboard": {
@@ -151,7 +154,7 @@
             "one": "扇子",
             "other": "风扇"
           },
-          "part_fan": "模型风扇",
+          "part_fan": "冷却风扇",
           "static_fan_btn": "风扇"
         },
         "extrude_card": {
@@ -163,7 +166,9 @@
         },
         "macro_card": {
           "title": "Gcode - 宏指令",
-          "no_macros": "此组中当前没有可见的宏"
+          "no_macros": "此组中当前没有可见的宏",
+          "add_grp_hint": "您可以创建不同的组来组织宏,只需转到打印机设置并添加新组即可。",
+          "show_all_tooltip": "显示所有宏"
         },
         "pin_card": {
           "title": {
@@ -174,17 +179,17 @@
           },
           "title_misc": "杂项",
           "filament_sensor": {
-            "detected": "已检测到",
+            "detected": "检测中",
             "not_detected": "空"
           },
           "pin_btn": "别针"
         },
         "power_card": {
-          "title": "动力面板",
+          "title": "电源面板",
           "pin_btn": "别针"
         },
         "multipl_card": {
-          "title": "乘数",
+          "title": "倍率调整",
           "flow": "挤出流量",
           "press_adv": "压力补偿",
           "smooth_time": "平滑时间"
@@ -198,7 +203,7 @@
         },
         "bed_mesh_card": {
           "title": "网床",
-          "profiles": "轮廓",
+          "profiles": "设定项",
           "range_tooltip": "最高点和最低点之间的范围",
           "showing_matrix": {
             "probed": "显示探测矩阵",
@@ -473,13 +478,13 @@
         "steps_extrude_short": "@:pages.printer_edit.extruders.steps_extrude",
           "filament":{
             "loading_distance": "挤出机喷嘴距离",
-            "loading_distance_helper": "从喷嘴到挤出机的距离。用于（卸载）长丝",
-            "loading_speed": "（卸载）速度",
-            "loading_speed_helper": "从喷嘴到挤出机装载和卸载长丝的速度",
-            "purge_amount": "清洗长度",
-            "purge_amount_helper": "要清洗的长丝长度",
-            "purge_speed": "清洗速度",
-            "purge_speed_helper": "清洗长丝的速度"
+            "loading_distance_helper": "从喷嘴到挤出机的距离，用于装载或卸载耗材",
+            "loading_speed": "（卸载）装载速度",
+            "loading_speed_helper": "从喷嘴到挤出机耗材装载和卸载的速度",
+            "purge_amount": "清理长度",
+            "purge_amount_helper": "清理耗材长度",
+            "purge_speed": "清理速度",
+            "purge_speed_helper": "清理耗材的速度"
           }
       },
       "cams": {
