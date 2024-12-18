@@ -836,7 +836,7 @@
       "title": "挤出机速度 [mm/s]"
     },
     "fan_speed": {
-      "title": "编辑 {} %"
+      "title": "编辑{}"
     },
     "filament_sensor_triggered": {
       "title": "传感器已触发",

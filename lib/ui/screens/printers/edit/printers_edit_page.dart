@@ -83,15 +83,15 @@ class _PrinterEdit extends ConsumerWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ).tr(args: [ref.watch(currentlyEditingProvider).name]),
-        actions: [
-          if (canShowImport)
-            IconButton(
-              icon: const Icon(FlutterIcons.import_mco),
-              tooltip: 'pages.printer_edit.import_settings'.tr(),
-              onPressed: ref.watch(printerEditControllerProvider.notifier).openImportSettings,
-              // onPressed: () =>                    model.onImportSettings(MaterialLocalizations.of(context))
-            ),
-        ],
+        // actions: [
+        //   if (canShowImport)
+        //     IconButton(
+        //       icon: const Icon(FlutterIcons.import_mco),
+        //       tooltip: 'pages.printer_edit.import_settings'.tr(),
+        //       onPressed: ref.watch(printerEditControllerProvider.notifier).openImportSettings,
+        //       // onPressed: () =>                    model.onImportSettings(MaterialLocalizations.of(context))
+        //     ),
+        // ],
       ),
       floatingActionButton: ref.watch(printerEditControllerProvider)
           ? const FloatingActionButton(
