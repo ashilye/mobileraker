@@ -151,24 +151,24 @@ class _ErrorWidget extends StatelessWidget {
             ),
           ],
         ),
-        const Divider(),
-        Text.rich(
-          TextSpan(
-            text: 'Mjpeg streamURI:\n${config.streamUri.obfuscate()}\n',
-            children: [
-              if (config.snapshotUri != null)
-                TextSpan(text: 'Mjpeg snapshotURI:\n${config.snapshotUri!.obfuscate()}\n'),
-              TextSpan(text: '\nError Details:\n', style: themeData.textTheme.bodySmall),
-              TextSpan(
-                // text: error.toString(),
-                text: error.runtimeType.toString(),
-                style: themeData.textTheme.bodySmall?.copyWith(color: themeData.colorScheme.error),
-              ),
-            ],
-          ),
-          style: themeData.textTheme.bodySmall,
-          textAlign: TextAlign.justify,
-        ),
+        // const Divider(),
+        // Text.rich(
+        //   TextSpan(
+        //     text: 'Mjpeg streamURI:\n${config.streamUri.obfuscate()}\n',
+        //     children: [
+        //       if (config.snapshotUri != null)
+        //         TextSpan(text: 'Mjpeg snapshotURI:\n${config.snapshotUri!.obfuscate()}\n'),
+        //       TextSpan(text: '\nError Details:\n', style: themeData.textTheme.bodySmall),
+        //       TextSpan(
+        //         // text: error.toString(),
+        //         text: error.runtimeType.toString(),
+        //         style: themeData.textTheme.bodySmall?.copyWith(color: themeData.colorScheme.error),
+        //       ),
+        //     ],
+        //   ),
+        //   style: themeData.textTheme.bodySmall,
+        //   textAlign: TextAlign.justify,
+        // ),
       ],
     );
   }
