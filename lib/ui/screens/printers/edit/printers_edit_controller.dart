@@ -566,6 +566,13 @@ class WebcamListController extends _$WebcamListController {
       state = AsyncValue.data(
         List.unmodifiable([...state.value!, webcamInfo]),
       );
+    } else {
+      ref.read(snackBarServiceProvider).show(SnackBarConfig(
+        type: SnackbarType.warning,
+        title: 'pages.printer_edit.store_error.title'.tr(),
+        message: 'pages.printer_edit.store_error.message'.tr(),
+        duration: const Duration(seconds: 10),
+      ));
     }
     // state = AsyncValue.data(
     //   List.unmodifiable([...state.value!, WebcamInfo.mjpegDefault()]),
