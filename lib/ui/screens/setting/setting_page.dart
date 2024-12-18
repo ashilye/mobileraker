@@ -491,11 +491,7 @@ class _Footer extends ConsumerWidget {
               applicationVersion: version,
               applicationLegalese: 'Copyright (c) 2021 - ${DateTime.now().year} Patrick Schmidt',
               applicationIcon: Center(
-                child: SvgPicture.asset(
-                  'assets/vector/mr_logo.svg',
-                  width: 80,
-                  height: 80,
-                ),
+                child: Padding(padding: EdgeInsets.symmetric(vertical: 4),child: Image.asset('assets/icon/mr_logo.png',height: 48,width: 48)),
               ),
             );
           },

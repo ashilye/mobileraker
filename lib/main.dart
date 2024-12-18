@@ -282,10 +282,11 @@ class _LoadingSplashScreen extends HookWidget {
                   parent: animCtrler,
                   curve: Curves.elasticInOut,
                 ),
-                child: SvgPicture.asset(
-                  'assets/vector/mr_logo.svg',
-                  height: 120,
-                ),
+                // child: SvgPicture.asset(
+                //   'assets/vector/mr_logo.svg',
+                //   height: 120,
+                // ),
+                child: Padding(padding: EdgeInsets.symmetric(vertical: 4),child: Image.asset('assets/icon/mr_appicon.png',height: 48,width: 48)),
               ),
             ),
             const Flexible(

@@ -129,22 +129,24 @@ class _Title<T> extends HookWidget implements PreferredSizeWidget {
           title: arguments.title,
         ),
         if (arguments.showSearch) ...[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: TextField(
-              focusNode: node,
-              controller: textEditingController,
-              decoration: InputDecoration(
-                hintText: '${MaterialLocalizations.of(context).searchFieldLabel}…',
-                prefixIcon: const Icon(Icons.search),
-                suffixIcon: IconButton(
-                  tooltip: tr('pages.files.search.clear_search'),
-                  icon: const Icon(Icons.clear),
-                  onPressed: textEditingController.clear,
+          Container(
+              height: 48,
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: TextField(
+                focusNode: node,
+                controller: textEditingController,
+                textAlignVertical: TextAlignVertical.center,
+                decoration: InputDecoration(
+                  hintText: '${MaterialLocalizations.of(context).searchFieldLabel}…',
+                  prefixIcon: const Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    tooltip: tr('pages.files.search.clear_search'),
+                    icon: const Icon(Icons.clear),
+                    onPressed: textEditingController.clear,
+                  ),
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                 ),
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
               ),
-            ),
           ),
           const Gap(8),
         ],

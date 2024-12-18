@@ -163,13 +163,7 @@ class _NavHeader extends HookConsumerWidget {
                     Expanded(
                       child: Row(
                         children: [
-                          (brandingIcon == null)
-                              ? SvgPicture.asset(
-                                  'assets/vector/mr_logo.svg',
-                                  width: 60,
-                                  height: 60,
-                                )
-                              : Image(height: 60, width: 60, image: brandingIcon),
+                          Padding(padding: EdgeInsets.only(right: 10),child: Image.asset('assets/icon/mr_logo.png',height: 48,width: 48)),
                           Flexible(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
