@@ -70,7 +70,7 @@
       "ems_btn": "紧急停止",
       "ems_confirmation": {
         "title": "确认紧急停止",
-        "body": "您即将向打印机发送紧急停止命令。这将立即停止所有电机和加热器。",
+        "body": "您即将向打印机发送紧急停止命令，这将立即停止所有电机和加热器。",
         "confirm": "停止！"
       },
       "server_status": {
@@ -904,7 +904,7 @@
       "title": "添加宏",
       "hint": "为组 {} 选择宏"
     },
-    "Ï": {
+    "signIn": {
       "subtitle": "虽然创建账户是可选的，但为了恢复在其他设备或平台上进行的购买，必须创建账户。",
       "forgot_password": "忘记密码？",
       "forgot_password_success": "密码重置电子邮件已发送！",
@@ -1026,6 +1026,13 @@
       "falsy_import_snackbar": {
         "title": "导入布局时出错！",
         "body": "无法导入布局，请确保剪贴板包含有效的布局。"
+      }
+    }
+  ,
+    "selections": {
+      "no_selections": {
+        "title": "未找到结果",
+        "subtitle": "尝试不同的搜索词"
       }
     }
   },
