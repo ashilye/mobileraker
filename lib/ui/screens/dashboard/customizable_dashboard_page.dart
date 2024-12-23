@@ -76,19 +76,21 @@ class CustomizableDashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RateMyAppBuilder(
-      rateMyApp: RateMyApp(minDays: 2, minLaunches: 5, remindDays: 7),
-      onInitialized: (context, rateMyApp) {
-        if (rateMyApp.shouldOpenDialog) {
-          rateMyApp.showRateDialog(
-            context,
-            title: tr('dialogs.rate_my_app.title'),
-            message: tr('dialogs.rate_my_app.message'),
-          );
-        }
-      },
-      builder: (context) => const _DashboardView(),
-    );
+    // 去掉应用评分 dialog
+    // return RateMyAppBuilder(
+    //   rateMyApp: RateMyApp(minDays: 2, minLaunches: 5, remindDays: 7),
+    //   onInitialized: (context, rateMyApp) {
+    //     if (rateMyApp.shouldOpenDialog) {
+    //       rateMyApp.showRateDialog(
+    //         context,
+    //         title: tr('dialogs.rate_my_app.title'),
+    //         message: tr('dialogs.rate_my_app.message'),
+    //       );
+    //     }
+    //   },
+    //   builder: (context) => const _DashboardView(),
+    // );
+    return const _DashboardView();
   }
 }
 
