@@ -201,11 +201,11 @@ GoRouter goRouterImpl(GoRouterRef ref) {
           //   ),
           //   pageBuilder: GoTransitions.fullscreenDialog,
           // ),
-          // GoRoute(
-          //   path: 'gcode-details',
-          //   name: AppRoute.fileManager_exlorer_gcodeDetail.name,
-          //   builder: (context, state) => GCodeFileDetailPage(gcodeFile: state.extra! as GCodeFile),
-          // ),
+          GoRoute(
+            path: 'gcode-details',
+            name: AppRoute.fileManager_exlorer_gcodeDetail.name,
+            builder: (context, state) => GCodeFileDetailPage(gcodeFile: state.extra! as GCodeFile),
+          ),
           GoRoute(
             path: 'editor',
             name: AppRoute.fileManager_exlorer_editor.name,
