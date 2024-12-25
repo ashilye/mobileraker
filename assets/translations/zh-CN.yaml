@@ -331,8 +331,10 @@
         "meta_card": {
           "title": "元数据",
           "filament": "耗材",
-          "filament_type": "耗材类型",
-          "filament_name": "耗材名称",
+          "filament_type": "类型",
+          "filament_name": "名称",
+          "filament_weight":"重量",
+          "filament_length":"长度",
           "est_print_time": "预计打印时间",
           "slicer": "切片软件",
           "nozzle_diameter": "喷嘴直径",
@@ -855,6 +857,67 @@
     "dashboard_page_settings": {
       "title": "仪表板页面设置",
       "icon_label": "选择页面的图标："
+    },
+    "filament_switch": {
+      "title": {
+        "load":"耗材加载向导",
+        "unload":"耗材卸载向导"
+      },
+      "controls": {
+        "heat_up":"加热",
+        "change_temp":"改变温度",
+        "purge":"清除",
+        "repeat_load":"重新加载",
+        "repeat_unload":"重新卸载",
+        "repeat_purge":"重新清除"
+      },
+      "steps": {
+           "set_temps": {
+                  "title":"耗材温度",
+                  "subtitle":"选择目标温度",
+           },
+           "heat_up":{
+             "title":"工具头加热",
+             "subtitle":"加热至目标温度",
+           },
+           "move":{
+             "title":{
+               "load":"加载耗材",
+               "unload":"卸载耗材",
+             },
+             "subtitle":{
+               "load": {
+                 "idle": "将耗材插入挤出机",
+                 "processing": "加载耗材...",
+                 "processed":"耗材是否到达喷嘴？如有必要，请重复"
+               },
+               "unload":{
+                 "idle": "将耗材移出挤出机",
+                 "processing": "卸载耗材...",
+                 "processed":"耗材是否从挤出机中出来？如有必要，请重复"
+               },
+             },
+           },
+           "purge":{
+             "title":"清除耗材",
+             "subtitle":{
+               "idle": "将耗材装入喷嘴",
+               "processing": "清除耗材...",
+               "processed":"确认清除的材料是否干净。如有必要，请重复"
+             },
+           },
+           "tip_form":{
+             "title":"尖端成型",
+             "subtitle":"形成细丝尖端",
+           },
+      }
+    },
+    "heater_temperature": {
+      "title": "{}温度[°C]"
+    },
+    "confirm_print_cancelation": {
+      "title": "取消打印？",
+      "body": "您即将取消打印作业。\n\n确认您的操作。"
     }
   },
   "bottom_sheets": {
