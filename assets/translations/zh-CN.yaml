@@ -235,7 +235,7 @@
         "create_file": "创建文件",
         "create_folder": "创建文件夹",
         "upload": "上传文件",
-        "upload_bulk": "上传文件",
+        "upload_bulk": "上传多个文件",
         "zip_file": "创建存档"
       },
       "gcode_file_actions": {
