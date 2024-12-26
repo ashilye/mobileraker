@@ -489,7 +489,7 @@ class _Footer extends ConsumerWidget {
             showLicensePage(
               context: context,
               applicationVersion: version,
-              applicationLegalese: 'Copyright (c) 2021 - ${DateTime.now().year} Patrick Schmidt',
+              applicationLegalese: 'Copyright (c) 2024 - ${DateTime.now().year} CreatBot\n\nCopyright (c) 2021 - ${DateTime.now().year} Patrick Schmidt',
               applicationIcon: Center(
                 child: Padding(padding: EdgeInsets.symmetric(vertical: 4),child: Image.asset('assets/icon/mr_logo.png',height: 48,width: 48)),
               ),

@@ -847,7 +847,7 @@
     },
     "filament_sensor_triggered": {
       "title": "传感器已触发",
-      "body": "传感器 '{}' 已触。\n\n请检查打印机和传感器以确保灯丝可用或禁用传感器。"
+      "body": "传感器 '{}' 已触。\n\n请检查打印机和传感器以确保耗材可用或禁用传感器。"
     },
     "screws_tilt_adjust": {
       "title": "螺丝倾斜调整",
