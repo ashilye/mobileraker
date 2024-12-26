@@ -116,8 +116,8 @@ class _Body extends ConsumerWidget {
 
     var isSaving = ref.watch(printerEditControllerProvider);
     var controller = ref.watch(printerEditControllerProvider.notifier);
-
-    return Center(
+    final bool isShow = false;
+    return Container(
       child: ResponsiveLimit(
         child: SingleChildScrollView(
           child: FormBuilder(
@@ -127,7 +127,6 @@ class _Body extends ConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(6.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   SectionHeader(
                     title: 'pages.setting.general.title'.tr(),
@@ -146,7 +145,9 @@ class _Body extends ConsumerWidget {
                     ),
                     contextMenuBuilder: defaultContextMenuBuilder,
                   ),
-                  const _ThemeSelector(),
+                 // 用户界面主题
+                  if(isShow)
+                 const _ThemeSelector(),
                   FormBuilderTextField(
                     keyboardType: TextInputType.url,
                     decoration: InputDecoration(
@@ -165,6 +166,8 @@ class _Body extends ConsumerWidget {
                     ]),
                     contextMenuBuilder: defaultContextMenuBuilder,
                   ),
+                  // API 秘钥
+                  if(isShow)
                   FormBuilderTextField(
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
@@ -183,6 +186,8 @@ class _Body extends ConsumerWidget {
                     initialValue: machine.apiKey,
                     contextMenuBuilder: defaultContextMenuBuilder,
                   ),
+                  // 客户端超时
+                  if(isShow)
                   FormBuilderTextField(
                     keyboardType: const TextInputType.numberWithOptions(),
                     decoration: InputDecoration(
@@ -202,17 +207,27 @@ class _Body extends ConsumerWidget {
                       FormBuilderValidators.integer(),
                     ]),
                   ),
+                  // SSL
+                  if(isShow)
                   SslSettings(
                     initialCertificateDER: machine.pinnedCertificateDERBase64,
                     initialTrustSelfSigned: machine.trustUntrustedCertificate,
                   ),
+                  // HTTP
+                  if(isShow)
                   HttpHeaders(initialValue: machine.httpHeaders),
+                  // HTTP
+                  if(isShow)
                   const Divider(),
                   // if (machine.hasRemoteConnection)
+                  // HTTP
+                  if(isShow)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 8.0),
                     child: SsidPreferenceList(initialValue: machine.localSsids),
                   ),
+                  // WIFI信息不可用
+                  if(isShow)
                   WarningCard(
                     show: ref
                             .watch(permissionStatusProvider(Permission.location).selectAs((data) => !data.isGranted))
@@ -225,23 +240,37 @@ class _Body extends ConsumerWidget {
                     leadingIcon: const Icon(Icons.wifi_off_outlined),
                     onTap: controller.requestLocationPermission,
                   ),
+                  // 配置远程连接
+                  if(isShow)
                   OutlinedButton(
                     onPressed: controller.openRemoteConnectionSheet,
                     child: const Text(
                       'pages.printer_edit.configure_remote_connection',
                     ).tr(),
                   ),
+                  if(isShow)
                   const Divider(),
+                  if(isShow)
                   const _RemoteSettings(),
-                  const Divider(),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: TextButton.icon(
-                      onPressed: isSaving ? null : controller.deleteIt,
-                      icon: const Icon(Icons.delete_forever_outlined),
-                      label: const Text('pages.printer_edit.remove_printer').tr(),
+                  SectionHeader(
+                    title: 'pages.dashboard.general.temp_card.temp_presets'.tr(),
+                    trailing: TextButton.icon(
+                      onPressed: isSaving
+                          ? null
+                          : ref.watch(temperaturePresetListControllerProvider.notifier).addNewTemperaturePreset,
+                      label: const Text('general.add').tr(),
+                      icon: const Icon(FlutterIcons.thermometer_lines_mco),
                     ),
                   ),
+                  const TemperaturePresetList(),
+
+                  Align(
+                  alignment: Alignment.bottomCenter,
+                  child: TextButton.icon(
+                    onPressed: isSaving ? null : controller.deleteIt,
+                    icon: const Icon(Icons.delete_forever_outlined),
+                    label: const Text('pages.printer_edit.remove_printer').tr(),
+                  )),
                 ],
               ),
             ),
@@ -299,7 +328,6 @@ class WebcamList extends ConsumerWidget {
 class _WebCamItem extends HookConsumerWidget {
   final WebcamInfo cam;
   final int idx;
-
   const _WebCamItem({super.key, required this.cam, required this.idx});
 
   @override
