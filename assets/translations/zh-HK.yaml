@@ -1,5 +1,6 @@
 ---
 general:
+  Legal_Content: 法律內容
   pause: 暫停隊列
   resume: 恢復
   connected: 已連接

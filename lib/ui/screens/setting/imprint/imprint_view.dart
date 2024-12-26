@@ -36,25 +36,25 @@ class ImprintPage extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Legal Content'),
-        actions: [
-          IconButton(
-            tooltip: 'Open in Browser',
-            onPressed: imprintLoaded.value
-                ? () async {
-                    if (await canLaunchUrl(imprint)) {
-                      await launchUrl(
-                        imprint,
-                        mode: LaunchMode.externalApplication,
-                      );
-                    } else {
-                      throw 'Could not launch $imprint';
-                    }
-                  }
-                : null,
-            icon: const Icon(Icons.open_in_browser),
-          ),
-        ],
+        title: const Text('general.Legal_Content').tr(),
+        // actions: [
+        //   IconButton(
+        //     tooltip: 'Open in Browser',
+        //     onPressed: imprintLoaded.value
+        //         ? () async {
+        //             if (await canLaunchUrl(imprint)) {
+        //               await launchUrl(
+        //                 imprint,
+        //                 mode: LaunchMode.externalApplication,
+        //               );
+        //             } else {
+        //               throw 'Could not launch $imprint';
+        //             }
+        //           }
+        //         : null,
+        //     icon: const Icon(Icons.open_in_browser),
+        //   ),
+        // ],
       ),
       body: AnimatedSwitcher(
         transitionBuilder: (child, anim) => SizeTransition(
