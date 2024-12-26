@@ -179,7 +179,7 @@ class _InputModeStepScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var controller = ref.watch(printerAddViewControllerProvider.notifier);
-
+    final bool isShow = false;
     // Randomize how its shown to the user for fairness
     final oneClick3rdParty = [
       Align(
@@ -223,6 +223,7 @@ class _InputModeStepScreen extends ConsumerWidget {
             ),
           ),
         ),
+        if(isShow)
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
@@ -230,6 +231,7 @@ class _InputModeStepScreen extends ConsumerWidget {
             style: themeData.textTheme.labelLarge,
           ).tr(),
         ),
+        if(isShow)
         Text(
           'pages.printer_add.select_mode.body',
           textAlign: TextAlign.justify,
@@ -242,8 +244,10 @@ class _InputModeStepScreen extends ConsumerWidget {
             FilledButton.icon(
               onPressed: () => controller.selectMode(false),
               icon: const Icon(Icons.person_outline),
-              label: const Text('pages.printer_add.select_mode.simple').tr(),
+              // label: const Text('pages.printer_add.select_mode.simple').tr(),
+              label: const Text('pages.overview.add_machine').tr(),
             ),
+            if(isShow)
             FilledButton.icon(
               onPressed: () => controller.selectMode(true),
               icon: const Icon(Icons.engineering_outlined),
@@ -251,6 +255,7 @@ class _InputModeStepScreen extends ConsumerWidget {
             ),
           ],
         ),
+        const SizedBox(height: 80),
         ...oneClick3rdParty,
       ],
     );
