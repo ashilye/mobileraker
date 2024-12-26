@@ -415,7 +415,10 @@
         "title": "开发者",
         "crashlytics": "启用 Crashlytics 报告"
       },
-      "imprint": "隐私声明及用户协议"
+      "imprint": "隐私声明及用户协议",
+      "service_agreement" : "服务协议",
+      "privacy_policy": "隐私政策",
+      "and": "及"
     },
     "printer_edit": {
       "title": "编辑 {}",

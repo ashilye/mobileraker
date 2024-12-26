@@ -263,6 +263,9 @@ pages:
       title: Développeur
       crashlytics: Activer la collecte via Crashlytics pour aider à améliorer l'application
     imprint: Vie privée/Impression
+    service_agreement: Contrat de service
+    privacy_policy: Politique de confidentialité
+    and: et
   printer_edit:
     title: Editer {}
     import_settings: Importer réglages

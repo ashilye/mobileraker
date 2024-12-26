@@ -12,13 +12,16 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ImprintPage extends HookWidget {
-  const ImprintPage({super.key});
+  const ImprintPage({super.key, required this.webUrl});
+  
+  final String webUrl;
 
   @override
   Widget build(BuildContext context) {
-    var imprint =
-        Uri.parse('https://www.iubenda.com/privacy-policy/19183925/full-legal');
 
+
+    // var imprint = Uri.parse('https://www.iubenda.com/privacy-policy/19183925/full-legal');
+    var imprint = Uri.parse(webUrl);
     var imprintLoaded = useState(false);
 
     WebViewController webViewController = useMemoized<WebViewController>(() {

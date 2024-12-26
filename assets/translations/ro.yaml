@@ -152,6 +152,9 @@ pages:
         Notificările necesită ca Mobileraker să fie deschis cel puțin o data și să fie activ în fundal.
         Anumite notificări pot fi în continuare blocate de sistemul de operare!
     imprint: Confidențialitate/Impressum
+    service_agreement: Acord de serviciu
+    privacy_policy: Politica de confidențialitate
+    and: și
   printer_edit:
     title: Editează {}
     import_settings: Importă Setări

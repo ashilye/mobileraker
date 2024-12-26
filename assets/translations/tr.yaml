@@ -209,6 +209,9 @@ pages:
       title: Geliştirici
       crashlytics: Crashlytics raporlamasını etkinleştir
     imprint: Gizlilik/Künye
+    service_agreement: Hizmet Sözleşmesi
+    privacy_policy: Gizlilik Politikası
+    and: ve
   printer_edit:
     title: Düzenlemek {}
     import_settings: Ayarları İçe Aktarma
