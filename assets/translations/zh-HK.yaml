@@ -215,6 +215,9 @@ pages:
       title: 開發者
       crashlytics: 啟用 Crashlytics 報告
     imprint: 隱私/印象
+    service_agreement: 服務協議
+    privacy_policy: 隱私政策
+    and: 及
   printer_edit:
     title: 編輯 {}
     import_settings: 導入設置

@@ -231,7 +231,13 @@ GoRouter goRouterImpl(GoRouterRef ref) {
       GoRoute(
         path: '/imprint',
         name: AppRoute.imprint.name,
-        builder: (context, state) => const ImprintPage(),
+        builder: (context, state)  {
+          String webUrl = '';
+          if(state.extra != null && state.extra is String) {
+            webUrl = state.extra.toString();
+          }
+          return ImprintPage(webUrl: webUrl);
+        },
       ),
       GoRoute(
         path: '/console',

@@ -450,6 +450,9 @@ pages:
       title: Developer
       crashlytics: Enable Crashlytics reporting
     imprint: Privacy/Impressum
+    service_agreement: Service Agreement
+    privacy_policy: Privacy Policy
+    and: and
   printer_edit:
     title: Edit {}
     import_settings: Import Settings

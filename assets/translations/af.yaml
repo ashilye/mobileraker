@@ -192,6 +192,9 @@ pages:
       title: Onwikkelaar
       crashlytics: Skakel Crashlytics rapportering aan
     imprint: Privaatheid/Impressum
+    service_agreement: Diensooreenkoms
+    privacy_policy: Privaatheidsbeleid
+    and: en
   printer_edit:
     title: Redigeer {}
     import_settings: Invoerstellings

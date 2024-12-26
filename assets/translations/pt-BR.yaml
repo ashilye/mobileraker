@@ -154,6 +154,9 @@ pages:
         As notificações exigem que o Mobileraker seja aberto pelo menos uma vez e permaneça em segundo plano.
         No entanto, algumas notificações podem ser bloqueadas pelo sistema operacional!
     imprint: Privacidade/Impressum
+    service_agreement: Termos de Serviço
+    privacy_policy: Política de Privacidade
+    and: e
   printer_edit:
     title: Editar {}
     import_settings: Importar Configurações

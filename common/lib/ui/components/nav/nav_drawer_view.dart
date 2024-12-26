@@ -20,6 +20,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../service/setting_service.dart';
+
 const double baseIconSize = 20;
 const basePadding = EdgeInsets.only(left: 16, right: 16);
 
@@ -33,7 +35,7 @@ class NavigationDrawerWidget extends HookConsumerWidget {
     final themeData = Theme.of(context);
 
     final machineSelectionExt = useValueNotifier(false);
-
+    final lastLocale = ref.read(stringSettingProvider(UtilityKeys.lastLocale));
     return Drawer(
       clipBehavior: Clip.antiAlias,
       child: Column(
@@ -96,10 +98,42 @@ class NavigationDrawerWidget extends HookConsumerWidget {
                     ),
                     if(false)
                     const TextSpan(text: '\n\n'),
+                    // TextSpan(
+                    //   text: tr('pages.setting.imprint'),
+                    //   style: TextStyle(color: themeData.colorScheme.secondary),
+                    //   recognizer: TapGestureRecognizer()..onTap = () {
+                    //
+                    //     String localeCode = 'en';
+                    //     if(lastLocale != null && lastLocale.contains('zh')) {
+                    //       localeCode = 'zh';
+                    //     }
+                    //     controller.pushingTo('/imprint', arguments: {
+                    //       'localeCode' : localeCode
+                    //     });
+                    //   },
+                    // ),
                     TextSpan(
-                      text: tr('pages.setting.imprint'),
-                      style: TextStyle(color: themeData.colorScheme.secondary),
-                      recognizer: TapGestureRecognizer()..onTap = () => controller.pushingTo('/imprint'),
+                        text: tr('pages.setting.service_agreement'),
+                        style: TextStyle(
+                            color: themeData.colorScheme.secondary,
+                            decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer() ..onTap = () {
+                          pushImprintByLocale(controller,'service_agreement',lastLocale);
+                        }
+                    ),
+                    TextSpan(
+                        text: ' ${tr('pages.setting.and')} ',
+                        style: TextStyle(
+                            color: themeData.colorScheme.primary,
+                            fontStyle: FontStyle.italic)),
+                    TextSpan(
+                        text: tr('pages.setting.privacy_policy'),
+                        style: TextStyle(
+                            color: themeData.colorScheme.secondary,
+                            decoration: TextDecoration.underline),
+                        recognizer: TapGestureRecognizer() ..onTap = () {
+                          pushImprintByLocale(controller,'privacy_policy',lastLocale);
+                        }
                     ),
                   ],
                 ),
@@ -111,6 +145,33 @@ class NavigationDrawerWidget extends HookConsumerWidget {
       ),
     );
   } // Note always the first is the currently selected!
+
+
+  void pushImprintByLocale(NavWidgetController controller, String type, String? locale) {
+    // https://www.creatbot.com/en/ServiceAgreement.html
+    // https://www.creatbot.com/en/PrivacyPolicy.html
+    // https://www.creatbot.com/zh/ServiceAgreement.html
+    // https://www.creatbot.com/zh/PrivacyPolicy.html
+    String localeCode = 'en';
+    if(locale != null && locale.contains('zh')) {
+      localeCode = 'zh';
+    }
+    String webUrl = '';
+    if(type == 'service_agreement') {
+        if(localeCode == 'zh') {
+          webUrl = 'https://www.creatbot.com/zh/ServiceAgreement.html';
+        } else {
+          webUrl = 'https://www.creatbot.com/en/ServiceAgreement.html';
+        }
+    } else {
+      if(localeCode == 'zh') {
+        webUrl = 'https://www.creatbot.com/zh/PrivacyPolicy.html';
+      } else {
+        webUrl = 'https://www.creatbot.com/en/PrivacyPolicy.html';
+      }
+    }
+    controller.pushingTo('/imprint', arguments: webUrl);
+  }
 }
 
 class _NavHeader extends HookConsumerWidget {

@@ -431,6 +431,9 @@ pages:
       title: Fejlesztő
       crashlytics: Crashlytics jelentések engedélyezése
     imprint: Adatvédelem/Impresszum
+    service_agreement: Szolgáltatási szerződés
+    privacy_policy: Adatvédelmi irányelvek
+    and: és
   printer_edit:
     title: Szerkesztés {}
     import_settings: Beállítások importálása
