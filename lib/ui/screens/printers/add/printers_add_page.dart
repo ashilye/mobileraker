@@ -272,20 +272,20 @@ class _SimpleUrlInputStepScreen extends HookConsumerWidget {
 
     final nameFocusNode = useFocusNode();
     final addFocusNode = useFocusNode();
-    final apiFocusNode = useFocusNode();
+    // final apiFocusNode = useFocusNode();
 
     var scheme = Theme.of(context).colorScheme;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        InfoCard(
-          leading: const Icon(Icons.info_outline),
-          title: const Text('pages.printer_add.simple_form.hint_title').tr(),
-          body: const Text(
-            'pages.printer_add.simple_form.hint_body',
-            textAlign: TextAlign.justify,
-          ).tr(),
-        ),
+        // InfoCard(
+        //   leading: const Icon(Icons.info_outline),
+        //   title: const Text('pages.printer_add.simple_form.hint_title').tr(),
+        //   body: const Text(
+        //     'pages.printer_add.simple_form.hint_body',
+        //     textAlign: TextAlign.justify,
+        //   ).tr(),
+        // ),
         SectionHeader(title: tr('pages.setting.general.title')),
         FormBuilderTextField(
           focusNode: nameFocusNode,
@@ -322,31 +322,33 @@ class _SimpleUrlInputStepScreen extends HookConsumerWidget {
             FormBuilderValidators.url(requireTld: false),
             MobilerakerFormBuilderValidator.simpleUrl(),
           ]),
-          onSubmitted: (txt) => simpleFormController.focusNext('simple.url', addFocusNode, apiFocusNode),
-          textInputAction: TextInputAction.next,
+          // onSubmitted: (txt) => simpleFormController.focusNext('simple.url', addFocusNode, apiFocusNode),
+          // textInputAction: TextInputAction.next,
+          onSubmitted: (txt) => simpleFormController.proceed(),
+          textInputAction: TextInputAction.done,
         ),
-        Row(
-          children: [
-            Flexible(
-              child: FormBuilderTextField(
-                focusNode: apiFocusNode,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  labelText: 'pages.printer_edit.general.moonraker_api_key'.tr(),
-                  helperText: 'pages.printer_edit.general.moonraker_api_desc'.tr(),
-                  helperMaxLines: 3,
-                ),
-                name: 'simple.apikey',
-                textInputAction: TextInputAction.done,
-                onSubmitted: (txt) => simpleFormController.proceed(),
-              ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.qr_code_sharp),
-              onPressed: () => simpleFormController.openQrScanner(context),
-            ),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     Flexible(
+        //       child: FormBuilderTextField(
+        //         focusNode: apiFocusNode,
+        //         keyboardType: TextInputType.text,
+        //         decoration: InputDecoration(
+        //           labelText: 'pages.printer_edit.general.moonraker_api_key'.tr(),
+        //           helperText: 'pages.printer_edit.general.moonraker_api_desc'.tr(),
+        //           helperMaxLines: 3,
+        //         ),
+        //         name: 'simple.apikey',
+        //         textInputAction: TextInputAction.done,
+        //         onSubmitted: (txt) => simpleFormController.proceed(),
+        //       ),
+        //     ),
+        //     IconButton(
+        //       icon: const Icon(Icons.qr_code_sharp),
+        //       onPressed: () => simpleFormController.openQrScanner(context),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

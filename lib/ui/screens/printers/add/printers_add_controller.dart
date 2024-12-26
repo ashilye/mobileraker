@@ -212,7 +212,7 @@ class SimpleFormController extends _$SimpleFormController {
 
   FormBuilderFieldState get _urlField => _formState.fields['simple.url']!;
 
-  FormBuilderFieldState get _apiKeyField => _formState.fields['simple.apikey']!;
+  // FormBuilderFieldState get _apiKeyField => _formState.fields['simple.apikey']!;
 
   @override
   SimpleFormState build() => const SimpleFormState();
@@ -224,7 +224,7 @@ class SimpleFormController extends _$SimpleFormController {
   openQrScanner(BuildContext context) async {
     Barcode? qr = await Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const QrScannerPage()));
     if (qr?.rawValue != null) {
-      _apiKeyField.didChange(qr!.rawValue);
+      // _apiKeyField.didChange(qr!.rawValue);
     }
   }
 
@@ -236,7 +236,7 @@ class SimpleFormController extends _$SimpleFormController {
           httpUri: buildMoonrakerHttpUri(
             '${state.scheme}${_urlField.transformedValue}',
           )!,
-          apiKey: _apiKeyField.transformedValue,
+          // apiKey: _apiKeyField.transformedValue,
         ));
   }
 
@@ -261,7 +261,7 @@ class AdvancedFormController extends _$AdvancedFormController {
 
   FormBuilderFieldState get _wsField => _formState.fields['advanced.ws']!;
 
-  FormBuilderFieldState get _apiKeyField => _formState.fields['advanced.apikey']!;
+  // FormBuilderFieldState get _apiKeyField => _formState.fields['advanced.apikey']!;
 
   FormBuilderFieldState get _localTimeoutField => _formState.fields['advanced.localTimeout']!;
 
@@ -283,7 +283,7 @@ class AdvancedFormController extends _$AdvancedFormController {
   openQrScanner(BuildContext context) async {
     Barcode? qr = await Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const QrScannerPage()));
     if (qr?.rawValue != null) {
-      _apiKeyField.didChange(qr!.rawValue);
+      // _apiKeyField.didChange(qr!.rawValue);
     }
   }
 
@@ -298,7 +298,7 @@ class AdvancedFormController extends _$AdvancedFormController {
     ref.read(printerAddViewControllerProvider.notifier).provideMachine(Machine(
           name: _displayNameField.transformedValue,
           httpUri: buildMoonrakerHttpUri(httpInput)!,
-          apiKey: _apiKeyField.transformedValue,
+          // apiKey: _apiKeyField.transformedValue,
           timeout: _localTimeoutField.transformedValue,
           httpHeaders: headers,
           trustUntrustedCertificate: sslSettings.trustSelfSigned,
