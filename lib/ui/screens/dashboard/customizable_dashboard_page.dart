@@ -8,6 +8,7 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:collection/collection.dart';
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/dto/job_queue/job_queue_status.dart';
 import 'package:common/data/dto/machine/print_state_enum.dart';
 import 'package:common/data/dto/server/klipper.dart';
@@ -37,6 +38,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -376,9 +378,9 @@ class _PrintingFAB extends ConsumerWidget {
       switchLabelPosition: context.isLargerThanCompact,
       children: [
         SpeedDialChild(
-          child: const Icon(Icons.cleaning_services),
-          backgroundColor: themeData.colorScheme.error,
-          foregroundColor: themeData.colorScheme.onError,
+          child: Icon(Icons.stop,color: themeData.colorScheme.onPrimaryContainer,),
+          backgroundColor: themeData.colorScheme.primaryContainer,
+          // foregroundColor: themeData.colorScheme.onError,
           label: tr('general.cancel'),
           onTap: () {
             dialogService
@@ -451,7 +453,11 @@ class _IdleFAB extends ConsumerWidget {
         },
 
         // onPressed: mdodel.showNonPrintingMenu,
-        child: const Icon(Icons.tune),
+        child: SvgPicture.asset(
+          AssetsProvider.svgPath('ic_fab_restart'),
+          width: 26,
+          height: 26,
+        ),
       );
 }
 

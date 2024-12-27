@@ -4,6 +4,7 @@
  */
 
 import 'package:collection/collection.dart';
+import 'package:common/common/utils/utils.dart';
 import 'package:common/service/moonraker/printer_service.dart';
 import 'package:common/ui/components/skeletons/card_title_skeleton.dart';
 import 'package:common/ui/components/skeletons/horizontal_scroll_skeleton.dart';
@@ -14,6 +15,7 @@ import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -94,8 +96,14 @@ class HeaterSensorPresetCardTitle extends ConsumerWidget {
         true;
 
     return ListTile(
-      leading: Icon(
-        FlutterIcons.fire_alt_faw5s,
+      // leading: Icon(
+      //   FlutterIcons.fire_alt_faw5s,
+      //   color: isHeating ? Colors.deepOrange : null,
+      // ),
+      leading: SvgPicture.asset(
+        AssetsProvider.svgPath('ic_temperature'),
+        width: 24,
+        height: 24,
         color: isHeating ? Colors.deepOrange : null,
       ),
       title: title,
