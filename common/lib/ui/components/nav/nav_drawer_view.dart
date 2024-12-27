@@ -3,6 +3,7 @@
  * All rights reserved.
  */
 
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/model/hive/machine.dart';
 import 'package:common/service/machine_service.dart';
 import 'package:common/service/selected_machine_service.dart';
@@ -402,8 +403,16 @@ class _MachineTile extends ConsumerWidget {
         ? themeData.colorScheme.surfaceVariant
         : themeData.colorScheme.primaryContainer.withOpacity(.1);
 
+    LogUtils.GGQ('设备信息：${machine.toString()}');
     return ListTile(
-      title: Text(machine.name, maxLines: 1),
+      title: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(machine.name, maxLines: 1),
+          Text(machine.httpUri.toString(), maxLines: 1,style: TextStyle(fontSize: 12))
+        ],
+      ),
       trailing: Icon(
         isSelected ? Icons.check : Icons.arrow_forward_ios_sharp,
         size: baseIconSize,
