@@ -36,6 +36,10 @@ class AssetsProvider{
     return 'assets/svg/$name.$type';
   }
 
+  static String svgVector(String name, {String type = 'svg'}){
+    return 'assets/vector/$name.$type';
+  }
+
   /// 本地 json 数据
   static Future<String> loadMock(String fileName) async{
     String json = await rootBundle.loadString('assets/mock/$fileName.json');
