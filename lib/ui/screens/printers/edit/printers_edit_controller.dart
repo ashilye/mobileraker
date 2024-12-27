@@ -134,7 +134,7 @@ class PrinterEditController extends _$PrinterEditController {
       if (isConnected) {
         logger.i('Can store remoteSettings, machine is connected!');
 
-        await _saveWebcamInfos(storedValues);
+        // await _saveWebcamInfos(storedValues);
         await _saveMachineRemoteSettings(storedValues);
       }
       await _saveMachine(storedValues);
@@ -175,25 +175,25 @@ class PrinterEditController extends _$PrinterEditController {
     if (!remoteSettings.hasValue || remoteSettings.hasError) {
       return;
     }
-    List<bool> inverts = [
-      storedValues['invertX'],
-      storedValues['invertY'],
-      storedValues['invertZ'],
-    ];
-    final speedXY = storedValues['speedXY'];
-    final speedZ = storedValues['speedZ'];
-    final extrudeSpeed = storedValues['extrudeSpeed'];
+    // List<bool> inverts = [
+    //   storedValues['invertX'],
+    //   storedValues['invertY'],
+    //   storedValues['invertZ'],
+    // ];
+    // final speedXY = storedValues['speedXY'];
+    // final speedZ = storedValues['speedZ'];
+    // final extrudeSpeed = storedValues['extrudeSpeed'];
+    //
+    // final loadingDistance = storedValues['loadingDistance'];
+    // final loadingSpeed = storedValues['loadingSpeed'];
+    // final purgeLength = storedValues['purgeLength'];
+    // final purgeSpeed = storedValues['purgeSpeed'];
 
-    final loadingDistance = storedValues['loadingDistance'];
-    final loadingSpeed = storedValues['loadingSpeed'];
-    final purgeLength = storedValues['purgeLength'];
-    final purgeSpeed = storedValues['purgeSpeed'];
-
-    List<MacroGroup> macroGroups = ref.read(macroGroupListControllerProvider(_machine.uuid)).requireValue;
+    // List<MacroGroup> macroGroups = ref.read(macroGroupListControllerProvider(_machine.uuid)).requireValue;
     List<TemperaturePreset> presets = ref.read(temperaturePresetListControllerProvider);
-    List<ReordableElement> tempOrdering = ref.read(sensorOrderingListControllerProvider(_machine.uuid)).requireValue;
-    List<ReordableElement> fanOrdering = ref.read(fansOrderingListControllerProvider(_machine.uuid)).requireValue;
-    List<ReordableElement> miscOrdering = ref.read(miscOrderingListControllerProvider(_machine.uuid)).requireValue;
+    // List<ReordableElement> tempOrdering = ref.read(sensorOrderingListControllerProvider(_machine.uuid)).requireValue;
+    // List<ReordableElement> fanOrdering = ref.read(fansOrderingListControllerProvider(_machine.uuid)).requireValue;
+    // List<ReordableElement> miscOrdering = ref.read(miscOrderingListControllerProvider(_machine.uuid)).requireValue;
 
     for (var preset in presets) {
       var name = storedValues['${preset.uuid}-presetName'];
@@ -207,9 +207,9 @@ class PrinterEditController extends _$PrinterEditController {
         ..lastModified = DateTime.now();
     }
 
-    List<double> moveSteps = ref.read(moveStepStateProvider);
-    List<double> babySteps = ref.read(babyStepStateProvider);
-    List<int> extSteps = ref.read(extruderStepStateProvider);
+    // List<double> moveSteps = ref.read(moveStepStateProvider);
+    // List<double> babySteps = ref.read(babyStepStateProvider);
+    // List<int> extSteps = ref.read(extruderStepStateProvider);
 
     await ref.read(machineServiceProvider).updateSettings(
           _machine,
@@ -217,21 +217,21 @@ class PrinterEditController extends _$PrinterEditController {
             created: remoteSettings.value!.created,
             lastModified: DateTime.now(),
             temperaturePresets: presets,
-            inverts: inverts,
-            speedXY: speedXY,
-            speedZ: speedZ,
-            extrudeFeedrate: extrudeSpeed,
-            moveSteps: moveSteps,
-            babySteps: babySteps,
-            extrudeSteps: extSteps,
-            macroGroups: macroGroups,
-            tempOrdering: tempOrdering,
-            fanOrdering: fanOrdering,
-            miscOrdering: miscOrdering,
-            loadingSpeed: loadingSpeed,
-            nozzleExtruderDistance: loadingDistance,
-            purgeLength: purgeLength,
-            purgeSpeed: purgeSpeed,
+            // inverts: inverts,
+            // speedXY: speedXY,
+            // speedZ: speedZ,
+            // extrudeFeedrate: extrudeSpeed,
+            // moveSteps: moveSteps,
+            // babySteps: babySteps,
+            // extrudeSteps: extSteps,
+            // macroGroups: macroGroups,
+            // tempOrdering: tempOrdering,
+            // fanOrdering: fanOrdering,
+            // miscOrdering: miscOrdering,
+            // loadingSpeed: loadingSpeed,
+            // nozzleExtruderDistance: loadingDistance,
+            // purgeLength: purgeLength,
+            // purgeSpeed: purgeSpeed,
           ),
         );
   }
@@ -243,25 +243,30 @@ class PrinterEditController extends _$PrinterEditController {
       _machine.obicoTunnel = ref.read(_obicoTunnelProvider);
     }
     _machine.name = storedValues['printerName'];
-    _machine.apiKey = storedValues['printerApiKey'];
-    _machine.timeout = storedValues['printerLocalTimeout'];
+    // 去掉API秘钥
+    // _machine.apiKey = storedValues['printerApiKey'];
+    // 去掉客户端超时
+    // _machine.timeout = storedValues['printerLocalTimeout'];
     if (ref.read(isSupporterProvider)) {
       // We potentially overwrite the theme so we dont want to go back to the cached one
       activeTheme = null;
-      _machine.printerThemePack = storedValues['printerThemePack'];
+      //去掉主题
+      // _machine.printerThemePack = storedValues['printerThemePack'];
     }
     var httpUri = buildMoonrakerHttpUri(storedValues['printerUrl']);
     if (httpUri != null) {
       _machine.httpUri = httpUri;
     }
 
-    var sslSettings = ref
-        .read(sslSettingsControllerProvider(_machine.pinnedCertificateDERBase64, _machine.trustUntrustedCertificate));
-    _machine.trustUntrustedCertificate = sslSettings.trustSelfSigned;
-    _machine.pinnedCertificateDERBase64 = sslSettings.certificateDER;
+    // 去掉 SSL 设定
+    // var sslSettings = ref
+    //     .read(sslSettingsControllerProvider(_machine.pinnedCertificateDERBase64, _machine.trustUntrustedCertificate));
+    // _machine.trustUntrustedCertificate = sslSettings.trustSelfSigned;
+    // _machine.pinnedCertificateDERBase64 = sslSettings.certificateDER;
 
-    _machine.httpHeaders = ref.read(headersControllerProvider(_machine.httpHeaders));
-    _machine.localSsids = ref.read(ssidPreferenceListControllerProvider(_machine.localSsids));
+    // 去掉HTTP 标头
+    // _machine.httpHeaders = ref.read(headersControllerProvider(_machine.httpHeaders));
+    // _machine.localSsids = ref.read(ssidPreferenceListControllerProvider(_machine.localSsids));
     await ref.read(machineServiceProvider).updateMachine(_machine);
   }
 
