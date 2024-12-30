@@ -34,6 +34,11 @@ general:
   accept: Accepteren
   abort: Afbreken
   offset: Afstand
+  warning: De huidige stroomvoorziening kan niet worden bediend, probeer het later opnieuw!
+  power_control: Stroombeheer
+  printer: Printer
+  host_control: Hostbeheer
+  klipper_control: Klipperbeheer
 pages:
   dashboard:
     ems_btn: Noodstop

@@ -49,6 +49,10 @@ general:
   apply: Appliquer
   completed: Achevé
   activate: Activer
+  power_control: Contrôle de l'alimentation
+  printer: Imprimante
+  host_control: Contrôle de l'hôte
+  klipper_control: Contrôle de Klipper
 pages:
   dashboard:
     title: Tableau de bord
@@ -146,6 +150,7 @@ pages:
       power_card:
         title: Tableau de commande
         pin_btn: Pin
+        warning: Le statut actuel de l'alimentation ne peut pas être opéré, veuillez réessayer plus tard !
       multipl_card:
         title: Multiplicateurs
         flow: Débit

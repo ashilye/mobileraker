@@ -63,7 +63,12 @@
     "discard": "放弃",
     "hide": "隐藏",
     "finish": "完成",
-    "select": "选择"
+    "select": "选择",
+    "warning": "当前电源设备状态无法操作，请稍后再试！",
+    "power_control": "电源控制",
+    "printer": "打印机",
+    "host_control": "主机控制",
+    "klipper_control": "klipper控制",
   },
   "pages": {
     "dashboard": {
@@ -187,7 +192,8 @@
         },
         "power_card": {
           "title": "电源面板",
-          "pin_btn": "别针"
+          "pin_btn": "别针",
+          "warning": "当前电源设备状态无法操作，请稍后再试！",
         },
         "multipl_card": {
           "title": "倍率调整",

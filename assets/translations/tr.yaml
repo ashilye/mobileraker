@@ -46,6 +46,10 @@ general:
   unlink: Bağlantıyı kaldır
   save: Kaydet
   apply: Uygula
+  power_control: Güç kontrolü
+  printer: Yazıcı
+  host_control: Ana bilgisayar kontrolü
+  klipper_control: Klipper kontrolü
 pages:
   dashboard:
     title: Gösterge Paneli
@@ -125,6 +129,7 @@ pages:
       power_card:
         title: Güç paneli
         pin_btn: Sabitle
+        warning: Mevcut güç durumu kontrol edilemiyor, lütfen daha sonra tekrar deneyin!
       multipl_card:
         title: Çarpanlar
         flow: Akış

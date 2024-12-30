@@ -64,6 +64,10 @@ general:
   hide: Elrejtés
   finish: Kész
   select: Kiválaszt
+  power_control: Áramellátás vezérlése
+  printer: Nyomtató
+  host_control: Gazda vezérlés
+  klipper_control: Klipper vezérlés
 pages:
   dashboard:
     title: Irányítópult
@@ -177,6 +181,7 @@ pages:
         title: Energia Panel
         pin_btn: Tű
         provider_error_title: Hiba a Power Api-eszközök lekérdezésében
+        warning: A jelenlegi áramellátási állapot nem működtethető, kérjük, próbálja újra később!
       multipl_card:
         title: Szorzók
         flow: Átfolyás

@@ -19,6 +19,10 @@ general:
   unknown: Неизвестно
   disabled: Выключено
   confirm: Подтвердить
+  power_control: Управление питанием
+  printer: Принтер
+  host_control: Управление хостом
+  klipper_control: Управление Klipper
 pages:
   dashboard:
     title: Панель
@@ -80,6 +84,7 @@ pages:
         title: Gcode - Макросы
       power_card:
         title: Панель питания
+        warning: Текущее состояние питания не может быть контролируемо, попробуйте позже!
       multipl_card:
         title: Множители
         flow: Поток

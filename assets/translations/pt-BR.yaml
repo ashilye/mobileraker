@@ -22,6 +22,10 @@ general:
   cancel: Cancelar
   close: Fechar
   edit: Editar
+  power_control: Controle de alimentação
+  printer: Impressora
+  host_control: Controle do host
+  klipper_control: Controle do Klipper
 pages:
   dashboard:
     title: Painel de Controle
@@ -90,6 +94,7 @@ pages:
       power_card:
         title: Painel de Energia
         pin_btn: Pino
+        warning: O estado atual da alimentação não pode ser controlado, tente novamente mais tarde!
       multipl_card:
         title: Multiplicadores
         flow: Fluxo

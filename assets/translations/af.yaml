@@ -36,6 +36,10 @@ general:
   accept: Aanvaar
   abort: Staak
   offset: Afset
+  power_control: Kragbeheer
+  printer: Drukker
+  host_control: Gasheerbeheer
+  klipper_control: Klipperbeheer
 pages:
   dashboard:
     title: Paneelskerm

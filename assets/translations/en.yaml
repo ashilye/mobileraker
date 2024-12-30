@@ -64,6 +64,10 @@ general:
   hide: Hide
   finish: Finish
   select: Select
+  power_control: Power control
+  printer: Printer
+  host_control: Host control
+  klipper_control: Klipper control
 pages:
   dashboard:
     title: Dashboard
@@ -179,6 +183,7 @@ pages:
         title: Power Panel
         pin_btn: Pin
         provider_error_title: Error fetching Power Api Devices
+        warning: Current power supply status is unavailable. Please try again later
       multipl_card:
         title: Multipliers
         flow: Flow

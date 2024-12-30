@@ -628,7 +628,7 @@ class _DashboardPageController extends _$DashboardPageController {
 
   void startEditMode() {
     var value = state.requireValue;
-    if (value.isEditing) return;
+    if (!value.isEditing) return;
     logger.i('Start Edit Mode');
 
     // Make a copy of the layout to be able to cancel changes

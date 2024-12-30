@@ -46,6 +46,11 @@ general:
   clear: 清除
   unlink: 取消鏈接
   save: 保存
+  warning: 當前電源設備狀態無法操作，請稍後再試！
+  power_control: 電源控制
+  printer: 打印機
+  host_control: 主機控制
+  klipper_control: klipper控制
 pages:
   dashboard:
     title: 儀表板
@@ -129,6 +134,7 @@ pages:
       power_card:
         title: 電源面板
         pin_btn: 輸出引腳
+        warning: 當前電源設備狀態無法操作，請稍後再試！
       multipl_card:
         title: 倍增器
         flow: 流量
