@@ -27,11 +27,13 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.mobileraker.ios</string>
+			<string>com.creatbot.klipper</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mobileraker</string>
+				<string>creatcloud</string>
 			</array>
 		</dict>
 	</array>
@@ -86,8 +88,10 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>G-code File</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.mobileraker.ios.gcode</string>
+			<string>com.creatbot.klipper.gcode</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -106,8 +110,10 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Configuration File</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.mobileraker.ios.config</string>
+			<string>com.creatbot.klipper.config</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -124,8 +130,10 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Text File</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.mobileraker.ios.textfiles</string>
+			<string>com.creatbot.klipper.textfiles</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
