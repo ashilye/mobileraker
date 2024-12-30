@@ -33,6 +33,7 @@ class EmergencyStopButton extends ConsumerWidget {
         AssetsProvider.svgPath('ic_stop2'),
         width: 26,
         height: 26,
+        color: Theme.of(context).extension<CustomColors>()?.danger ?? Colors.red,
       ),
       tooltip: tr('pages.dashboard.ems_btn'),
       onPressed: klippyState == KlipperState.ready

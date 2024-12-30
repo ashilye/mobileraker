@@ -19,6 +19,10 @@ general:
   unknown: Невідомо
   disabled: Вимкнено
   confirm: Підтвердити
+  power_control: Керування живленням
+  printer: Принтер
+  host_control: Керування хостом
+  klipper_control: Керування Klipper
 pages:
   dashboard:
     title: Панель
@@ -87,6 +91,7 @@ pages:
       power_card:
         title: Панель живлення
         pin_btn: Пін
+        warning: Поточний стан живлення не можна контролювати, спробуйте пізніше!
       multipl_card:
         title: Множники
         flow: Потік

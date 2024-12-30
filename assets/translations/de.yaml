@@ -64,6 +64,11 @@ general:
   hide: Verstecken
   finish: Abschließen
   select: Auswählen
+  warning: Der aktuelle Status der Stromversorgung kann nicht bedient werden, bitte versuchen Sie es später erneut!
+  power_control: Stromsteuerung
+  printer: Drucker
+  host_control: Hoststeuerung
+  klipper_control: Klipper-Steuerung
 pages:
   dashboard:
     title: Dashboard
@@ -177,6 +182,7 @@ pages:
         title: Schalttafel
         pin_btn: Pin
         provider_error_title: Fehler beim ladern der Schalttafel
+        warning: Huidige kragtoevoerstatus kan nie bedryf word nie, probeer asseblief later weer!
       multipl_card:
         title: Multiplikatoren
         flow: Fluss

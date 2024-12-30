@@ -64,6 +64,11 @@ general:
   hide: Ukryj
   finish: Zakończ
   select: Wybierz
+  warning: Aktualny stan zasilania nie może zostać obsłużony, spróbuj ponownie później!
+  power_control: Kontrola zasilania
+  printer: Drukarka
+  host_control: Kontrola hosta
+  klipper_control: Kontrola Klipper
 pages:
   dashboard:
     title: Panel

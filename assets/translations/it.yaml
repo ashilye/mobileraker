@@ -37,6 +37,10 @@ general:
   free: Gratis
   one_time: Una volta
   delete: Elimina
+  power_control: Controllo dell'alimentazione
+  printer: Stampante
+  host_control: Controllo dell'host
+  klipper_control: Controllo di Klipper
 pages:
   dashboard:
     title: Pannello di Controllo
@@ -113,6 +117,7 @@ pages:
         cold_extrude_error: Estrusore non ha ancora raggiunto min_extrude_temp di {}°C!
       power_card:
         title: Pannello Alimentazioni
+        warning: Lo stato attuale dell'alimentazione non può essere gestito, riprovare più tardi!
       multipl_card:
         title: Moltiplicatori
         flow: Flusso

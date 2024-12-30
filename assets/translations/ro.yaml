@@ -23,6 +23,10 @@ general:
   cancel: Anulează
   close: Închide
   edit: Editează
+  power_control: Controlul alimentării
+  printer: Imprimantă
+  host_control: Controlul gazdei
+  klipper_control: Controlul Klipper
 pages:
   dashboard:
     title: Bord
@@ -86,6 +90,7 @@ pages:
         title: Gcode - Macro-uri
       power_card:
         title: Panou Alimentare
+        warning: Starea curentă a alimentării nu poate fi controlată, încercați din nou mai târziu!
       multipl_card:
         title: Multiplicatori
         flow: Flux
