@@ -911,6 +911,7 @@ class _FileListState extends ConsumerState<_FileListData> {
                     file: file,
                     dateFormat: dateFormat,
                     sortMode: sortConfiguration.mode,
+                    isNavPage: widget.isNavPage,
                   );
                 },
               ),
@@ -965,12 +966,15 @@ class _FileItem extends ConsumerWidget {
     required this.file,
     required this.dateFormat,
     required this.sortMode,
+    required this.isNavPage
   });
 
   final String machineUUID;
   final RemoteFile file;
   final DateFormat dateFormat;
   final SortMode sortMode;
+
+  final bool isNavPage;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -1033,7 +1037,7 @@ class _FileItem extends ConsumerWidget {
         }.only(enabled),
         onLongPress: () {
           controller.onLongClickFile(file);
-        }.only(enabled));
+        }.only(enabled && !isNavPage));
   }
 }
 
