@@ -190,22 +190,6 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
 
 
     // Only offer pull to refresh when not editing
-    // return PullToRefreshPrinter(
-    //   enablePullDown: !widget.isEditing,
-    //   child: webcamComponent != null? Column(
-    //     children: [
-    //       KeyedSubtree(
-    //         key: ValueKey('0-not-editing'),
-    //         child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
-    //       ),
-    //       Expanded(child: LayoutBuilder(builder: (context, constraints) => Container(
-    //         height: constraints.maxHeight,
-    //         child: scroll,
-    //       )))
-    //     ],
-    //   ): widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true): scroll,
-    // );
-
     return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true): PullToRefreshPrinter(
       enablePullDown: !widget.isEditing,
       child: webcamComponent != null? Column(
