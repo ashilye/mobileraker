@@ -183,7 +183,7 @@
             "two": "输出引脚",
             "other": "输出引脚"
           },
-          "title_misc": "杂项",
+          "title_misc": "耗材检测",
           "filament_sensor": {
             "detected": "检测中",
             "not_detected": "空"
@@ -603,9 +603,9 @@
         "no_fans": "未找到风扇！"
       },
       "misc_ordering": {
-        "title": "杂项元素 UI 排序",
-        "helper": "更改仪表板上杂项元素的顺序。",
-        "no_controls": "未找到杂项元素！"
+        "title": "耗材检测元素 UI 排序",
+        "helper": "更改仪表板上耗材检测元素的顺序。",
+        "no_controls": "未找到耗材检测元素！"
       }
     },
     "printer_add": {
@@ -657,7 +657,7 @@
       },
       "printer_add_helper": "主机，IP或完整URL",
       "resulting_ws_url": "结果Websocket-url：{}",
-      "misc": "杂项",
+      "misc": "耗材检测",
       "test_ws": "测试Websocket连接",
       "result_ws_test": "结果： {}",
       "run_test_btn": "测试"
