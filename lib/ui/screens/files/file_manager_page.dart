@@ -559,14 +559,14 @@ class _Header extends ConsumerWidget {
     return SortedFileListHeader(
       activeSortConfig: sortCfg,
       onTapSortMode: controller.onClickSortMode.only(!apiLoading).only(enabled),
-      action: IconButton(
+      action: isNavPage? IconButton(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           focusColor: Colors.transparent,  // 去掉焦点颜色
           hoverColor: Colors.transparent,
           onPressed: () {
-        searchController.onClickSearch();
-      }, icon: Icon(Icons.search)),
+            searchController.onClickSearch();
+          }, icon: Icon(Icons.search)): null,
       trailing: isNavPage? IconButton(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
