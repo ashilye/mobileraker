@@ -250,6 +250,7 @@ pages:
       body: Nem adtál hozzá widgetet. Adj hozzá legalább egy widgetet az elrendezés mentéséhez.
   files:
     title: Fájlok
+    configuration: Gépek konfigurációja
     empty_folder:
       title: Ez a mappa üres
       subtitle: Nem találtam fájlokat

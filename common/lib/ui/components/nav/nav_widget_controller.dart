@@ -50,11 +50,11 @@ class NavWidgetController extends _$NavWidgetController {
         icon: Icons.terminal,
         route: '/console',
       ),
-      if (isShow)
       NavEntry(
-        label: tr('pages.files.title'),
-        icon: Icons.file_present,
-        route: '/files/gcodes',
+        label: tr('pages.files.configuration'),
+        icon: FlutterIcons.file_code_faw5,
+        // route: '/files/gcodes',
+        route: '/files/config',
         routeMatcher: r'^\/files(\/)?.*$',
       ),
       // if (showSpoolman)

@@ -221,6 +221,7 @@
     },
     "files": {
       "title": "文件",
+      "configuration": "机器配置",
       "empty_folder":{
         "title": "此文件夹为空",
         "subtitle": "未找到任何文件"

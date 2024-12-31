@@ -130,6 +130,7 @@ pages:
         accel_to_decel: Versnel. na Vertraag.
   files:
     title: Lêers
+    configuration: Masjienkonfigurasie
     search_files: Deursoek lêers
     details:
       preheat: Voorverhit

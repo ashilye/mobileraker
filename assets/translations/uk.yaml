@@ -104,6 +104,7 @@ pages:
         accel_to_decel: Прискорення до сповільнення
   files:
     title: Файли
+    configuration: Конфігурація машини
     search_files: Пошук файлів
     details:
       preheat: Попередній нагрів

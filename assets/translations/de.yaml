@@ -250,6 +250,7 @@ pages:
       body: Du hast keine Widgets hinzugefügt. Füge mindestens ein Widget hinzu, um das Layout zu speichern.
   files:
     title: Dateien
+    configuration: Maschinenkonfiguration
     empty_folder:
       title: Dieser Ordner ist leer
       subtitle: Keine Dateien gefunden

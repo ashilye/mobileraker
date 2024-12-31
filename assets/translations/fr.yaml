@@ -184,6 +184,7 @@ pages:
         used: 'Utilisé: {}'
   files:
     title: Fichiers
+    configuration: Configuration de la machine
     search_files: Chercher un fichier
     no_matches_file_pattern: Seules les lettres, chiffres, tiret (-), souligné (_) et point sont autorisés!
     details:

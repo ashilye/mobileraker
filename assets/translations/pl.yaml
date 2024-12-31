@@ -201,6 +201,7 @@ pages:
       title: Pusty układ!
   files:
     title: Pliki
+    configuration: Konfiguracja maszyny
     empty_folder:
       title: Ten folder jest pusty
       subtitle: Nie znaleziono plików

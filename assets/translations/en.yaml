@@ -254,6 +254,7 @@ pages:
       body: You have not added any widgets. Add at least one widget to save the layout.
   files:
     title: Files
+    configuration: Configuration
     empty_folder:
       title: This folder is empty
       subtitle: No files found

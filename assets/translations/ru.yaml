@@ -97,6 +97,7 @@ pages:
         accel_to_decel: Ускорение до замедления
   files:
     title: Файлы
+    configuration: Конфигурация машины
     search_files: Поиск файлов
     details:
       preheat: Преднагрев

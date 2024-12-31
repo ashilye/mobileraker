@@ -149,6 +149,7 @@ pages:
         unretract_speed: Geri Çekme Hızı
   files:
     title: Dosyalar
+    configuration: Makine yapılandırması
     search_files: Dosyaları ara
     no_matches_file_pattern: Yalnızca harflere, sayılara, alt çizgilere, tirelere ve noktalara izin verilir!
     details:

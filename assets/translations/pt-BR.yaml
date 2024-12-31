@@ -104,6 +104,7 @@ pages:
         accel: Aceleração
   files:
     title: Arquivos
+    configuration: Configuração da máquina
     search_files: Procurar Arquivos
     details:
       preheat: Pré-Aquecer

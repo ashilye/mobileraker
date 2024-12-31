@@ -104,6 +104,7 @@ pages:
         accel_to_decel: Accel spre Decel
   files:
     title: Fișiere
+    configuration: Configurația mașinii
     search_files: Caută fișiere
     details:
       preheat: Preîncălzire

@@ -127,6 +127,7 @@ pages:
         accel: Accelerazione
   files:
     search_files: Ricerca files
+    configuration: Configurazione della macchina
     details:
       preheat: Preriscalda
       print: Stampa

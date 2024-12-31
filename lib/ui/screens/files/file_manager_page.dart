@@ -118,7 +118,7 @@ class FileManagerPage extends HookConsumerWidget {
       ): Scaffold(
         appBar: _AppBar(filePath: filePath, folder: folder),
         drawer: const NavigationDrawerWidget().only(isRoot),
-        bottomNavigationBar: _BottomNav(filePath: filePath).unless(context.isLargerThanCompact),
+        // bottomNavigationBar: _BottomNav(filePath: filePath).unless(context.isLargerThanCompact),
         floatingActionButton: fab,
         body: body,
       ),

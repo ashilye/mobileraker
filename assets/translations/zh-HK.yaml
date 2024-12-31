@@ -148,6 +148,7 @@ pages:
         accel_to_decel: 加速到減速
   files:
     title: 文件
+    configuration: 機器配置
     search_files: 搜索文件
     no_matches_file_pattern: 只允許使用字母、數字、下劃線、破折號和點！
     details:

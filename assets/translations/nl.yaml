@@ -114,6 +114,7 @@ pages:
         accel_to_decel: Versnellen naar vertragen
   files:
     title: Bestanden
+    configuration: Machineconfiguratie
     empty_folder:
       title: Deze map is leeg
     search_files: Bestanden zoeken
