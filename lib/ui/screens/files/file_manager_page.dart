@@ -116,7 +116,7 @@ class FileManagerPage extends HookConsumerWidget {
       child: isNavPage? Scaffold(
         body: body,
       ): Scaffold(
-        appBar: _AppBar(filePath: filePath, folder: folder),
+        appBar: _AppBar(filePath: filePath, folder: folder,isNavPage: isNavPage),
         drawer: const NavigationDrawerWidget().only(isRoot),
         // bottomNavigationBar: _BottomNav(filePath: filePath).unless(context.isLargerThanCompact),
         floatingActionButton: fab,
@@ -127,21 +127,24 @@ class FileManagerPage extends HookConsumerWidget {
 }
 
 class _AppBar extends HookConsumerWidget implements PreferredSizeWidget {
-  const _AppBar({super.key, required this.filePath, this.folder});
+  const _AppBar({super.key, required this.filePath, this.folder,required this.isNavPage});
 
   final String filePath;
 
   final Folder? folder;
 
+  final bool isNavPage;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final split = filePath.split('/');
     final isRoot = split.length == 1;
-    final title = split.last;
+    var title = split.last;
+
     final selMachine = ref.watch(selectedMachineProvider).valueOrNull;
 
-    if (selMachine == null) {
-      return AppBar(title: Text(title.capitalize()));
+    if (selMachine == null || isRoot) {
+      return AppBar(title: Text(isNavPage? tr('pages.files.title'): tr('pages.files.configuration')));
     }
 
     return Consumer(builder: (context, ref, _) {
