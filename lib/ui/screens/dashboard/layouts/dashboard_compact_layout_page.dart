@@ -191,18 +191,18 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
     // Only offer pull to refresh when not editing
     return PullToRefreshPrinter(
       enablePullDown: !widget.isEditing,
-      child: Column(
+      child: webcamComponent != null? Column(
         children: [
           KeyedSubtree(
             key: ValueKey('0-not-editing'),
-            child: DasboardCard(component: webcamComponent!, machineUUID: widget.machineUUID),
+            child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
           ),
           Expanded(child: LayoutBuilder(builder: (context, constraints) => Container(
             height: constraints.maxHeight,
             child: scroll,
           )))
         ],
-      ),
+      ): scroll,
     );
   }
 
