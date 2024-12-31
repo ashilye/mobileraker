@@ -21,7 +21,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobileraker/ui/screens/dashboard/components/editing_dashboard_card.dart';
-import 'package:stringr/stringr.dart';
+import 'package:mobileraker/ui/screens/files/file_manager_page.dart';
 
 import '../../../components/dashboard_card.dart';
 import '../../../components/pull_to_refresh_printer.dart';
@@ -188,8 +188,25 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
       ],
     );
 
+
     // Only offer pull to refresh when not editing
-    return PullToRefreshPrinter(
+    // return PullToRefreshPrinter(
+    //   enablePullDown: !widget.isEditing,
+    //   child: webcamComponent != null? Column(
+    //     children: [
+    //       KeyedSubtree(
+    //         key: ValueKey('0-not-editing'),
+    //         child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
+    //       ),
+    //       Expanded(child: LayoutBuilder(builder: (context, constraints) => Container(
+    //         height: constraints.maxHeight,
+    //         child: scroll,
+    //       )))
+    //     ],
+    //   ): widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true): scroll,
+    // );
+
+    return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true): PullToRefreshPrinter(
       enablePullDown: !widget.isEditing,
       child: webcamComponent != null? Column(
         children: [

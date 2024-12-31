@@ -163,7 +163,7 @@ GoRouter goRouterImpl(GoRouterRef ref) {
         path: '/files/:path',
         name: AppRoute.fileManager_explorer.name,
         builder: (context, state) =>
-            FileManagerPage(filePath: state.pathParameters['path']!, folder: state.extra as Folder?),
+            FileManagerPage(filePath: state.pathParameters['path']!, folder: state.extra as Folder?,isNavPage: false),
         routes: [
           GoRoute(
             path: 'search',

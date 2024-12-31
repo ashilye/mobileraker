@@ -10,11 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SortedFileListHeader extends ConsumerWidget {
-  const SortedFileListHeader({super.key, required this.activeSortConfig, this.trailing, this.onTapSortMode});
+  const SortedFileListHeader({super.key, required this.activeSortConfig, this.trailing, this.onTapSortMode,this.action});
 
   final SortConfiguration? activeSortConfig;
 
   final Widget? trailing;
+  final Widget? action;
 
   final VoidCallback? onTapSortMode;
 
@@ -43,6 +44,7 @@ class SortedFileListHeader extends ConsumerWidget {
             ),
             const Spacer(),
             if (trailing != null) trailing!,
+            if(action != null) action!
           ],
         ),
       ),

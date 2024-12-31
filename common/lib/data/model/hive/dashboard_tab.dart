@@ -24,6 +24,7 @@ class DashboardTab extends HiveObject {
     'printer': FlutterIcons.printer_3d_mco,
     'nozzle': FlutterIcons.printer_3d_nozzle_mco,
     'fan': FlutterIcons.fan_mco,
+    'file': Icons.file_present,
   };
 
   static String defaultIcon = 'dashboard';

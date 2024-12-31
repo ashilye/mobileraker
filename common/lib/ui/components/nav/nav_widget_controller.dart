@@ -50,6 +50,7 @@ class NavWidgetController extends _$NavWidgetController {
         icon: Icons.terminal,
         route: '/console',
       ),
+      if (isShow)
       NavEntry(
         label: tr('pages.files.title'),
         icon: Icons.file_present,
