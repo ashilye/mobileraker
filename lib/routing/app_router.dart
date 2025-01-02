@@ -4,6 +4,7 @@
  */
 // ignore_for_file: prefer-match-file-name
 
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/dto/files/folder.dart';
 import 'package:common/data/dto/files/gcode_file.dart';
 import 'package:common/data/dto/files/generic_file.dart';
@@ -16,6 +17,7 @@ import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
 // import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_audio_capture/flutter_audio_capture.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:go_router/go_router.dart';
 import 'package:go_transitions/go_transitions.dart';
@@ -162,8 +164,16 @@ GoRouter goRouterImpl(GoRouterRef ref) {
       GoRoute(
         path: '/files/:path',
         name: AppRoute.fileManager_explorer.name,
-        builder: (context, state) =>
-            FileManagerPage(filePath: state.pathParameters['path']!, folder: state.extra as Folder?,isNavPage: false),
+        builder: (context, state) {
+          Object? extra = state.extra;
+          Folder? folder;
+          String? pageTag;
+          if(extra != null && extra is Map) {
+            folder = extra.getOrNull('file');
+            pageTag = extra.getOrNull('pageTag');
+          }
+          return FileManagerPage(filePath: state.pathParameters['path']!, folder: folder,isNavPage: false, pageTag: pageTag?? '');
+        },
         routes: [
           GoRoute(
             path: 'search',

@@ -56,6 +56,7 @@ class NavWidgetController extends _$NavWidgetController {
         // route: '/files/gcodes',
         route: '/files/config',
         routeMatcher: r'^\/files(\/)?.*$',
+        pageTag: 'config'
       ),
       // if (showSpoolman)
       //   NavEntry(
@@ -165,6 +166,7 @@ class NavEntry with _$NavEntry {
     required IconData icon,
     required String route,
     String? routeMatcher,
+    String? pageTag,
   }) = _NavEntry;
 
   bool get isDivider => label.isEmpty && icon == Icons.space_bar && route.isEmpty;

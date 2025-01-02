@@ -76,11 +76,12 @@ part 'file_manager_page.freezed.dart';
 part 'file_manager_page.g.dart';
 
 class FileManagerPage extends HookConsumerWidget {
-  const FileManagerPage({super.key, required this.filePath, this.folder,required this.isNavPage});
+  const FileManagerPage({super.key, required this.filePath, this.folder,required this.isNavPage, required this.pageTag});
 
   final String filePath;
   final Folder? folder;
   final bool isNavPage;
+  final String pageTag;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -88,6 +89,7 @@ class FileManagerPage extends HookConsumerWidget {
     final isRoot = filePath.split('/').length == 1;
 
     LogUtils.GGQ('文件路径：${filePath}');
+    LogUtils.GGQ('pageTag：${pageTag}');
 
     final fab = _Fab(filePath: filePath, scrollController: scrollController);
 
@@ -98,6 +100,7 @@ class FileManagerPage extends HookConsumerWidget {
         filePath: filePath,
         scrollController: scrollController,
         isNavPage: isNavPage,
+        pageTag: pageTag,
       ),
     );
 
@@ -119,7 +122,7 @@ class FileManagerPage extends HookConsumerWidget {
         appBar: _AppBar(filePath: filePath, folder: folder,isNavPage: isNavPage),
         drawer: const NavigationDrawerWidget().only(isRoot),
         // bottomNavigationBar: _BottomNav(filePath: filePath).unless(context.isLargerThanCompact),
-        floatingActionButton: fab,
+        floatingActionButton: pageTag == 'gcode'? null : fab,
         body: body,
       ),
     );
@@ -512,7 +515,7 @@ class _TabbarNav extends HookConsumerWidget {
 }
 
 class _Body extends StatelessWidget {
-  const _Body({super.key, required this.machineUUID, required this.filePath, required this.scrollController,required this.isNavPage});
+  const _Body({super.key, required this.machineUUID, required this.filePath, required this.scrollController,required this.isNavPage, this.pageTag});
 
   final String machineUUID;
 
@@ -522,6 +525,8 @@ class _Body extends StatelessWidget {
 
   final bool isNavPage;
 
+  final String? pageTag;
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveLimit(
@@ -530,7 +535,7 @@ class _Body extends StatelessWidget {
         children: [
           if (context.isLargerThanCompact) _TabbarNav(filePath: filePath),
           Expanded(
-            child: _FileList(machineUUID: machineUUID, filePath: filePath, scrollController: scrollController,isNavPage: isNavPage),
+            child: _FileList(machineUUID: machineUUID, filePath: filePath, scrollController: scrollController,isNavPage: isNavPage,pageTag: pageTag),
           ),
         ],
       ),
@@ -539,7 +544,7 @@ class _Body extends StatelessWidget {
 }
 
 class _Header extends ConsumerWidget {
-  const _Header({super.key, required this.machineUUID, required this.filePath, this.enabled = true,required this.isNavPage});
+  const _Header({super.key, required this.machineUUID, required this.filePath, this.enabled = true,required this.isNavPage,this.pageTag});
 
   final String machineUUID;
 
@@ -548,6 +553,8 @@ class _Header extends ConsumerWidget {
   final bool enabled;
 
   final bool isNavPage;
+
+  final String? pageTag;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -570,7 +577,7 @@ class _Header extends ConsumerWidget {
           onPressed: () {
             searchController.onClickSearch();
           }, icon: Icon(Icons.search)): null,
-      trailing: isNavPage? IconButton(
+      trailing: (isNavPage || pageTag == 'gcode')? IconButton(
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           focusColor: Colors.transparent,  // 去掉焦点颜色
@@ -590,7 +597,7 @@ class _Header extends ConsumerWidget {
 }
 
 class _FileList extends ConsumerWidget {
-  const _FileList({super.key, required this.machineUUID, required this.filePath, required this.scrollController,required this.isNavPage});
+  const _FileList({super.key, required this.machineUUID, required this.filePath, required this.scrollController,required this.isNavPage, this.pageTag});
 
   final String machineUUID;
 
@@ -599,6 +606,8 @@ class _FileList extends ConsumerWidget {
   final ScrollController scrollController;
 
   final bool isNavPage;
+
+  final String? pageTag;
 
 
   @override
@@ -614,6 +623,7 @@ class _FileList extends ConsumerWidget {
           folderContent: content,
           scrollController: scrollController,
           isNavPage: isNavPage,
+          pageTag: pageTag,
         ),
       AsyncError(:final error, :final stackTrace) => _FileListError(
           key: Key('$filePath-list-error'),
@@ -804,6 +814,7 @@ class _FileListData extends ConsumerStatefulWidget {
     required this.folderContent,
     required this.scrollController,
     required this.isNavPage,
+    this.pageTag
   });
 
   final String machineUUID;
@@ -815,6 +826,8 @@ class _FileListData extends ConsumerStatefulWidget {
   final ScrollController scrollController;
 
   final bool isNavPage;
+
+  final String? pageTag;
 
   @override
   ConsumerState createState() => _FileListState();
@@ -870,6 +883,7 @@ class _FileListState extends ConsumerState<_FileListData> {
               filePath: widget.filePath,
               enabled: widget.folderContent.isNotEmpty,
               isNavPage: widget.isNavPage,
+              pageTag: widget.pageTag,
             ),
           ),
           AdaptiveHeightSliverPersistentHeader(
@@ -915,6 +929,7 @@ class _FileListState extends ConsumerState<_FileListData> {
                     dateFormat: dateFormat,
                     sortMode: sortConfiguration.mode,
                     isNavPage: widget.isNavPage,
+                    pageTag: widget.pageTag,
                   );
                 },
               ),
@@ -969,7 +984,8 @@ class _FileItem extends ConsumerWidget {
     required this.file,
     required this.dateFormat,
     required this.sortMode,
-    required this.isNavPage
+    required this.isNavPage,
+    this.pageTag
   });
 
   final String machineUUID;
@@ -978,6 +994,7 @@ class _FileItem extends ConsumerWidget {
   final SortMode sortMode;
 
   final bool isNavPage;
+  final String? pageTag;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -1035,7 +1052,7 @@ class _FileItem extends ConsumerWidget {
           } else {
             final box = context.findRenderObject() as RenderBox?;
             final pos = box!.localToGlobal(Offset.zero) & box.size;
-            controller.onClickFile(file, pos);
+            controller.onClickFile(file, pos,pageTag);
           }
         }.only(enabled),
         onLongPress: () {
@@ -1125,7 +1142,7 @@ class _ModernFileManagerController extends _$ModernFileManagerController {
     );
   }
 
-  void onClickFile(RemoteFile file, Rect origin) {
+  void onClickFile(RemoteFile file, Rect origin, String? pageTag) {
     logger.i('[ModernFileManagerController($machineUUID, $filePath)] opening file ${file.name} (${file.runtimeType})');
 
     switch (file) {
@@ -1135,7 +1152,7 @@ class _ModernFileManagerController extends _$ModernFileManagerController {
         break;
       case Folder():
         _goRouter.pushNamed(AppRoute.fileManager_explorer.name,
-            pathParameters: {'path': file.absolutPath}, extra: file);
+            pathParameters: {'path': file.absolutPath}, extra: { 'file': file,'pageTag': pageTag});
         break;
       case RemoteFile(isVideo: true):
         _goRouter.pushNamed(AppRoute.fileManager_exlorer_videoPlayer.name,

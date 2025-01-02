@@ -190,7 +190,7 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
 
 
     // Only offer pull to refresh when not editing
-    return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true): PullToRefreshPrinter(
+    return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true, pageTag: 'gcode'): PullToRefreshPrinter(
       enablePullDown: !widget.isEditing,
       child: webcamComponent != null? Column(
         children: [

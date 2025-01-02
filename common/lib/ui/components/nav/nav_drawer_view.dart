@@ -59,6 +59,7 @@ class NavigationDrawerWidget extends HookConsumerWidget {
                               icon: entry.icon,
                               routeName: entry.route,
                               routeMatcher: entry.routeMatcherOrDefault,
+                              pageTag: entry.pageTag,
                             ),
                   ],
                 ),
@@ -296,12 +297,14 @@ class _DrawerItem extends ConsumerWidget {
     required this.icon,
     required this.routeName,
     required this.routeMatcher,
+    this.pageTag
   });
 
   final String text;
   final IconData icon;
   final String routeName;
   final String routeMatcher;
+  final String? pageTag;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -320,7 +323,7 @@ class _DrawerItem extends ConsumerWidget {
       textColor: themeData.colorScheme.onSurface,
       leading: Icon(icon),
       title: Text(text),
-      onTap: () => ref.read(navWidgetControllerProvider.notifier).navigateTo(routeName),
+      onTap: () => ref.read(navWidgetControllerProvider.notifier).navigateTo(routeName,arguments: {'pageTag': pageTag}),
     );
   }
 }

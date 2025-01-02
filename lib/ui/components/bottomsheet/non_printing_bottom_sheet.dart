@@ -38,7 +38,8 @@ class NonPrintingBottomSheet extends ConsumerWidget {
       machineUUID = activeMachine.uuid;
     }
 
-    var themeData = Theme.of(context);
+    // 去掉背景色
+    // var themeData = Theme.of(context);
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(25, 15, 25, 0),
@@ -62,16 +63,17 @@ class NonPrintingBottomSheet extends ConsumerWidget {
               onLongPress: () => controller.onPressButton('pi_shutdown', false),
                 style: OutlinedButton.styleFrom(
                   minimumSize: Size(double.infinity, 42),
-                  backgroundColor: themeData.extension<CustomColors>()?.danger ?? Colors.red,
-                  foregroundColor: themeData.extension<CustomColors>()?.onDanger ?? Colors.white,
+                  // 去掉背景色
+                  // backgroundColor: themeData.extension<CustomColors>()?.danger ?? Colors.red,
+                  // foregroundColor: themeData.extension<CustomColors>()?.onDanger ?? Colors.white,
                 ),
               child: AutoSizeText(tr('general.shutdown'), maxLines: 1),
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
                   minimumSize: Size(double.infinity, 42),
-                backgroundColor: themeData.extension<CustomColors>()?.warning ?? Colors.red,
-                foregroundColor: themeData.extension<CustomColors>()?.onWarning ?? Colors.white,
+                // backgroundColor: themeData.extension<CustomColors>()?.warning ?? Colors.red,
+                // foregroundColor: themeData.extension<CustomColors>()?.onWarning ?? Colors.white,
               ),
               onPressed: () => controller.onPressButton('pi_restart'),
               onLongPress: () => controller.onPressButton('pi_restart', false),
