@@ -77,17 +77,27 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
     // final childs = components.mapIndex(_buildCard).toList();
 
     final webcamComponent = widget.tab.components.firstWhereOrNull((component) => component.type == DashboardComponentType.webcam);
-
+    final themeData = Theme.of(context);
     var scroll = CustomScrollView(
       key: PageStorageKey<String>(widget.tab.uuid),
       physics: const RangeMaintainingScrollPhysics(),
       slivers: <Widget>[
-        // if(!widget.isEditing && widget.tab.name == 'General' && webcamComponent != null)
-        // SliverPersistentHeader(
-        //   pinned: true,
-        //   delegate: WebcamDelegate(component: webcamComponent,machineUUID: widget.machineUUID),
-        //   // pinned: true,  // 设置是否固定在顶部
-        // ),
+        if(!widget.isEditing && widget.tab.name == 'General' && webcamComponent != null)
+        SliverAppBar(
+          pinned: true,
+          collapsedHeight: 271.0,
+          expandedHeight: 271.0,
+          floating: false,
+          leading: null,  // 不显示左侧的菜单按钮
+          automaticallyImplyLeading: false,
+          backgroundColor: themeData.cardColor,
+          elevation: 0,
+          flexibleSpace: KeyedSubtree(
+            key: ValueKey('0-not-editing'),
+            child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
+          ),
+          // pinned: true,  // 设置是否固定在顶部
+        ),
         if (widget.isEditing)
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
@@ -121,7 +131,6 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
             itemBuilder: (BuildContext context, int index) {
               // return childs[index];
               final component = components[index];
-
               return component.type.name == DashboardComponentType.webcam.name? SizedBox.shrink() : KeyedSubtree(
                 key: ValueKey('$index-not-editing'),
                 //TODO: It might be beneficial to move the GeastureHandler to the actual card widget...
@@ -190,20 +199,25 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
 
 
     // Only offer pull to refresh when not editing
+    // return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true, pageTag: 'gcode'): PullToRefreshPrinter(
+    //   enablePullDown: !widget.isEditing,
+    //   child: webcamComponent != null? Column(
+    //     children: [
+    //       KeyedSubtree(
+    //         key: ValueKey('0-not-editing'),
+    //         child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
+    //       ),
+    //       Expanded(child: LayoutBuilder(builder: (context, constraints) => Container(
+    //         height: constraints.maxHeight,
+    //         child: scroll,
+    //       )))
+    //     ],
+    //   ): scroll,
+    // );
+
     return widget.tab.name == 'File'? FileManagerPage(filePath: 'gcodes',isNavPage: true, pageTag: 'gcode'): PullToRefreshPrinter(
       enablePullDown: !widget.isEditing,
-      child: webcamComponent != null? Column(
-        children: [
-          KeyedSubtree(
-            key: ValueKey('0-not-editing'),
-            child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
-          ),
-          Expanded(child: LayoutBuilder(builder: (context, constraints) => Container(
-            height: constraints.maxHeight,
-            child: scroll,
-          )))
-        ],
-      ): scroll,
+      child: scroll,
     );
   }
 
@@ -306,34 +320,4 @@ class _EditingSuffix extends StatelessWidget {
       ],
     );
   }
-}
-
-
-class WebcamDelegate extends SliverPersistentHeaderDelegate {
-
-  const WebcamDelegate({required this.component,required this.machineUUID});
-
-  final DashboardComponent component;
-  final String machineUUID;
-
-  @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    // return DasboardCard(component: component, machineUUID: component.uuid);
-    return KeyedSubtree(
-      key: ValueKey('0-not-editing'),
-      child: DasboardCard(component: component, machineUUID: machineUUID),
-    );
-  }
-
-  @override
-  double get maxExtent => 271;
-
-  @override
-  double get minExtent => 271;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
-    return true;
-  }
-
 }
