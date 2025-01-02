@@ -237,9 +237,9 @@ class _UiSection extends ConsumerWidget {
     return Column(
       children: [
         const _SectionHeader(title: 'UI'),
-        const _ThemeSelector(),
-        const _ThemeModeSelector(),
-        if (context.canBecomeLargerThanCompact) const _ToggleMediumUI(),
+        // const _ThemeSelector(),
+        // const _ThemeModeSelector(),
+        // if (context.canBecomeLargerThanCompact) const _ToggleMediumUI(),
         FormBuilderSwitch(
           name: 'alwaysShowBaby',
           title: const Text('pages.setting.general.always_baby').tr(),
@@ -257,40 +257,40 @@ class _UiSection extends ConsumerWidget {
           ),
           activeColor: themeData.colorScheme.primary,
         ),
-        FormBuilderSwitch(
-          name: 'sliders_grouping',
-          title: const Text('pages.setting.general.sliders_grouping').tr(),
-          subtitle: const Text('pages.setting.general.sliders_grouping_hint').tr(),
-          onChanged: (b) => settingService.writeBool(
-            AppSettingKeys.groupSliders,
-            b ?? false,
-          ),
-          initialValue: ref.read(
-            boolSettingProvider(AppSettingKeys.groupSliders, true),
-          ),
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-            isCollapsed: true,
-          ),
-          activeColor: themeData.colorScheme.primary,
-        ),
-        FormBuilderSwitch(
-          name: 'lcFullCam',
-          title: const Text('pages.setting.general.lcFullCam').tr(),
-          subtitle: const Text('pages.setting.general.lcFullCam_hint').tr(),
-          onChanged: (b) => settingService.writeBool(
-            AppSettingKeys.fullscreenCamOrientation,
-            b ?? false,
-          ),
-          initialValue: ref.read(boolSettingProvider(
-            AppSettingKeys.fullscreenCamOrientation,
-          )),
-          decoration: const InputDecoration(
-            border: InputBorder.none,
-            isCollapsed: true,
-          ),
-          activeColor: themeData.colorScheme.primary,
-        ),
+        // FormBuilderSwitch(
+        //   name: 'sliders_grouping',
+        //   title: const Text('pages.setting.general.sliders_grouping').tr(),
+        //   subtitle: const Text('pages.setting.general.sliders_grouping_hint').tr(),
+        //   onChanged: (b) => settingService.writeBool(
+        //     AppSettingKeys.groupSliders,
+        //     b ?? false,
+        //   ),
+        //   initialValue: ref.read(
+        //     boolSettingProvider(AppSettingKeys.groupSliders, true),
+        //   ),
+        //   decoration: const InputDecoration(
+        //     border: InputBorder.none,
+        //     isCollapsed: true,
+        //   ),
+        //   activeColor: themeData.colorScheme.primary,
+        // ),
+        // FormBuilderSwitch(
+        //   name: 'lcFullCam',
+        //   title: const Text('pages.setting.general.lcFullCam').tr(),
+        //   subtitle: const Text('pages.setting.general.lcFullCam_hint').tr(),
+        //   onChanged: (b) => settingService.writeBool(
+        //     AppSettingKeys.fullscreenCamOrientation,
+        //     b ?? false,
+        //   ),
+        //   initialValue: ref.read(boolSettingProvider(
+        //     AppSettingKeys.fullscreenCamOrientation,
+        //   )),
+        //   decoration: const InputDecoration(
+        //     border: InputBorder.none,
+        //     isCollapsed: true,
+        //   ),
+        //   activeColor: themeData.colorScheme.primary,
+        // ),
         FormBuilderSwitch(
           name: 'fSensorDialog',
           title: const Text('pages.setting.general.filament_sensor_dialog').tr(),

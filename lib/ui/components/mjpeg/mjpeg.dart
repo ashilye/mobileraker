@@ -138,12 +138,12 @@ class _ErrorWidget extends StatelessWidget {
           spacing: 4,
           alignment: WrapAlignment.spaceEvenly,
           children: [
-            if (onHidePressed != null)
-              TextButton.icon(
-                onPressed: onHidePressed,
-                icon: const Icon(Icons.visibility_off),
-                label: const Text('general.hide').tr(),
-              ),
+            // if (onHidePressed != null)
+            //   TextButton.icon(
+            //     onPressed: onHidePressed,
+            //     icon: const Icon(Icons.visibility_off),
+            //     label: const Text('general.hide').tr(),
+            //   ),
             TextButton.icon(
               onPressed: onRetryPressed,
               icon: const Icon(Icons.restart_alt_outlined),
