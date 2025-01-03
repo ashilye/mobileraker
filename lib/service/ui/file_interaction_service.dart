@@ -716,8 +716,8 @@ class FileInteractionService {
         GcodeFileSheetAction.submitPrintJob.let((t) => canStartPrint && klippyReady ? t : t.disable),
         GcodeFileSheetAction.preheat
             .let((t) => file.firstLayerTempBed != null && canStartPrint && klippyReady ? t : t.disable),
-        GcodeFileSheetAction.preview,
-        GcodeFileSheetAction.addToQueue,
+        // GcodeFileSheetAction.preview,
+        // GcodeFileSheetAction.addToQueue,
         DividerSheetAction.divider,
       ]);
     }
