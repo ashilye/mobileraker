@@ -88,11 +88,12 @@ class WebcamCard extends HookConsumerWidget {
       childOnData: Card(
         key: const Key('wcD'),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          // mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _CardTitle(machineUUID: machineUUID),
+           _CardTitle(machineUUID: machineUUID),
             Padding(
-              padding: const EdgeInsets.fromLTRB(8, 8, 8, 10),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: _CardBody(machineUUID: machineUUID),
             ),
           ],

@@ -83,21 +83,21 @@ class DashboardTabPageState extends ConsumerState<DashboardCompactLayoutPage> {
       physics: const RangeMaintainingScrollPhysics(),
       slivers: <Widget>[
         if(!widget.isEditing && widget.tab.name == 'General' && webcamComponent != null)
-        SliverAppBar(
-          pinned: true,
-          collapsedHeight: 271.0,
-          expandedHeight: 271.0,
-          floating: false,
-          leading: null,  // 不显示左侧的菜单按钮
-          automaticallyImplyLeading: false,
-          backgroundColor: themeData.cardColor,
-          elevation: 0,
-          flexibleSpace: KeyedSubtree(
-            key: ValueKey('0-not-editing'),
-            child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
+          SliverAppBar(
+            pinned: true,
+            collapsedHeight: 288,
+            expandedHeight: 288,
+            floating: false,
+            leading: null,  // 不显示左侧的菜单按钮
+            automaticallyImplyLeading: false,
+            backgroundColor: themeData.cardColor,
+            elevation: 0,
+            flexibleSpace: KeyedSubtree(
+              key: ValueKey('0-not-editing'),
+              child: DasboardCard(component: webcamComponent, machineUUID: widget.machineUUID),
+            ),
+            // pinned: true,  // 设置是否固定在顶部
           ),
-          // pinned: true,  // 设置是否固定在顶部
-        ),
         if (widget.isEditing)
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
