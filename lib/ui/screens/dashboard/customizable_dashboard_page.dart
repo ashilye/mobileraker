@@ -187,7 +187,13 @@ class _BodyState extends ConsumerState<_Body> {
       logger.i('[UI] Page Changed: ${pageController.page?.round()}');
       ref.read(_dashboardPageControllerProvider(machineUUID).notifier).onPageChanged(pageController.page?.round() ?? 0);
     });
-
+    EventBusUtils.listen<CommonEvent>((event) {
+      LogUtils.GGQ('收到页面切换事件：${event.code}');
+      if(!context.mounted) return;
+      if(event.code == EventCode.eventDashBoardMain) {
+        ref.read(_dashboardPageControllerProvider(machineUUID).notifier).onPageChanged(0);
+      }
+    });
     _setupIndexListener();
   }
 

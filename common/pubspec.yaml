@@ -100,6 +100,8 @@ dependencies:
   # 添加依赖库
   # 状态管理
   get: ^4.6.6
+  # 事件通信
+  event_bus: ^2.0.1
 
 dev_dependencies:
   flutter_test:

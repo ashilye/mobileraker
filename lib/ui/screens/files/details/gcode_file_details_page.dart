@@ -9,6 +9,7 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/dto/files/gcode_file.dart';
 import 'package:common/data/dto/machine/print_state_enum.dart';
 import 'package:common/service/app_router.dart';
@@ -635,7 +636,10 @@ class _GCodeFileDetailsController extends _$GCodeFileDetailsController {
 
   void onStartPrintTap() {
     _printerService.startPrintFile(ref.read(_gcodeProvider));
+    // gcode details 页面点击打印后切换到 dashBoard 页面中的第一个导航页
     _goRouter.goNamed(AppRoute.dashBoard.name);
+    // 点击打印后发送事件通知页面切换
+    EventBusUtils.send<CommonEvent>(CommonEvent(EventCode.eventDashBoardMain));
   }
 
   void onPreHeatPrinterTap() {
