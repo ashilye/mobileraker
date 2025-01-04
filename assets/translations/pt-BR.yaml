@@ -96,6 +96,8 @@ pages:
         pin_btn: Pino
         extruder_0: Extrusora esquerda
         extruder_1: Extrusora direita
+        heater_bed: Cama aquecida
+        chamber: Câmara
       power_card:
         title: Painel de Energia
         pin_btn: Pino

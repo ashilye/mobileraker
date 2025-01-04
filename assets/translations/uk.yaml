@@ -93,6 +93,8 @@ pages:
         pin_btn: Пін
         extruder_0: Лівий екструдер
         extruder_1: Правий екструдер
+        heater_bed: Обігрівальна ліжко
+        chamber: Камера
       power_card:
         title: Панель живлення
         pin_btn: Пін

@@ -194,6 +194,8 @@
           "pin_btn": "别针",
           "extruder_0": "左喷头",
           "extruder_1": "右喷头",
+          "heater_bed": "热床",
+          "chamber": "热风",
         },
         "power_card": {
           "title": "电源面板",

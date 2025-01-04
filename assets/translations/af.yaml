@@ -119,6 +119,8 @@ pages:
         pin_btn: Pen
         extruder_0: Linker spuitkop
         extruder_1: Regter spuitkop
+        heater_bed: Verwarmingsbed
+        chamber: Kamer
       power_card:
         title: Kragpaneel
         pin_btn: Pen

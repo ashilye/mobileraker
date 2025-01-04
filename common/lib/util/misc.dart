@@ -106,6 +106,10 @@ String beautifyName(String name) {
     return 'pages.dashboard.control.pin_card.extruder_0'.tr();
   } else if(fanName == 'Extruder1'){
     return 'pages.dashboard.control.pin_card.extruder_1'.tr();
+  } else if(fanName.contains('Heater Bed')){
+    return 'pages.dashboard.control.pin_card.heater_bed'.tr();
+  } else if(fanName.contains('Chamber')){
+    return 'pages.dashboard.control.pin_card.chamber'.tr();
   }
   return fanName;
 }

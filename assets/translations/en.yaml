@@ -181,6 +181,8 @@ pages:
         pin_btn: Pin
         extruder_0: Left extruder
         extruder_1: Right extruder
+        heater_bed: Heater Bed
+        chamber: Chamber
         filament_sensor:
           detected: Detected
           not_detected: Empty

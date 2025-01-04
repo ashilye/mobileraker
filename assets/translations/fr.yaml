@@ -152,6 +152,8 @@ pages:
         pin_btn: Pin
         extruder_0: Extrudeuse gauche
         extruder_1: Extrudeuse droite
+        heater_bed: Lit chauffant
+        chamber: Chambre
       power_card:
         title: Tableau de commande
         pin_btn: Pin

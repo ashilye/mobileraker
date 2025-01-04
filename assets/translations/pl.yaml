@@ -159,6 +159,8 @@ pages:
         title_misc: Różne
         extruder_0: Lewy ekstruder
         extruder_1: Prawy ekstruder
+        heater_bed: Łóżko grzewcze
+        chamber: Komora
         filament_sensor:
           detected: Wykryto
           not_detected: Pusty

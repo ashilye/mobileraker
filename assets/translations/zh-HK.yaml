@@ -136,6 +136,8 @@ pages:
         pin_btn: 輸出引腳
         extruder_0: 左噴頭
         extruder_1: 右噴頭
+        heater_bed: 熱床
+        chamber: 熱風
       power_card:
         title: 電源面板
         pin_btn: 輸出引腳

@@ -131,6 +131,8 @@ pages:
         pin_btn: Sabitle
         extruder_0: Sol ekstruder
         extruder_1: Sağ ekstruder
+        heater_bed: Isıtıcı yatak
+        chamber: Oda
       power_card:
         title: Güç paneli
         pin_btn: Sabitle

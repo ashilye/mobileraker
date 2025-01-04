@@ -180,6 +180,8 @@ pages:
         pin_btn: Pin
         extruder_0: Linker Extruder
         extruder_1: Rechter Extruder
+        heater_bed: Heizbett
+        chamber: Kammer
         filament_sensor:
           detected: Erkannt
           not_detected: Leer

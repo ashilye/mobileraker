@@ -179,6 +179,8 @@ pages:
         pin_btn: Tű
         extruder_0: Bal oldali extruder
         extruder_1: Jobb oldali extruder
+        heater_bed: Fűtőágy
+        chamber: Kamra
         filament_sensor:
           detected: Érzékelt
           not_detected: Üres
