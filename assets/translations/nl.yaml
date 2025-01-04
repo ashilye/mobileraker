@@ -99,6 +99,9 @@ pages:
           other: Ventilators
         part_fan: Onderdeelventilator
         static_fan_btn: Ventilator
+        air_filter_fan: Luchtfilterventilator
+        sink_fan_0: Koelventilator 1
+        sink_fan_1: Koelventilator 2
       extrude_card:
         extrude: Extruderen
         retract: Terugtrekken

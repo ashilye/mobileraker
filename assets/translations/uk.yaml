@@ -78,6 +78,9 @@ pages:
           other: Вентилятори
         part_fan: Вентилятор деталі
         static_fan_btn: Вентилятор
+        air_filter_fan: Вентилятор повітряного фільтра
+        sink_fan_0: Охолоджувальний вентилятор 1
+        sink_fan_1: Охолоджувальний вентилятор 2
       extrude_card:
         title: Екструдер
         extrude: Видавити
@@ -88,6 +91,8 @@ pages:
         title: Gcode - Макроси
       pin_card:
         pin_btn: Пін
+        extruder_0: Лівий екструдер
+        extruder_1: Правий екструдер
       power_card:
         title: Панель живлення
         pin_btn: Пін

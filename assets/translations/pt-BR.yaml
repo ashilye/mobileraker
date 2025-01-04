@@ -83,6 +83,9 @@ pages:
           other: Ventoinhas
         part_fan: Ventilador de Peça
         static_fan_btn: Ventilador
+        air_filter_fan: Ventilador de filtro de ar
+        sink_fan_0: Ventilador de resfriamento 1
+        sink_fan_1: Ventilador de resfriamento 2
       extrude_card:
         title: Extrusor
         extrude: Extrusão
@@ -91,6 +94,8 @@ pages:
         cold_extrude_error: Extrusora muito fria. Não atingiu a temperatura mínima de {}°C!
       pin_card:
         pin_btn: Pino
+        extruder_0: Extrusora esquerda
+        extruder_1: Extrusora direita
       power_card:
         title: Painel de Energia
         pin_btn: Pino

@@ -95,7 +95,19 @@ String urlToHttpUrl(String enteredURL) {
 }
 
 String beautifyName(String name) {
-  return name.replaceAll('_', ' ').titleCase();
+  String fanName = name.replaceAll('_', ' ').titleCase();
+  if(fanName.contains('Air Filter Fan')) {
+    return 'pages.dashboard.control.fan_card.air_filter_fan'.tr();
+  } else if(fanName.contains('Sink Fan 0')){
+    return 'pages.dashboard.control.fan_card.sink_fan_0'.tr();
+  } else if(fanName.contains('Sink Fan 1')){
+    return 'pages.dashboard.control.fan_card.sink_fan_1'.tr();
+  } else if(fanName == 'Extruder'){
+    return 'pages.dashboard.control.pin_card.extruder_0'.tr();
+  } else if(fanName == 'Extruder1'){
+    return 'pages.dashboard.control.pin_card.extruder_1'.tr();
+  }
+  return fanName;
 }
 
 FormFieldValidator<T> notContains<T>(

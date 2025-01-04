@@ -82,6 +82,9 @@ pages:
           other: Ventilatoare
         part_fan: Ventilator Piese
         static_fan_btn: Ventilator
+        air_filter_fan: Ventilator filtru aer
+        sink_fan_0: Ventilator de răcire 1
+        sink_fan_1: Ventilator de răcire 2
       extrude_card:
         extrude: Extrudează
         retract: Retractează

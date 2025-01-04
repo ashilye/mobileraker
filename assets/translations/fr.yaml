@@ -137,6 +137,9 @@ pages:
           other: Ventilateurs
         part_fan: Ventilateur de pièce
         static_fan_btn: Ventilateur
+        air_filter_fan: Ventilateur de filtre à air
+        sink_fan_0: Ventilateur de refroidissement 1
+        sink_fan_1: Ventilateur de refroidissement 2
       extrude_card:
         title: Extrudeur
         extrude: Extruder
@@ -147,6 +150,8 @@ pages:
         title: Gcode - Macros
       pin_card:
         pin_btn: Pin
+        extruder_0: Extrudeuse gauche
+        extruder_1: Extrudeuse droite
       power_card:
         title: Tableau de commande
         pin_btn: Pin

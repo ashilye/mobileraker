@@ -161,6 +161,9 @@ pages:
           other: Fans
         part_fan: Part Fan
         static_fan_btn: Fan
+        air_filter_fan: Air filter fan
+        sink_fan_0: Cooling fan 1
+        sink_fan_1: Cooling fan 2
       extrude_card:
         title: Extruder
         extrude: Extrude
@@ -176,6 +179,8 @@ pages:
       pin_card:
         title_misc: Miscellaneous
         pin_btn: Pin
+        extruder_0: Left extruder
+        extruder_1: Right extruder
         filament_sensor:
           detected: Detected
           not_detected: Empty

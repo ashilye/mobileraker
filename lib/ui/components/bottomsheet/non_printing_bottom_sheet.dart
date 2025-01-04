@@ -14,6 +14,7 @@ import 'package:common/service/moonraker/printer_service.dart';
 import 'package:common/service/selected_machine_service.dart';
 import 'package:common/service/ui/snackbar_service_interface.dart';
 import 'package:common/ui/bottomsheet/confirmation_bottom_sheet.dart';
+import 'package:common/ui/switch/toggle_switch.dart';
 import 'package:common/ui/theme/theme_pack.dart';
 import 'package:common/util/logger.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -207,22 +208,51 @@ class PowerSwitch extends ConsumerWidget {
       return Center(child: Text('No device found.'));
     } else {
       PowerState status = powerDevice.status;
-      return Switch(value: status == PowerState.on, onChanged: (bool value) async{
-        bool isPrinting = ref.watch(printerProvider(machineUUID).select((d) => d.valueOrNull?.print.state == PrintState.printing));
-        bool checkStatus = status == PowerState.error || status == PowerState.unknown || powerDevice.lockedWhilePrinting && isPrinting || status == PowerState.init;
-        if(!checkStatus) {
-          PowerState state = value ? PowerState.on : PowerState.off;
-          PowerState newState = await ref.read(powerServiceProvider(machineUUID)).setDeviceStatus(powerDevice.name, state);
-          ref.read(powerDeviceProvider(machineUUID).notifier).updateStatus(newState); // 这里应该更新状态
-        } else {
-          ref.read(snackBarServiceProvider).show(SnackBarConfig(
-            type: SnackbarType.warning,
-            title: 'pages.dashboard.control.power_card.title'.tr(),
-            message: 'pages.dashboard.control.power_card.warning'.tr(),
-            duration: const Duration(seconds: 3),
-          ));
-        }
-      });
+      return ToggleSwitch(
+        minWidth: 80.0,
+        cornerRadius: 20.0,
+        activeBgColors: [[Colors.green[800]!], [Colors.red[800]!]],
+        activeFgColor: Colors.white,
+        inactiveBgColor: Colors.grey,
+        inactiveFgColor: Colors.white,
+        initialLabelIndex: status == PowerState.on? 0: 1,
+        totalSwitches: 2,
+        labels: ['general.on'.tr(), 'general.off'.tr()],
+        radiusStyle: true,
+        onToggle: (index) async{
+          bool isPrinting = ref.watch(printerProvider(machineUUID).select((d) => d.valueOrNull?.print.state == PrintState.printing));
+          bool checkStatus = status == PowerState.error || status == PowerState.unknown || powerDevice.lockedWhilePrinting && isPrinting || status == PowerState.init;
+          if(!checkStatus) {
+            PowerState state = (index == 0) ? PowerState.on : PowerState.off;
+            PowerState newState = await ref.read(powerServiceProvider(machineUUID)).setDeviceStatus(powerDevice.name, state);
+            ref.read(powerDeviceProvider(machineUUID).notifier).updateStatus(newState); // 这里应该更新状态
+          } else {
+            ref.read(snackBarServiceProvider).show(SnackBarConfig(
+              type: SnackbarType.warning,
+              title: 'pages.dashboard.control.power_card.title'.tr(),
+              message: 'pages.dashboard.control.power_card.warning'.tr(),
+              duration: const Duration(seconds: 3),
+            ));
+          }
+        },
+      );
+      // return Switch(value: status == PowerState.on,
+      //     onChanged: (bool value) async{
+      //   bool isPrinting = ref.watch(printerProvider(machineUUID).select((d) => d.valueOrNull?.print.state == PrintState.printing));
+      //   bool checkStatus = status == PowerState.error || status == PowerState.unknown || powerDevice.lockedWhilePrinting && isPrinting || status == PowerState.init;
+      //   if(!checkStatus) {
+      //     PowerState state = value ? PowerState.on : PowerState.off;
+      //     PowerState newState = await ref.read(powerServiceProvider(machineUUID)).setDeviceStatus(powerDevice.name, state);
+      //     ref.read(powerDeviceProvider(machineUUID).notifier).updateStatus(newState); // 这里应该更新状态
+      //   } else {
+      //     ref.read(snackBarServiceProvider).show(SnackBarConfig(
+      //       type: SnackbarType.warning,
+      //       title: 'pages.dashboard.control.power_card.title'.tr(),
+      //       message: 'pages.dashboard.control.power_card.warning'.tr(),
+      //       duration: const Duration(seconds: 3),
+      //     ));
+      //   }
+      // });
     }
   }
 }

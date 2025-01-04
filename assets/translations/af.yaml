@@ -104,6 +104,9 @@ pages:
           other: Waaiers
         part_fan: Onderdeelwaaier
         static_fan_btn: Waaier
+        air_filter_fan: Lugfilter-waaier
+        sink_fan_0: Verkoelingswaaier 1
+        sink_fan_1: Verkoelingswaaier 2
       extrude_card:
         title: Ekstruder
         extrude: Druk uit
@@ -114,6 +117,8 @@ pages:
         title: Gcode - Makro's
       pin_card:
         pin_btn: Pen
+        extruder_0: Linker spuitkop
+        extruder_1: Regter spuitkop
       power_card:
         title: Kragpaneel
         pin_btn: Pen

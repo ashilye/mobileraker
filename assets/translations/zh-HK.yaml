@@ -122,6 +122,9 @@ pages:
       fan_card:
         part_fan: 部件風扇
         static_fan_btn: 風扇
+        air_filter_fan: 過濾風扇
+        sink_fan_0: 散熱風扇1
+        sink_fan_1: 散熱風扇2
       extrude_card:
         title: 擠出機
         extrude: 擠出
@@ -131,6 +134,8 @@ pages:
         title: Gcode - 宏
       pin_card:
         pin_btn: 輸出引腳
+        extruder_0: 左噴頭
+        extruder_1: 右噴頭
       power_card:
         title: 電源面板
         pin_btn: 輸出引腳

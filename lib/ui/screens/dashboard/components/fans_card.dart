@@ -4,6 +4,7 @@
  */
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/dto/config/config_file_object_identifiers_enum.dart';
 import 'package:common/data/dto/machine/fans/controller_fan.dart';
 import 'package:common/data/dto/machine/fans/fan.dart';
@@ -152,6 +153,7 @@ class _CardBody extends ConsumerWidget {
 
     var fansCount = ref.watch(_fansCardControllerProvider(machineUUID).selectRequireValue((data) => data.fans.length));
 
+
     return AdaptiveHorizontalScroll(
       pageStorageKey: 'fans$machineUUID',
       children: [
@@ -181,6 +183,8 @@ class _Fan extends ConsumerWidget {
     if (fan == null) {
       return const SizedBox.shrink();
     }
+
+    LogUtils.GGQ('风扇：${fan.toString()}');
 
     var klippyCanReceiveCommands =
         ref.watch(_fansCardControllerProvider(machineUUID).selectRequireValue((data) => data.klippyCanReceiveCommands));

@@ -143,6 +143,9 @@ pages:
           other: Wentylatory
         part_fan: Wentylator druku
         static_fan_btn: Wentylator
+        air_filter_fan: Wentylator filtra powietrza
+        sink_fan_0: Wentylator chłodzenia 1
+        sink_fan_1: Wentylator chłodzenia 2
       extrude_card:
         title: Ekstruder
         extrude: Ekstruzja
@@ -154,6 +157,8 @@ pages:
         show_all_tooltip: Pokaż wszystkie makra
       pin_card:
         title_misc: Różne
+        extruder_0: Lewy ekstruder
+        extruder_1: Prawy ekstruder
         filament_sensor:
           detected: Wykryto
           not_detected: Pusty

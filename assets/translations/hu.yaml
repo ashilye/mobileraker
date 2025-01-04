@@ -160,6 +160,9 @@ pages:
           other: Ventilátorok
         part_fan: Tárgyhűtő
         static_fan_btn: Ventilátor
+        air_filter_fan: Légszűrő ventilátor
+        sink_fan_0: Hűtőventilátor 1
+        sink_fan_1: Hűtőventilátor 2vvvvv
       extrude_card:
         title: Adagoló
         extrude: Száladagolás
@@ -174,6 +177,8 @@ pages:
       pin_card:
         title_misc: Különböző
         pin_btn: Tű
+        extruder_0: Bal oldali extruder
+        extruder_1: Jobb oldali extruder
         filament_sensor:
           detected: Érzékelt
           not_detected: Üres
