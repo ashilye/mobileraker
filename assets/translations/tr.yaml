@@ -116,6 +116,9 @@ pages:
       fan_card:
         title:
           other: Diğer
+        air_filter_fan: Hava filtresi fanı
+        sink_fan_0: Soğutma fanı 1
+        sink_fan_1: Soğutma fanı 2
       extrude_card:
         title: Ekstruder
         extrude: Çıkarmak
@@ -126,6 +129,8 @@ pages:
         title: Gcode - Makrolar
       pin_card:
         pin_btn: Sabitle
+        extruder_0: Sol ekstruder
+        extruder_1: Sağ ekstruder
       power_card:
         title: Güç paneli
         pin_btn: Sabitle

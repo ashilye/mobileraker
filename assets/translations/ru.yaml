@@ -74,6 +74,9 @@ pages:
           zero: Вентилятор
           one: Вентилятор
           other: Вентиляторы
+        air_filter_fan: Вентилятор фильтра воздуха
+        sink_fan_0: Охлаждающий вентилятор 1
+        sink_fan_1: Охлаждающий вентилятор 2
       extrude_card:
         title: Экструдер
         extrude: Выдавить

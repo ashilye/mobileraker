@@ -161,6 +161,9 @@ pages:
           other: Lüfter
         part_fan: Part Lüfter
         static_fan_btn: Lüfter
+        air_filter_fan: Luftfilterventilator
+        sink_fan_0: Kühlventilator 1
+        sink_fan_1: Kühlventilator 2
       extrude_card:
         title: Extruder
         extrude: Extrudieren
@@ -175,6 +178,8 @@ pages:
       pin_card:
         title_misc: Verschiedenes
         pin_btn: Pin
+        extruder_0: Linker Extruder
+        extruder_1: Rechter Extruder
         filament_sensor:
           detected: Erkannt
           not_detected: Leer

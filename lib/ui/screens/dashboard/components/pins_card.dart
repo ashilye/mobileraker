@@ -6,6 +6,7 @@
 import 'dart:math';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:common/common/utils/utils.dart';
 import 'package:common/data/dto/config/config_file_object_identifiers_enum.dart';
 import 'package:common/data/dto/config/config_output.dart';
 import 'package:common/data/dto/config/led/config_dumb_led.dart';
@@ -178,9 +179,13 @@ class _Element extends ConsumerWidget {
   final String machineUUID;
   final ProviderListenable provider;
 
+
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var element = ref.watch(provider);
+
+    LogUtils.GGQ('耗材：${element.toString()}');
 
     return switch (element) {
       Led() => _Led(led: element, machineUUID: machineUUID),

@@ -109,6 +109,9 @@ pages:
           one: Ventola
           other: Ventole
         static_fan_btn: Ventola
+        air_filter_fan: Ventilatore del filtro dell'aria
+        sink_fan_0: Ventilatore di raffreddamento 1
+        sink_fan_1: Ventilatore di raffreddamento 2
       extrude_card:
         title: Estrusore
         extrude: Estrudi
