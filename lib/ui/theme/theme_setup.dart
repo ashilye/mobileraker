@@ -92,7 +92,7 @@ var _bottomSheetShape = const RoundedRectangleBorder(
 ThemePack _mobilerakerPack() {
   var light = FlexThemeData.light(
     colors: const FlexSchemeColor(
-      primary: Color(0xff023047),
+      primary: Color(0xff2583B8),
       primaryContainer: Color(0xffd01e1e),
       secondary: Color(0xfea28544),
       secondaryContainer: Color(0xffffdbcf),
@@ -648,10 +648,10 @@ List<ThemePack> themePacks(Ref ref) {
   var isSupporter = ref.watch(isSupporterAsyncProvider).valueOrNull;
   return [
     _mobilerakerPack(),
-    _voronPack(),
-    _ratRigPack(),
-    _vzBot(),
-    _oePack(),
-    if (isSupporter ?? true) _mobilerakerSupporterPack(),
+    // _voronPack(),
+    // _ratRigPack(),
+    // _vzBot(),
+    // _oePack(),
+    // if (isSupporter ?? true) _mobilerakerSupporterPack(),
   ];
 }
