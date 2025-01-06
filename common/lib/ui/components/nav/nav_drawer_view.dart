@@ -233,7 +233,7 @@ class _NavHeader extends HookConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  selectedMachine.valueOrNull?.name ?? 'Mobileraker',
+                                  selectedMachine.valueOrNull?.name ?? '3DPrinter',
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: themeData.textTheme.titleLarge?.copyWith(color: onBackground),
