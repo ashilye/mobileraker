@@ -529,16 +529,16 @@ class _SectionHeader extends StatelessWidget {
 }
 
 const Map<String, String> languageToCountry = {
-  'af': 'ZA',
+  // 'af': 'ZA',
   'en': 'US',
-  'de': 'DE',
-  'fr': 'FR',
-  'es': 'ES',
-  'it': 'IT',
-  'ja': 'JP',
+  // 'de': 'DE',
+  // 'fr': 'FR',
+  // 'es': 'ES',
+  // 'it': 'IT',
+  // 'ja': 'JP',
   'zh': 'CN',
-  'ru': 'RU',
-  'uk': 'UA',
+  // 'ru': 'RU',
+  // 'uk': 'UA',
   // Add more mappings as needed
 };
 
