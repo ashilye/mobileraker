@@ -282,7 +282,7 @@ class _CompactBody extends HookConsumerWidget {
             //     ],
             //   ),
             // ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 85),
             // Safe Area was not working, added a top padding
           ]),
         ),

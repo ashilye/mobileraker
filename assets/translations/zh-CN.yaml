@@ -369,6 +369,12 @@
         "preheat_snackbar": {
           "title": "开始预热",
           "body": "挤出头：{}°C \n 床：{}°C"
+        },
+        "spoolman_warnings": {
+          "insufficient_filament_title": "耗材不足",
+          "insufficient_filament_body": "活动线轴仅剩下{}根耗材, 不足以满足此文件的需求。\n点击可更改活动线轴。",
+          material_mismatch_title": "材料不匹配",
+          material_mismatch_body": "文件的材料 {} 与活动线轴的材料 {} 不匹配。\n点击可更改活动线轴。",
         }
       }
     },

@@ -204,7 +204,7 @@ class _WarmUpError extends StatelessWidget {
           Flexible(
             child: SingleChildScrollView(
               child: ErrorCard(
-                title: const Text('Error while starting Mobileraker!'),
+                title: const Text('Error while starting App!'),
                 body: Text(
                   'I am sorry...\nSomething unexpected happened.',
                 ),
