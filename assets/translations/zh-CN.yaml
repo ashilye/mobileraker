@@ -385,13 +385,13 @@
         "ems_confirm": "紧急停止时是否需要确认",
         "ems_confirm_hint": "发送紧急停止命令前显示确认对话框",
         "always_baby": "始终显示 Z轴偏移 选项卡",
-        "always_baby_hint": "始终在仪表板上显示 Z 偏移卡",
+        "always_baby_hint": "始终在仪表板上显示 Z 偏移模块",
         "num_edit": "使用键盘进行数字输入",
         "num_edit_hint": "使用数字键盘而不是滑块输入数字",
         "start_with_overview": "设置@:pages.overview.title作为启动页",
-        "start_with_overview_hint": "使用概览页面而不是活动打印机的仪表板启动应用程序",
-        "use_offset_pos": "显示使用偏移量的坐标。",
-        "use_offset_pos_hint": "将偏移量添加到显示的坐标",
+        "start_with_overview_hint": "启动App后的默认页面为概览页面而不是活动打印机的仪表板",
+        "use_offset_pos": "显示使用偏移量的坐标",
+        "use_offset_pos_hint": "将偏移量添加到显示坐标上",
         "lcFullCam": "横向全屏显示摄像头",
         "lcFullCam_hint": "在全屏模式下将相机切换为横向",
         "language": "语言",
@@ -721,6 +721,10 @@
     }
   },
   "components": {
+    "app_version_display": {
+      "version": "版本:",
+      "installed_version": "安装版本:"
+    },
     "pull_to_refresh": {
       "pull_up_idle": "刷新"
     },
