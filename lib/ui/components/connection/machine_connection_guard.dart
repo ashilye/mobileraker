@@ -260,13 +260,16 @@ class _MachineConnectionGuardController extends _$MachineConnectionGuardControll
     var jsonRpcClient = ref.read(jrpcClientProvider(machineUUID));
     Object? errorReason = jsonRpcClient.errorReason;
     if (errorReason is TimeoutException) {
-      return 'A timeout occurred while trying to connect to the machine! Ensure the machine can be reached from your current network...';
+      // return 'A timeout occurred while trying to connect to the machine! Ensure the machine can be reached from your current network...';
+      return 'components.connection_watcher.connection_fail'.tr();
     } else if (errorReason is OctoEverywhereException) {
-      return 'OctoEverywhere returned: ${errorReason.message}';
+      // return 'OctoEverywhere returned: ${errorReason.message}';
+      return 'components.connection_watcher.connection_fail'.tr();
     } else if (errorReason != null) {
-      return errorReason.toString();
+      // return errorReason.toString();
+      return jsonRpcClient.uri.toString();
     }
-    return 'Error while trying to connect. Please retry later.';
+    return 'components.connection_watcher.please_try'.tr();
   }
 
   bool get errorIsOctoSupportedExpired {

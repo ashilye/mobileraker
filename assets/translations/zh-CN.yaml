@@ -664,7 +664,8 @@
         "continue": "继续",
         "continue_anyway": "无论如何继续",
         "proceed_warning": "该应用程序似乎无法连接到机器。这可能是因为您与打印机不在同一网络上，或者您没有访问该打印机所需的权限。虽然出现问题时您可以选择添加打印机，但请注意，不能保证它能够正确连接。请谨慎行事。",
-        "button": "测试连接"
+        "button": "测试连接",
+        "error": "连接失败",
       },
       "confirmed": {
         "title": "打印机 {} 已添加！",
@@ -740,7 +741,9 @@
       "trying_connect_remote": "正在尝试使用远程客户端进行连接。。。",
       "server_starting": "服务器正在启动...",
       "more_details": "更多详细信息",
-      "add_printer":"嗨，\n很高兴在这里见到你！\n为了开始你的体验，请向 Mobileraker 添加一台打印机。完成此步骤后，你将能够从 Mobileraker 中直接控制你的打印机。"
+      "add_printer":"嗨，\n很高兴在这里见到你！\n为了开始你的体验，请向 Mobileraker 添加一台打印机。完成此步骤后，你将能够从 Mobileraker 中直接控制你的打印机。",
+      "connection_fail": "连接超时！请确保机器可以从您当前的网络访问。",
+      "please_try": "连接失败！请重试。"
     },
     "octo_indicator": {
       "tooltip": "使用OctoEveryWhere!"
@@ -988,7 +991,7 @@
         "tab_name": "@:bottom_sheets.add_remote_con.octoeverywehre.service_name",
         "link": "链接 OctoEverywhere",
         "unlink": "取消链接 OctoEverywhere",
-        "description": "OctoEverywhere.com 是一个社区项目，可让您从任何地方安全地连接到打印机。OctoEverywhere 还为社区提供免费的 AI 打印故障检测、通知、实时流媒体等，设置只需 20 秒！"
+        "description": "OctoEverywhere.com 是一个社区项目，可让您从任何地方安全地连接到打印机。OctoEverywhere 还为社区提供免费的 AI 打印故障检测、通知、实时流媒体等，设置只需 20 秒！",
       },
       "manual": {
         "service_name": "手动远程连接",

@@ -535,7 +535,7 @@ class _TestConnectionStepScreen extends HookConsumerWidget {
               size: 10,
               color: model.httpStateColor(themeData),
             ),
-            errorText: model.httpError,
+            // errorText: model.httpError,
             // errorText: 'Some Ws Error text',
             errorMaxLines: 3,
           ),
@@ -552,7 +552,7 @@ class _TestConnectionStepScreen extends HookConsumerWidget {
               size: 10,
               color: model.wsStateColor(themeData),
             ),
-            errorText: model.wsError,
+            // errorText: model.wsError,
             errorMaxLines: 3,
           ),
           child: (model.wsState == ClientState.connecting)

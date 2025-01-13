@@ -690,6 +690,7 @@ pages:
         to add the machine despite the issue, please be aware that there is no guarantee
         that it will connect properly. Please proceed with caution.
       button: Test Connection
+      error: Connection failed
     confirmed:
       title: Printer {} added!
       to_dashboard: To the Dashboard
@@ -943,6 +944,8 @@ components:
       Hey there,
       I am excited to see you here!
       To kickstart your experience, kindly add a printer to Mobileraker. Once you've completed this step, you'll be able to take direct control of your printer right from within Mobileraker.
+    connection_fail: Connection timeout! Please ensure the machine can be accessed from your current network.
+    please_try: Connection failed! Please try again.
   octo_indicator:
     tooltip: Using OctoEveryWhere!
   supporter_add:

@@ -382,6 +382,7 @@ pages:
       continue_anyway: 無論如何繼續
       proceed_warning: 該應用程序似乎無法連接到機器。這可能是因為您與計算機不在同一網絡上，或者您沒有訪問該計算機所需的權限。雖然出現問題時您可以選擇添加計算機，但請注意，不能保證它能夠正確連接。請謹慎行事。
       button: 測試連接
+      error: 連接失敗
     confirmed:
       title: 已添加打印機 {}！
       to_dashboard: 前往儀表板
@@ -456,6 +457,8 @@ components:
       嘿，
       我很高興在這裡見到你！
       要開始您的體驗，請向 Mobileraker 添加打印機。完成此步驟後，您將能夠從 Mobileraker 中直接控制您的打印機。
+    connection_fail: 連接超時！請確保機器可以從您當前的網絡訪問。
+    please_try: 連接失敗！請重試。
   octo_indicator:
     tooltip: 使用 OctoEveryWhere！
   supporter_add:
