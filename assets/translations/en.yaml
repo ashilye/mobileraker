@@ -945,6 +945,7 @@ components:
       I am excited to see you here!
       To kickstart your experience, kindly add a printer to Mobileraker. Once you've completed this step, you'll be able to take direct control of your printer right from within Mobileraker.
     connection_fail: Connection timeout! Please ensure the machine can be accessed from your current network.
+    connection_error: Connection failed
     please_try: Connection failed! Please try again.
   octo_indicator:
     tooltip: Using OctoEveryWhere!

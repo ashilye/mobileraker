@@ -458,6 +458,7 @@ components:
       我很高興在這裡見到你！
       要開始您的體驗，請向 Mobileraker 添加打印機。完成此步驟後，您將能夠從 Mobileraker 中直接控制您的打印機。
     connection_fail: 連接超時！請確保機器可以從您當前的網絡訪問。
+    connection_error: 連接錯誤
     please_try: 連接失敗！請重試。
   octo_indicator:
     tooltip: 使用 OctoEveryWhere！

@@ -743,6 +743,7 @@
       "more_details": "更多详细信息",
       "add_printer":"嗨，\n很高兴在这里见到你！\n为了开始你的体验，请向 Mobileraker 添加一台打印机。完成此步骤后，你将能够从 Mobileraker 中直接控制你的打印机。",
       "connection_fail": "连接超时！请确保机器可以从您当前的网络访问。",
+      "connection_error": "连接错误",
       "please_try": "连接失败！请重试。"
     },
     "octo_indicator": {

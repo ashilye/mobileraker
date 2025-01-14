@@ -267,9 +267,9 @@ class _MachineConnectionGuardController extends _$MachineConnectionGuardControll
       return 'components.connection_watcher.connection_fail'.tr();
     } else if (errorReason != null) {
       // return errorReason.toString();
-      return jsonRpcClient.uri.toString();
+      return 'components.connection_watcher.connection_error'.tr();
     }
-    return 'components.connection_watcher.please_try'.tr();
+    return 'components.connection_watcher.connection_error'.tr();
   }
 
   bool get errorIsOctoSupportedExpired {
