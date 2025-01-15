@@ -254,54 +254,54 @@ GoRouter goRouterImpl(GoRouterRef ref) {
         name: AppRoute.console.name,
         builder: (context, state) => const ConsolePage(),
       ),
-      GoRoute(
-        path: '/faq',
-        name: AppRoute.faq.name,
-        builder: (context, state) => MarkDownPage(
-          title: tr('pages.faq.title'),
-          mdRoot: Uri.parse(
-            'https://raw.githubusercontent.com/Clon1998/mobileraker/master/docs/faq.md',
-          ),
-          mdHuman: Uri.parse(
-            'https://github.com/Clon1998/mobileraker/blob/master/docs/faq.md',
-          ),
-        ),
-      ),
-      GoRoute(
-        path: '/changelog',
-        name: AppRoute.changelog.name,
-        builder: (context, state) => MarkDownPage(
-          title: tr('pages.changelog.title'),
-          mdRoot: Uri.parse(
-            'https://raw.githubusercontent.com/Clon1998/mobileraker/master/docs/changelog.md',
-          ),
-          mdHuman: Uri.parse(
-            'https://github.com/Clon1998/mobileraker/blob/master/docs/changelog.md',
-          ),
-          topWidget: InfoCard(
-            leading: const Icon(FlutterIcons.code_fork_faw),
-            title: const Text('components.app_version_display.installed_version').tr(),
-            body: const AppVersionText(prefix: 'Mobileraker'),
-          ),
-        ),
-      ),
-      GoRoute(
-        path: '/dev',
-        name: AppRoute.dev.name,
-        builder: (context, state) => DevPage(),
-      ),
-      GoRoute(
-        path: '/tool',
-        name: AppRoute.tool.name,
-        builder: (context, state) => const ToolPage(),
-        routes: [
-          GoRoute(
-            path: 'belt-tuner',
-            name: AppRoute.beltTuner.name,
-            builder: (context, state) => const BeltTuner(),
-          ),
-        ],
-      ),
+      // GoRoute(
+      //   path: '/faq',
+      //   name: AppRoute.faq.name,
+      //   builder: (context, state) => MarkDownPage(
+      //     title: tr('pages.faq.title'),
+      //     mdRoot: Uri.parse(
+      //       'https://raw.githubusercontent.com/Clon1998/mobileraker/master/docs/faq.md',
+      //     ),
+      //     mdHuman: Uri.parse(
+      //       'https://github.com/Clon1998/mobileraker/blob/master/docs/faq.md',
+      //     ),
+      //   ),
+      // ),
+      // GoRoute(
+      //   path: '/changelog',
+      //   name: AppRoute.changelog.name,
+      //   builder: (context, state) => MarkDownPage(
+      //     title: tr('pages.changelog.title'),
+      //     mdRoot: Uri.parse(
+      //       'https://raw.githubusercontent.com/Clon1998/mobileraker/master/docs/changelog.md',
+      //     ),
+      //     mdHuman: Uri.parse(
+      //       'https://github.com/Clon1998/mobileraker/blob/master/docs/changelog.md',
+      //     ),
+      //     topWidget: InfoCard(
+      //       leading: const Icon(FlutterIcons.code_fork_faw),
+      //       title: const Text('components.app_version_display.installed_version').tr(),
+      //       body: const AppVersionText(prefix: 'Mobileraker'),
+      //     ),
+      //   ),
+      // ),
+      // GoRoute(
+      //   path: '/dev',
+      //   name: AppRoute.dev.name,
+      //   builder: (context, state) => DevPage(),
+      // ),
+      // GoRoute(
+      //   path: '/tool',
+      //   name: AppRoute.tool.name,
+      //   builder: (context, state) => const ToolPage(),
+      //   routes: [
+      //     GoRoute(
+      //       path: 'belt-tuner',
+      //       name: AppRoute.beltTuner.name,
+      //       builder: (context, state) => const BeltTuner(),
+      //     ),
+      //   ],
+      // ),
       // GoRoute(
       //   path: '/spoolman',
       //   name: ProRoutes.spoolman.name,
