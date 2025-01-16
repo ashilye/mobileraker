@@ -44,7 +44,7 @@
     "one_time": "一次性",
     "delete": "删除",
     "clear": "清除",
-    "unlink": "取消链接",
+    "unlink": "取消连接",
     "save": "保存",
     "apply": "应用",
     "completed": "完成",
@@ -188,7 +188,7 @@
           },
           "title_misc": "耗材检测",
           "filament_sensor": {
-            "detected": "检测中",
+            "detected": "检测到",
             "not_detected": "空"
           },
           "pin_btn": "别针",
@@ -559,7 +559,7 @@
           "other": "删除连接？"
         },
         "body": {
-          "oe": "请确认解除打印机 {} 与 OctoEverywhere 的链接。",
+          "oe": "请确认解除打印机 {} 与 OctoEverywhere 的连接。",
           "other": "请确认删除打印机 {} 的远程连接。"
         },
         "button": {
@@ -570,8 +570,8 @@
       "remote_interface_exists": {
         "title": "找到远程连接",
         "body": {
-          "oe": "此打印机已与 OctoEverywhere 链接以进行远程访问。请先取消链接，然后再继续。",
-          "obico": "此打印机已与 Obico 链接以进行远程访问。请先取消链接，然后再继续。",
+          "oe": "此打印机已与 OctoEverywhere 连接以进行远程访问。请先取消连接，然后再继续。",
+          "obico": "此打印机已与 Obico 连接以进行远程访问。请先取消连接，然后再继续。",
           "other": "此打印机已建立远程连接。请先删除，然后再继续。"
         }
       },
@@ -581,8 +581,8 @@
       },
       "remote_interface_added": {
         "title": {
-          "oe": "链接到 OctoEverywhere。",
-          "obico": "链接到 Obico。",
+          "oe": "连接到 OctoEverywhere。",
+          "obico": "连接到 Obico。",
           "other": "远程连接已添加。"
         },
         "body": "确保保存打印机以应用更改。"
@@ -970,6 +970,22 @@
     "confirm_print_cancelation": {
       "title": "取消打印？",
       "body": "您即将取消打印作业。\n\n确认您的操作。"
+    },
+    "adjust_spool_filament": {
+      "title": "调整线轴耗材",
+      "subtitle": "从线轴中添加或减去耗材。正值表示消耗耗材，负值表示添加耗材。",
+      "input_label":"调整金额",
+      "submit_label":"调整",
+      "tooltip":{
+                  "weight":"切换到重量模式",
+                  "length":"切换到长度模式"
+      }
+    },
+    "num_range_dialog":{
+         "helper":{
+              "min":"请输入至少 {} 的值",
+              "range":"请输入一个介于 {} 和 {} 之间的值"
+         }
     }
   },
   "bottom_sheets": {
@@ -990,8 +1006,8 @@
       "octoeverywehre": {
         "service_name": "OctoEverywhere",
         "tab_name": "@:bottom_sheets.add_remote_con.octoeverywehre.service_name",
-        "link": "链接 OctoEverywhere",
-        "unlink": "取消链接 OctoEverywhere",
+        "link": "连接 OctoEverywhere",
+        "unlink": "取消连接 OctoEverywhere",
         "description": "OctoEverywhere.com 是一个社区项目，可让您从任何地方安全地连接到打印机。OctoEverywhere 还为社区提供免费的 AI 打印故障检测、通知、实时流媒体等，设置只需 20 秒！",
       },
       "manual": {
@@ -1004,8 +1020,8 @@
       "obico": {
         "service_name": "Obico",
         "tab_name": "@:bottom_sheets.add_remote_con.obico.service_name",
-        "link": "链接 Obico",
-        "unlink": "取消链接 Obico",
+        "link": "连接 Obico",
+        "unlink": "取消连接 Obico",
         "description": "Obico 是一款社区驱动的完全开源 3D 打印软件。它可让您从任何地方免费控制和监控您的 Klipper 打印机。它是基于 AI 的故障检测的先驱解决方案之一，仅使用打印机的网络摄像头。",
         "self_hosted": {
           "title": "自托管",
