@@ -89,7 +89,7 @@ class LiveActivityServiceV2 {
   Future<void> _init() async {
     try {
       logger.i('Connecting with Platform live_activity');
-      await _liveActivityAPI.init(appGroupId: 'group.mobileraker.liveactivity');
+      await _liveActivityAPI.init(appGroupId: 'group.creatbot.liveactivity');
 
       final all = await _liveActivityAPI.getAllActivitiesIds();
       logger.i('Found ${all.length} active activities. Ending all of them.');

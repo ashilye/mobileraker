@@ -131,7 +131,7 @@ class DevPage extends HookConsumerWidget {
   stateActivity() async {
     final liveActivitiesPlugin = LiveActivities();
     logger.i('#1');
-    await liveActivitiesPlugin.init(appGroupId: 'group.mobileraker.liveactivity');
+    await liveActivitiesPlugin.init(appGroupId: 'group.creatbot.liveactivity');
     logger.i('#2');
     var activityState = await liveActivitiesPlugin.getActivityState('123123');
     logger.i('Got state message: $activityState');

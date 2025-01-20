@@ -86,7 +86,7 @@ class LiveActivityService {
     if (!Platform.isIOS) return;
 
     try {
-      await _liveActivityAPI.init(appGroupId: 'group.mobileraker.liveactivity');
+      await _liveActivityAPI.init(appGroupId: 'group.creatbot.liveactivity');
 
       _restoreActivityMap();
       _setupLiveActivityListener();
